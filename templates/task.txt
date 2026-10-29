@@ -1,0 +1,10 @@
+TASK ID AND TITLE
+Status: draft / ready / in progress / verified
+Specification:
+What becomes usable when this task is done:
+Acceptance example:
+Blocked by (a real dependency, or none):
+Preserved behavior:
+Verification evidence expected:
+Outside this task:
+Learner approval:

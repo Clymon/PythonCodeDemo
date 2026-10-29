@@ -1,0 +1,12 @@
+INSTRUCTOR WORKED EXAMPLE — review current mistakes
+Status: confirmed for demonstration
+Decision record: workshop/decisions.txt
+Problem: the learner needs focused practice on questions still needing attention.
+Behavior: show each current mistake once in question-bank order. Let the learner
+retry, keep feedback visible, update next-round membership and preserve original score.
+Examples: wrong B -> listed; correct A in review -> removed next round, score still 0/1.
+Unanswered -> excluded. Invalid Z -> rejected and no record. Empty list -> useful message.
+Preserved: ordinary quiz, self-reported reading progress, browser isolation and saving.
+Technical consequence: reuse existing attempt history; no account or schema migration.
+Verification: observe the page and use the public JSON API with temporary databases.
+Out of scope: global analytics, payments, deployment and multiple authenticated users.

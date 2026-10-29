@@ -7,6 +7,8 @@ Only the first quiz attempt per question contributes to the original score.
 Reading completion is a separate learner-controlled marker, not a grade.
 Progress survives refresh and server restart with the same browser cookie.
 
-When implementing the review exercise, use docs/client-brief.txt as the request.
-The reference scenario decisions are in docs/review-spec.txt. They are proposed
-teaching rules; an instructor may explicitly revise them during the exercise.
+These describe existing behavior. New review policy is a design decision:
+read docs/client-brief.txt, discuss it with the learner and record the confirmed
+choices in workshop/decisions.txt. Reasonable alternatives may be explored.
+Explain any proposed change to an existing rule and obtain a deliberate decision.
+The instructor reference illustrates one solution; it does not choose for you.

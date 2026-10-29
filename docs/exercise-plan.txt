@@ -1,36 +1,55 @@
-LEARNING LAB — classroom exercise sequence
+LEARNING LAB — learn to direct an AI coding agent
 
-1. RUN AND EXPLORE
-   Start the Python server and open the browser. Read a lesson, submit an answer,
-   mark it complete and refresh. Explain which state survived. Identify the
-   frontend files, the answer endpoint, learning rules and SQLite file.
+The teacher demonstrates each activity, then each participant works independently.
+Use the student branch. The webpage is the product you improve during the course.
+The sample Python/Git/testing lessons are practice data, not this workshop's
+curriculum. Your work is to make decisions, direct development and judge evidence.
 
-2. FIRST VISIBLE CHANGE
-   Change the home title in learning_lab/data/catalog.json. Restart Python and
-   refresh. Check the changed heading and git diff; commit the verified change.
+1. ENVIRONMENT AND PRODUCT
+   Clone student, install the recorded dependencies and run python app.py.
+   Open the browser, read a lesson, answer a question and refresh.
+   Human output: describe what the product already lets a learner do.
+   Agent work: investigate files and explain relevant existing capabilities.
 
-3. FROM AN IDEA TO A FEATURE
-   Read docs/client-brief.txt. Clarify current-versus-ever-wrong membership,
-   correction, invalid input, score and persistence. Save actual decisions.
-   The instructor has a reference scenario, not a secret prompt to reproduce.
+2. ONE SMALL DELEGATION
+   Ask the agent to make the homepage greeting suit your class. Agree on the
+   visible result and keep the change small. Observe its tool actions, inspect
+   its summary/diff, refresh the browser and commit the verified change.
+   Human output: accept or revise one observable result, with a reason.
 
-4. ONE COMPLETE SLICE
-   One wrong quiz answer -> a review question -> a correction -> saved state.
-   Plan browser, route, rule and storage work for that interaction. Verify the
-   interaction end to end before expanding to mixed or repeated histories.
+3. DISCUSS A FEATURE — lab-discuss
+   Use docs/client-brief.txt as the request. Ask the agent to use lab-discuss.
+   Choose among the rules it identifies; ask what each option changes for learners.
+   Save confirmed choices in workshop/decisions.txt using templates/decisions.txt.
+   Human output: at least one reasoned choice, a boundary and a concrete example.
 
-5. CONTROL WITH A SKILL AND A HANDOFF
-   Read teaching-skills/learning-lab-feature/SKILL.md before choosing it. Import
-   the provided package into the installed WorkBuddy client and verify how that
-   client discovers and invokes it. An explicit file read is a fallback, not
-   evidence of automatic Skill loading. Use the workflow to keep changes tied
-   to the agreed behavior. Save a handoff and continue from a genuinely new task.
+4. TURN DECISIONS INTO WORK — lab-plan
+   Use lab-plan with the confirmed record. Review the proposed spec and small
+   tasks: what works after each task, how can you check it, and what genuinely
+   depends on another task? Revise before approving work.
+   Human output: a confirmed spec and one ready, independently verifiable task.
 
-6. CHECK BEHAVIOR, THEN EXAMINE COVERAGE
-   Test empty history, wrong/correct retries, invalid answers, original score,
-   browser-profile isolation and a server restart. Use coverage to locate backend
-   gaps. Separately operate the browser; line coverage cannot validate its UI.
+5. IMPLEMENT ONE TASK — lab-implement
+   Choose an approved task and use lab-implement for that task. Watch one behavior
+   check fail for missing behavior, then pass after the smallest implementation.
+   Try the actual page. Add the next behavior only after checking the first.
+   Human output: a running result and a decision to accept, revise or continue.
 
-SUBMISSION
-   Demonstrate the behavior, explain one product decision, show a relevant diff
-   and test evidence, and record the next step in docs/handoff.txt.
+6. CONTEXT AND CONTINUITY — lab-handoff when useful
+   Distinguish durable project rules, on-demand Skills and current task records.
+   Decide whether to continue, start fresh with saved artifacts or hand work to
+   another task. In a fresh task, supply the handoff and ask it to restate the
+   agreed rules and next action before editing.
+   Human output: a next-task brief that preserves the important decisions.
+
+7. REVIEW AND ACCEPT — lab-review
+   Compare the implementation with the agreed examples. Run relevant tests,
+   operate the browser and ask what remains unverified. Record evidence using
+   templates/evidence.txt. Check a normal and a boundary case; test refresh/restart
+   when the requirement includes persistence.
+   Human output: a justified acceptance decision and a stated limitation.
+
+Submit decisions, the spec/task, evidence and a brief demonstration.
+Assessment rewards decisions, task boundaries and evidence. Source navigation,
+manual Python coding, test count and a coverage target are not completion
+requirements. See docs/assessment.txt.

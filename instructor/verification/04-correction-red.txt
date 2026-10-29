@@ -1,0 +1,15 @@
+test_correct_review_removes_error_without_rewriting_score (tests.test_review.ReviewTests.test_correct_review_removes_error_without_rewriting_score) ... FAIL
+test_repeated_errors_are_unique_and_in_bank_order (tests.test_review.ReviewTests.test_repeated_errors_are_unique_and_in_bank_order) ... ok
+
+======================================================================
+FAIL: test_correct_review_removes_error_without_rewriting_score (tests.test_review.ReviewTests.test_correct_review_removes_error_without_rewriting_score)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<demo-project>/tests/test_review.py", line 29, in test_correct_review_removes_error_without_rewriting_score
+    self.assertEqual(result.status_code, 200)
+AssertionError: 400 != 200
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.030s
+
+FAILED (failures=1)

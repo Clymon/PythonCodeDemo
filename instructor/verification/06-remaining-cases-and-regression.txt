@@ -1,0 +1,28 @@
+test_answer_is_checked_by_python_and_saved (test_app.ClassroomTests.test_answer_is_checked_by_python_and_saved) ... ok
+test_completing_lesson_is_independent_of_quiz_score (test_app.ClassroomTests.test_completing_lesson_is_independent_of_quiz_score) ... ok
+test_fresh_profile_has_lessons_without_answer_keys (test_app.ClassroomTests.test_fresh_profile_has_lessons_without_answer_keys) ... ok
+test_invalid_lesson_completion_is_rejected (test_app.ClassroomTests.test_invalid_lesson_completion_is_rejected) ... ok
+test_invalid_options_and_non_string_choices_do_not_write (test_app.ClassroomTests.test_invalid_options_and_non_string_choices_do_not_write) ... ok
+test_new_server_instance_reads_saved_sqlite_progress (test_app.ClassroomTests.test_new_server_instance_reads_saved_sqlite_progress) ... ok
+test_real_page_and_local_assets_are_served (test_app.ClassroomTests.test_real_page_and_local_assets_are_served) ... ok
+test_repeating_a_question_does_not_rewrite_first_score (test_app.ClassroomTests.test_repeating_a_question_does_not_rewrite_first_score) ... ok
+test_two_browser_profiles_are_isolated (test_app.ClassroomTests.test_two_browser_profiles_are_isolated) ... ok
+test_unknown_question_and_mode_do_not_write (test_app.ClassroomTests.test_unknown_question_and_mode_do_not_write) ... ok
+test_writes_require_json_object_and_browser_token (test_app.ClassroomTests.test_writes_require_json_object_and_browser_token) ... ok
+test_review_attempts_do_not_contribute_to_first_quiz_score (test_app.LearningRuleTests.test_review_attempts_do_not_contribute_to_first_quiz_score) ... ok
+test_unknown_domain_mode_is_rejected (test_app.LearningRuleTests.test_unknown_domain_mode_is_rejected) ... ok
+test_candidates_follow_bank_order (test_review.ReviewRuleTests.test_candidates_follow_bank_order) ... ok
+test_latest_answer_wins_and_unanswered_questions_are_excluded (test_review.ReviewRuleTests.test_latest_answer_wins_and_unanswered_questions_are_excluded) ... ok
+test_correct_review_removes_error_without_rewriting_score (test_review.ReviewTests.test_correct_review_removes_error_without_rewriting_score) ... ok
+test_empty_review_has_no_questions (test_review.ReviewTests.test_empty_review_has_no_questions) ... ok
+test_invalid_review_and_ineligible_review_do_not_write (test_review.ReviewTests.test_invalid_review_and_ineligible_review_do_not_write) ... ok
+test_latest_quiz_answer_changes_membership_but_not_original_score (test_review.ReviewTests.test_latest_quiz_answer_changes_membership_but_not_original_score) ... ok
+test_repeated_errors_are_unique_and_in_bank_order (test_review.ReviewTests.test_repeated_errors_are_unique_and_in_bank_order) ... ok
+test_review_is_isolated_between_profiles (test_review.ReviewTests.test_review_is_isolated_between_profiles) ... ok
+test_review_survives_new_server_instance (test_review.ReviewTests.test_review_survives_new_server_instance) ... ok
+test_wrong_review_stays_once (test_review.ReviewTests.test_wrong_review_stays_once) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.108s
+
+OK

@@ -1,0 +1,17 @@
+test_repeated_errors_are_unique_and_in_bank_order (tests.test_review.ReviewTests.test_repeated_errors_are_unique_and_in_bank_order) ... FAIL
+
+======================================================================
+FAIL: test_repeated_errors_are_unique_and_in_bank_order (tests.test_review.ReviewTests.test_repeated_errors_are_unique_and_in_bank_order)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<demo-project>/tests/test_review.py", line 19, in test_repeated_errors_are_unique_and_in_bank_order
+    result = self.candidates()
+             ^^^^^^^^^^^^^^^^^
+  File "<demo-project>/tests/test_review.py", line 12, in candidates
+    self.assertEqual(response.status_code, 200)
+AssertionError: 404 != 200
+
+----------------------------------------------------------------------
+Ran 1 test in 0.023s
+
+FAILED (failures=1)

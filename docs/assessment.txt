@@ -1,0 +1,20 @@
+ASSESSMENT — human judgment in AI-assisted development
+
+Each participant submits short artifacts and demonstrates a result. Use this
+rubric for formative feedback; the reference implementation is one valid design.
+
+1. Design decisions: 0 missing / 1 stated / 2 reasoned and illustrated.
+   Name the learner need, a choice, its consequence and an out-of-scope item.
+2. Task design: 0 missing / 1 partly actionable / 2 complete and checkable.
+   State the visible delivery, acceptance example and genuine dependencies.
+3. Acceptance evidence: 0 missing / 1 assertion only / 2 observed and relevant.
+   Demonstrate a normal and boundary case; distinguish automated checks from
+   browser observation and state what remains untested.
+4. Continuity: 0 missing / 1 incomplete / 2 usable in a fresh task.
+   Preserve decisions, evidence and next action with pointers to current artifacts.
+
+The total of 0–8 supports discussion, not a programming examination. Address
+all four dimensions; use gaps to choose follow-up work. Different review policies
+can be valid if confirmed and verified. Preserve existing product invariants or
+explicitly decide their revision. Manual source tracing, SQL syntax, test count
+and a coverage threshold are not workshop acceptance criteria.

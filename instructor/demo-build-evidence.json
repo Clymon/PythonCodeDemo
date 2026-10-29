@@ -1,0 +1,99 @@
+[
+  {
+    "step": "00-start",
+    "command": "-m unittest discover -s tests -v",
+    "exit_code": 0,
+    "summary": [
+      "----------------------------------------------------------------------",
+      "Ran 13 tests in 0.069s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "step": "01-greeting",
+    "command": "-m unittest discover -s tests -v",
+    "exit_code": 0,
+    "summary": [
+      "----------------------------------------------------------------------",
+      "Ran 13 tests in 0.065s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "tag": "demo-01-greeting",
+    "commit": "f02b6abc9d7a1e2cb9b2d673d1d563a328597d32"
+  },
+  {
+    "tag": "demo-02-design",
+    "commit": "613a92fd00514fc1d16cbd96e5d445856a746ead"
+  },
+  {
+    "step": "02-list-red",
+    "command": "-m unittest tests.test_review -v",
+    "exit_code": 1,
+    "summary": [
+      "----------------------------------------------------------------------",
+      "Ran 1 test in 0.023s",
+      "",
+      "FAILED (failures=1)"
+    ]
+  },
+  {
+    "step": "03-list-green",
+    "command": "-m unittest discover -s tests -v",
+    "exit_code": 0,
+    "summary": [
+      "----------------------------------------------------------------------",
+      "Ran 14 tests in 0.078s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "tag": "demo-03-review-list",
+    "commit": "135230fea480459214c150f761120624043115a1"
+  },
+  {
+    "step": "04-correction-red",
+    "command": "-m unittest tests.test_review -v",
+    "exit_code": 1,
+    "summary": [
+      "----------------------------------------------------------------------",
+      "Ran 2 tests in 0.030s",
+      "",
+      "FAILED (failures=1)"
+    ]
+  },
+  {
+    "step": "05-correction-green",
+    "command": "-m unittest discover -s tests -v",
+    "exit_code": 0,
+    "summary": [
+      "----------------------------------------------------------------------",
+      "Ran 15 tests in 0.084s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "tag": "demo-04-review-correction",
+    "commit": "b0527535052fd9ce2efbc1ea963b978e8a13ab77"
+  },
+  {
+    "step": "06-remaining-cases-and-regression",
+    "command": "-m unittest discover -s tests -v",
+    "exit_code": 0,
+    "summary": [
+      "----------------------------------------------------------------------",
+      "Ran 23 tests in 0.108s",
+      "",
+      "OK"
+    ]
+  },
+  {
+    "tag": "demo-05-review-verified",
+    "commit": "6a3793ee96bc955e297a31cb8341fb948e24c4a7"
+  }
+]

@@ -1,0 +1,13 @@
+DECISION RECORD — complete with the learner
+Status: draft / confirmed
+Teaching need and intended learner:
+Existing behavior to preserve:
+Open choices:
+Chosen rule and why:
+Alternative considered and its consequence:
+What happens after a correction:
+Normal example (given / action / expected result):
+Boundary example:
+Persistence expectation:
+Out of scope:
+Confirmed by / date:

@@ -1,58 +1,77 @@
-讲师演练说明：Python Learning Lab 网页版
+FACILITATOR GUIDE — Learning Lab, English AI Agent Coding workshop
 
-这一版承接 Matt 的“先进入一个真实可运行的产品，再在其中探索、修改、规划、
-实现和验证”的结构。它是原创 Python 练习，不复制 Matt 的 TypeScript 源码。
-旧的终端原型和旧 bundle 保留，不与本仓库混用。
+Purpose
+Participants practise making design decisions, assigning complete tasks and
+judging evidence while an agent investigates and implements a Python web product.
+The Python/Git/testing lessons inside the webpage are sample product content.
+The workshop route and timings are in docs/course-map.txt; the English delivery
+script is distributed alongside the classroom deck.
 
-先体验成品
-  在仓库内激活 .venv，运行 python app.py。
-  打开 http://127.0.0.1:5050。
-  首页有三个课程卡片，详情页有阅读内容、示例和两道题，进度页有已完成课程。
-  点击答案时会调用真实 Python 接口，并把记录写入 SQLite。
+Starting points
+  student: the working starting product and blank collaboration records.
+  main: an instructor reference, including a completed review feature.
+  demo/agent-workflow: a recorded, incremental reference development sequence.
+  docs/checkpoints.txt: current demonstration tags and historical tags.
+Use student for class. Instructor examples express one chosen policy; participants
+may make a different justified choice and should verify against their own spec.
+The open request is docs/client-brief.txt. Source tracing is optional investigation.
 
-五分钟演示
-  1. 打开 Your first Python program，第一题选择 B，点 Check answer。
-  2. Mark lesson complete，进度页看到完成 1/3、原始分数 0/1。
-  3. 打开 Mistake review，看到刚才答错的问题，改选 A。
-  4. 看到错题清除、原始分数仍为 0/1；反馈暂留在本轮便于阅读。
-  5. 点击 See the updated review list，看到空列表说明。
-  6. 刷新页面，或关闭并重新启动 Python，进度仍在。
-  演示答案可控，不需要让 AI 随机“失败”来营造冲突。
+Before class
+Prepare accounts, model access, Git/Python and the recorded Python dependencies.
+Clone student, create a local exercise branch and run python app.py in the prepared
+environment. Use the browser at http://127.0.0.1:5050. Read README.txt for setup and
+port alternatives. Configure Git identity locally on a shared training machine.
+Import the five ZIPs only through the installed client's supported route. Keep
+the safety scan and inspect the result. Current client observations and any
+unverified steps are in docs/workbuddy-rehearsal.txt; import is not proof of use.
 
-对应的程序设计概念
-  点按钮不等于改页面：沿 app.js -> routes.py -> quiz.py -> db.py 追踪一次请求。
-  “错过的题”有多种解释：先确认业务规则，再决定代码。
-  小步开发按完整交互切片，避免先造完所有数据库、再造完所有页面。
-  Skill 是可复用的工作流程；验收仍来自真实程序表现和证据。
+Delivery
+Demonstrate briefly, then let each participant work independently. Start with the
+tools, repository and operating the starting page. Delegate one greeting change,
+check it and save it. Introduce Skills through the open feature discussion.
+Use lab-discuss to record choices, lab-plan to agree on a spec and complete tasks,
+lab-implement for one approved task and lab-review to map criteria to evidence.
+Use lab-handoff when a fresh context is actually useful. These methods are selected
+by need, rather than a compulsory sequence for every small request.
 
-检查点
-  baseline：完整网页课堂、普通答题、进度和存储；13 项测试通过。
-  review-red：增加错题规则和 10 项未实现行为检查，预期 8 失败、2 错误。
-  review-green：错题功能可用；23 项测试通过。
-  student 分支：学员起点，基于 baseline，含整理后的教学辅助资料。
-  main：讲师参考成品及实际截图、演练记录。
+Reference design and slices
+On main, the opt-in records are under instructor/worked-example/. The reference chooses
+latest valid answer wrong; a later correct answer removes the question; original
+quiz score stays unchanged; invalid input writes nothing; saved state persists.
+T01 shows a readable current review list with links to the existing lesson.
+T02 enables answering the listed question directly in review with saved correction.
+Each slice has a user-visible outcome and its own evidence. The new demonstration
+added one failing behavior check, implemented that behavior and checked it before
+adding the next. The older review-red tag added a batch of checks and remains a
+historical reference; it does not illustrate this incremental TDD sequence.
+Raw build summaries and hashes: instructor/demo-build-evidence.json.
+The incremental build was prepared with Codex, not executed by WorkBuddy.
 
-从 GitHub 下载学员起点
-  git clone --branch student https://github.com/Clymon/PythonCodeDemo.git learning-lab
-  cd learning-lab
-  按 README.txt 创建环境、安装依赖、运行 Python。
-  GitHub 默认 main 分支是讲师参考成品；授课时请明确指定 student。
+Five-minute reference acceptance demonstration
+1. Open the first lesson. For the input question choose B and Check answer.
+2. Mark lesson complete. Observe reading progress independently of original score.
+3. Open Mistake review. In T01, inspect the listed question and follow its link.
+   In T02/final, correct the question directly in review by choosing A.
+4. Inspect feedback, the remaining-review count and preserved original score.
+5. Open the updated list and observe its empty state. Refresh/restart when the
+   agreed persistence requirement calls for it. Ask what the evidence proves.
+The wrong answer is controlled sample input, not an attempted AI-failure show.
 
-使用学员 Git bundle（离线分发仓库资源）
-  git clone -b student python-learning-lab-web.bundle learning-lab
-  cd learning-lab
-  按 README.txt 创建环境、安装依赖、运行 Python。
-  完成练习前不必打开 main 上的参考答案。
-  学员在自己的分支保存修改。查看成品可以克隆一个独立目录，或者先提交当前
-  工作再创建一个从 review-green 开始的参考分支。不要用 reset --hard 演示。
+Keeping exercises separate
+Use separate copies for reference demonstrations and participant work. Save work
+before changing branches. Git ignores instance/: switching commits does not clear
+the local database. Browser cookies identify an anonymous practice profile.
+Different ports alone do not isolate cookies; use separate browser profiles or
+serial, isolated trials. Do not use reset --hard as a classroom navigation shortcut.
 
-演示状态
-  instance/ 被 Git 忽略；切换检查点不会清空数据。
-  新的浏览器配置代表新练习者；清空 cookie 后不能再定位原配置的记录。
-  不同端口不等于不同 cookie 配置。并排开两个副本时请使用不同浏览器配置，
-  避免两个本机应用的 session cookie 互相覆盖。
+Acceptance and pace
+Use docs/assessment.txt: decisions, complete tasks, evidence and continuity.
+A participant may complete one useful verified slice and identify the next task;
+the instructor reference is not a mandatory feature checklist. Ask the agent for
+consequential technical explanations as needed. Neither source navigation, number
+of tests nor a coverage threshold determines workshop completion.
 
-边界
-  这是供本机培训使用的小型学习平台，没有账号、学生真实信息、支付和后台管理。
-  当前界面由真实浏览器检查；Windows 机房和 WorkBuddy 自动调用 Skill 尚待实测。
-  当前 PPT 仍引用旧终端原型：网页项目确认后再统一替换项目介绍和操作截图。
+Verification boundaries
+Read docs/validation.txt for tests and browser observations. Windows lab setup,
+network restrictions and installed-client invocation require target-device checks.
+Keep any unverified behavior explicitly marked instead of presenting it as tested.

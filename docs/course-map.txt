@@ -1,0 +1,46 @@
+THREE-HOUR WORKSHOP — AI Agent Coding with WorkBuddy and Python
+14:30–17:30, individual practice after instructor demonstrations.
+
+Learning outcome
+Turn a teaching need into clear decisions and small, verifiable tasks; use Skills
+to guide an AI agent to build a change; judge it using observable evidence.
+
+14:30–15:00  Module 1: Environment and working product (30 min)
+WorkBuddy, Git, student clone, Python startup, browser tour. Prepare accounts and
+software before class; installation/login slides also serve as pre-class help.
+Evidence: participant opens and operates the starting product.
+
+15:00–15:15  Module 2: Agent loop and first delegation (15 min)
+Model, harness/tools, workspace, permissions, context and feedback. Delegate one
+visible greeting change. Evidence: check it and save a checkpoint.
+
+15:15–15:35  Module 3: Discuss a teaching need (20 min)
+Introduce a Skill as a reusable method. Use lab-discuss for the open review brief.
+Human chooses policy; agent investigates facts. Evidence: decision record.
+
+15:35–15:55  Module 4: Specification and task design (20 min)
+Use lab-plan. Judge scope, examples, complete slices and real dependencies.
+Evidence: confirmed spec and first approved task.
+
+15:55–16:05  Break (10 min)
+
+16:05–16:40  Module 5: Implementation and feedback (35 min)
+Use lab-implement; observe one red/green behavior cycle and browser feedback.
+Continue only after checking the first behavior. Evidence: running slice,
+relevant checks and a justified checkpoint.
+
+16:40–16:55  Module 6: Project instructions and context (15 min)
+AGENTS.md, Skills and task artifacts have different roles. Use lab-handoff for
+purposeful continuation. Evidence: next task reconstructs decisions and next action.
+
+16:55–17:20  Module 7: Review and acceptance (25 min)
+Use lab-review; compare evidence with examples. Discuss meaningful tests, backend
+coverage limits and untested paths. Evidence: acceptance record.
+
+17:20–17:30  Module 7 continued: demonstration and transfer (10 min)
+Show a decision, task and verified result. Propose a small change to a tool in
+your own subject. No mandatory pairing or opening pretest.
+
+Total: 180 minutes including a 10-minute break. Technical investigation, coding
+and test authoring are agent work; people retain design and acceptance decisions.
+This is a delivery budget; observe actual pace during rehearsal.

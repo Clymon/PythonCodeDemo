@@ -1,0 +1,12 @@
+ACCEPTANCE RECORD
+Task and specification:
+Requirement / example:
+Expected result:
+Observed result:
+Method (automated test / browser observation / other):
+Command or demonstration steps:
+Result (pass / fail / not checked):
+Relevant change summary and checkpoint:
+Untested behavior or limitation:
+Human decision (accept / revise / continue):
+Reason and next step:

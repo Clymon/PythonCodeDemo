@@ -1,12 +1,6 @@
-Reference implementation: browser classroom, Python API, SQLite and review.
-The starting classroom is at baseline. Expected failing review checks are at
-review-red; the completed behavior is at review-green. Use fresh exercise branches
-and save your work before switching. Switching does not reset ignored instance/.
+WORKSHOP ENTRY POINT
 
-Policy source: docs/review-spec.txt. Latest valid answer determines a review
-candidate; original score counts the first quiz attempt only. Reading completion
-is independent. One anonymous profile per browser cookie, no authenticated users.
-
-Verification: run the current Python suite; separately follow the browser steps
-in docs/instructor-guide.txt. Python coverage alone cannot verify the frontend.
-WorkBuddy Skill discovery/invocation and Windows lab machines still need a trial.
+Use docs/exercise-plan.txt for the learner workflow. Current task records belong
+in workshop/; templates/ contains empty forms. Create workshop/handoff.txt when
+there is an actual continuation need. Instructor examples live separately.
+Read current Git state and learner-confirmed decisions before continuing.

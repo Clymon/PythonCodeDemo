@@ -1,91 +1,79 @@
-LEARNING LAB — a Python full-stack classroom project
+LEARNING LAB — AI Agent Coding with WorkBuddy and Python
 
-A small, working learning platform: browse three lessons, read code examples,
-answer six questions, see Python's feedback and track reading progress.
-The instructor reference also includes mistake review with a persistent queue,
-correction feedback and an unchanged original quiz score.
-English interface. Original sample content. Anonymous simulated practice only.
+A working browser learning platform for practising AI-assisted development.
+People decide purpose, rules, scope, task boundaries and acceptance. The agent
+investigates implementation facts, proposes options, builds and checks the change.
+The sample Python/Git/testing lessons inside the app are fictional product data.
 
-GET THE PROJECT
-Learner starting point:
+CHOOSE YOUR ENTRY POINT
+Learner starting product:
   git clone --branch student https://github.com/Clymon/PythonCodeDemo.git learning-lab
-Instructor reference (includes the completed review feature):
+Instructor reference, including the completed review feature:
   git clone https://github.com/Clymon/PythonCodeDemo.git learning-lab-reference
-Then enter the cloned directory and follow QUICK START below.
+Enter the cloned folder. Start with docs/exercise-plan.txt and docs/course-map.txt.
 
-QUICK START (Python 3.10 or later)
+RUN (Python 3.10 or later)
   python -m venv .venv
   Windows PowerShell: .venv\Scripts\Activate.ps1
   macOS / Linux: source .venv/bin/activate
-  python -m pip install -r requirements.txt
+  python -m pip install -r requirements-lock.txt
   python app.py
-Open http://127.0.0.1:5050 . Stop the server with Ctrl+C.
-If port 5050 is busy: python app.py --port 5051
-Windows can also use .venv\Scripts\python directly without activation.
+Open http://127.0.0.1:5050 . Stop with Ctrl+C.
+If 5050 is busy: python app.py --port 5051 and open that port.
+On Windows, .venv\Scripts\python.exe can be used directly without activation.
+A single Python process serves HTML/CSS/JavaScript, the JSON API and local SQLite.
+The app needs no Node build, CDN, external font, cloud database or AI API key.
 
-One Python process serves the page, static assets and JSON API. No Node, CDN,
-external font, cloud database, API key or AI service is required by the app.
-WorkBuddy is the agent used to change this codebase; it is not the app runtime.
+WORKSHOP MATERIALS
+  docs/client-brief.txt       the open feature request
+  docs/learning-rules.txt     facts about existing behavior to preserve
+  teaching-skills/            five reusable agent collaboration methods
+  templates/                 blank decisions, spec, task, evidence and handoff forms
+  workshop/                  learner-owned, confirmed artifacts created in class
+  docs/assessment.txt        observable human design and acceptance actions
 
-TEST
-  python -m pip install -r requirements-dev.txt
+Use lab-discuss for open decisions, lab-plan for a confirmed spec and small tasks,
+lab-implement for one approved task, lab-review for evidence and lab-handoff when
+continuity requires it. Skill names label methods, not a mandatory five-step ritual.
+Import and invocation instructions/evidence belong in docs/workbuddy-rehearsal.txt.
+The old all-in-one workflow is an archived instructor reference.
+
+TEST AND INSPECT EVIDENCE
   python -m unittest discover -s tests -v
-Optional coverage:
-  python -m coverage run --source=learning_lab -m unittest discover -s tests
+Optional backend coverage:
+  python -m coverage run --branch --source=learning_lab -m unittest discover -s tests
   python -m coverage report -m
-Python coverage measures executed backend lines, not browser behavior.
-requirements-lock.txt records the exact packages used in the instructor trial.
+Coverage measures executed Python, not browser behavior. Assess the examples in
+your confirmed spec; a test count or coverage threshold is not a course outcome.
 
-WHERE TO LOOK
-  app.py                       start the local server
-  learning_lab/templates/       page structure
-  learning_lab/static/app.css   appearance and responsive layout
-  learning_lab/static/app.js    browser interaction and fetch calls
-  learning_lab/routes.py        HTTP validation and JSON responses
-  learning_lab/quiz.py          scoring and answer rules
-  learning_lab/db.py            SQLite reads and writes
-  learning_lab/data/catalog.json lessons and question bank (server-side)
-  tests/                       domain, API, isolation and restart checks
-
-Try changing title in catalog.json, restart Python, then refresh the browser.
-That is the first small visible change. Follow one question from the browser's
-form to POST /api/answers, through quiz.py and db.py, and back to feedback.
+PROJECT FACTS (ask the agent to investigate when relevant)
+  app.py                      server entry point
+  learning_lab/templates/      page structure
+  learning_lab/static/         browser behavior and appearance
+  learning_lab/routes.py       request validation and JSON responses
+  learning_lab/quiz.py         learning rules
+  learning_lab/db.py           SQLite persistence
+  learning_lab/data/           server-side sample lesson/question content
+Details: docs/architecture.txt. Personally tracing every source file is optional.
 
 PERSISTENCE
-instance/ contains the local SQLite database and session signing key. Both are
-ignored by Git. Refreshing or restarting Python retains progress if you keep
-the same browser profile/cookie. A different browser profile is a new anonymous
-learner. Clearing cookies loses access to that profile's records. This is not
-an authenticated account system or a production learning management system.
-Lesson completion is self-reported reading progress, separate from quiz score.
-The first valid quiz answer per question sets its original score permanently.
+instance/ stores the database and local session key, ignored by Git. Progress
+survives refresh/restart with the same browser cookie. Different browser profiles
+are different anonymous learners. Clearing cookies loses access to that profile's
+records. Reading completion and original quiz score are different measures.
+Use simulated content only. This classroom app runs locally on 127.0.0.1.
 
-SCOPE
-For a local training computer, not public hosting. Sample questions, no student
-names, accounts, payments, file uploads or multi-user administration. Keep the
-server on 127.0.0.1. Application tests use temporary databases.
+CHECKPOINTS
+student is the learner starting point; main is the instructor reference.
+New workshop demonstration checkpoints are documented in docs/checkpoints.txt.
+Older baseline/review-red/review-green/teaching-ready/web-starter tags remain
+historical references. The old batch of failing tests is not the classroom TDD loop.
+Save your work before switching; ignored instance/ data is not reset by a switch.
+The distribution bundle preserves Git history; source ZIP exports do not.
 
-REFERENCE
-Inspired by the teaching structure of Matt Pocock's AI Coding Crash Course:
-start inside a working product, explore it, make a visible change, clarify a
-feature, implement a small slice, inspect evidence, and hand off context.
-Matt's downloaded TypeScript repository remains separate; its source code and
-paid course text are not copied. This is an original Python teaching project.
-Flask tutorial: https://flask.palletsprojects.com/en/stable/tutorial/
-SQLite setup: https://flask.palletsprojects.com/en/stable/tutorial/database/
-
-CLASSROOM CHECKPOINTS
-  student / web-starter   readable starting product, 13 passing tests
-  baseline               original starting-product commit, 13 passing tests
-  review-red             10 additional review checks, expected to fail
-  review-green           completed review feature, 23 passing tests
-  main                   instructor reference, screenshots and teaching notes
-
-The supplied python-learning-lab-web.bundle includes those branches and tags:
-  git clone -b student python-learning-lab-web.bundle learning-lab
-The ZIP exports contain source files without Git history. Use the bundle for
-Git exercises. GitHub: https://github.com/Clymon/PythonCodeDemo
-
-Read docs/instructor-guide.txt for the demonstration and exercise-plan.txt for
-learner tasks. The portable Skill in teaching-skills/ is a sample; import and
-invocation must be verified in the target WorkBuddy client.
+REFERENCES
+Original Python project informed by Matt Pocock's engineering workflow. The
+TypeScript exercise source and paid course text were not copied.
+https://www.aihero.dev/workshops/ai-coding-crash-course
+https://github.com/mattpocock/skills
+https://flask.palletsprojects.com/en/stable/tutorial/

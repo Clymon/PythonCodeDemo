@@ -1,0 +1,11 @@
+T01 — see current mistakes
+Status: ready (instructor demonstration)
+Specification: workshop/spec.txt
+Delivery: a learner can open a review page and see current mistakes, each once in
+question-bank order, or a useful empty state. This is a complete readable interaction.
+Acceptance: answer a question wrong, open review, see it once; answer keys are absent
+from the list response. Ordinary quiz and saved progress keep working.
+Blocked by: none after confirmed policy.
+Evidence: public API behavior check, browser observation and current regression suite.
+Outside: submitting a review answer; that is T02.
+Approval: instructor worked-example scope, not a simulated participant approval.
