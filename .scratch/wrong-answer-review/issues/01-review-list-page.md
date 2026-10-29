@@ -13,17 +13,17 @@ also appears in the shared progress payload, so the badge stays live.
 
 **Blocked by:** None (can start immediately).
 
-**Status:** ready-for-agent
+**Status:** accepted (simulated instructor acceptance by Codex, 2026-10-29)
 
-- [ ] A fresh profile sees the empty state on the review page, with count 0, and no error.
-- [ ] After a wrong quiz answer, the review list shows that question with public fields only (identifier, prompt, options), in catalog order.
-- [ ] Each listed question links back to its existing lesson; the list itself exposes no answer controls (no inactive buttons).
-- [ ] The remaining count appears in the navigation link and in the shared progress payload, and stays live.
-- [ ] A later correct quiz answer (re-answered inside the lesson) removes the question from the next list load, since the latest valid answer in either mode decides membership.
-- [ ] Answer keys and explanations never appear in any list payload.
-- [ ] The original first-attempt score is unchanged by anything in this slice.
-- [ ] New automated behavior checks run at the HTTP boundary only (existing test-client pattern); existing learning-rules module tests pass unchanged as regression checks; no new helper-level tests.
-- [ ] Manual browser evidence recorded: permanently visible navigation link with live count, clean question rendering, lesson links, empty state; a page refresh and a full server restart preserve the same browser profile's list and count.
+- [x] A fresh profile sees the empty state on the review page, with count 0, and no error.
+- [x] After a wrong quiz answer, the review list shows that question with public fields only (identifier, prompt, options), in catalog order.
+- [x] Each listed question links back to its existing lesson; the list itself exposes no answer controls (no inactive buttons).
+- [x] The remaining count appears in the navigation link and in the shared progress payload, and stays live.
+- [x] A later correct quiz answer (re-answered inside the lesson) removes the question from the next list load, since the latest valid answer in either mode decides membership.
+- [x] Answer keys and explanations never appear in any list payload.
+- [x] The original first-attempt score is unchanged by anything in this slice.
+- [x] New automated behavior checks run at the HTTP boundary only (existing test-client pattern); existing learning-rules module tests pass unchanged as regression checks; no new helper-level tests.
+- [x] Manual browser evidence recorded: permanently visible navigation link with live count, clean question rendering, lesson links, empty state; a page refresh and a full server restart preserve the same browser profile's list and count.
 
 Approval: instructor rehearsal, 2026-10-29 (spec: ../spec.md; decisions:
 ../../../workshop/decisions.txt).
@@ -57,4 +57,26 @@ while My progress still shows the original first-attempt score 0/2.
 
 **Human acceptance**: still open — instructor to check the boxes above after
 reviewing the commit and the running page.
+
+### Instructor acceptance (simulated instructor acceptance by Codex, 2026-10-29 — recorded separately from the agent observations above; this is a rehearsal sign-off by Codex, not Meng's personal sign-off)
+
+Independent operation of the running page (not agent automation):
+
+- Fresh profile: empty state on the review page, no error.
+- One wrong answer (B): navigation count shows 1; the list renders clean
+  (no answer controls) and links back to the lesson.
+- Page refresh preserves the list and count.
+- Correcting the question through the ordinary lesson quiz removes it from
+  the review list; the original first-attempt score still reads 0/1.
+- After the code-review fixes (commit 9aa0d45), independently re-checked the
+  multi-tab case: a second tab changed an answer, then this tab entered the
+  review page and its navigation badge synced to 1.
+- A full server restart retained that same browser profile's list and count.
+- Re-ran the automated checks after 9aa0d45:
+  `.venv/bin/python -m unittest tests.test_app` — 18 passed.
+
+The server was left running separately on port 5051 for inspection. All
+acceptance boxes above are checked on the strength of this session; the
+answer-key privacy and HTTP-boundary criteria were accepted via the re-run
+test suite, the rest by direct operation.
 
