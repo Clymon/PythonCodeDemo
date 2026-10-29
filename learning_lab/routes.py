@@ -36,7 +36,8 @@ def validate_write():
 def progress():
     attempts = db.history(identity())
     return {"score": quiz.first_attempt_score(attempts),
-            "completed": db.completed(identity()), "attempt_count": len(attempts)}
+            "completed": db.completed(identity()), "attempt_count": len(attempts),
+            "review_count": len(quiz.review_questions(attempts, questions()))}
 
 
 @bp.get("/")
@@ -61,8 +62,12 @@ def answer():
     if question is None:
         return jsonify(error="Question not found."), 404
     mode = payload.get("mode", "quiz")
-    if mode != "quiz":
+    if mode not in ("quiz", "review"):
         return jsonify(error="Unknown practice mode."), 400
+    if mode == "review":
+        candidates = quiz.review_questions(db.history(identity()), questions())
+        if question["id"] not in {q["id"] for q in candidates}:
+            return jsonify(error="This question is no longer in your review. Start a new round."), 409
     try:
         attempt = quiz.make_attempt(question, payload.get("choice"), mode)
     except ValueError as error:
@@ -70,6 +75,13 @@ def answer():
     db.save_attempt(identity(), attempt)
     return jsonify(correct=attempt["correct"], choice=attempt["choice"],
                    explanation=question["explanation"], **progress())
+
+
+@bp.get("/api/review")
+def review():
+    candidates = quiz.review_questions(db.history(identity()), questions())
+    safe = [quiz.public_question(question) for question in candidates]
+    return jsonify(questions=safe, count=len(safe))
 
 
 @bp.post("/api/lessons/<lesson_id>/complete")
