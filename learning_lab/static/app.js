@@ -3,6 +3,10 @@ const app = document.querySelector("#app");
 const notice = document.querySelector("#notice");
 const pending = new Set();
 const feedback = new Map();
+let reviewRound = null;
+let reviewLoading = false;
+let reviewLoadError = "";
+const reviewed = new Set();
 const escapeHTML = (value) =>
   String(value).replace(
     /[&<>"']/g,
@@ -44,6 +48,7 @@ function updateProgress(result) {
     score: result.score,
     completed: result.completed,
     attempt_count: result.attempt_count,
+    review_count: result.review_count,
   });
 }
 
@@ -67,7 +72,8 @@ function questionCard(question, mode = "quiz") {
   const key = `${mode}:${question.id}`;
   const result = feedback.get(key);
   const busy = pending.has(key);
-  return `<form class="question" data-question="${question.id}" data-mode="${mode}"><div class="question-top"><span class="eyebrow">QUICK CHECK</span>${result ? `<span class="result-tag ${result.correct ? "right" : "wrong"}">${result.correct ? "Correct" : "Keep practising"}</span>` : ""}</div><h3>${escapeHTML(question.prompt)}</h3><fieldset ${busy ? "disabled" : ""}><legend class="sr-only">Choose an answer</legend>${Object.entries(
+  const solved = mode === "review" && result?.correct;
+  return `<form class="question" data-question="${question.id}" data-mode="${mode}"><div class="question-top"><span class="eyebrow">QUICK CHECK</span>${result ? `<span class="result-tag ${result.correct ? "right" : "wrong"}">${result.correct ? "Correct" : "Keep practising"}</span>` : ""}</div><h3>${escapeHTML(question.prompt)}</h3><fieldset ${busy || solved ? "disabled" : ""}><legend class="sr-only">Choose an answer</legend>${Object.entries(
     question.options,
   )
     .map(
@@ -76,7 +82,7 @@ function questionCard(question, mode = "quiz") {
     )
     .join(
       "",
-    )}</fieldset>${result ? `<div class="feedback ${result.correct ? "right" : "wrong"}" role="status">${escapeHTML(result.explanation)}</div>` : ""}<button class="button ${result ? "secondary" : "primary"}" type="submit" ${busy ? "disabled" : ""}>${busy ? "Checking…" : result ? "Check again" : "Check answer"} <span aria-hidden="true">↗</span></button></form>`;
+    )}</fieldset>${result ? `<div class="feedback ${result.correct ? "right" : "wrong"}" role="status">${escapeHTML(result.explanation)}</div>` : ""}<button class="button ${result ? "secondary" : "primary"}" type="submit" ${busy || solved ? "disabled" : ""}>${busy ? "Checking…" : solved ? "✓ Corrected" : result ? "Check again" : "Check answer"} <span aria-hidden="true">↗</span></button></form>`;
 }
 
 function lessonView(id) {
@@ -90,27 +96,59 @@ function progressView() {
   app.innerHTML = `<section class="page-intro"><p class="eyebrow">YOUR LEARNING JOURNEY</p><h1>Progress you can see.</h1><p>Your reading progress and first-attempt quiz score measure different things.</p></section>${stats()}<section class="progress-panel"><div class="progress-summary"><h2>Keep the momentum</h2><strong>${ratio()}%</strong></div><progress value="${data.completed.length}" max="${data.lessons.length}" aria-label="Completed lessons"></progress>${data.lessons.map((lesson) => `<a class="progress-lesson" href="#lesson/${lesson.id}"><span class="lesson-index ${data.completed.includes(lesson.id) ? "finished" : ""}">${data.completed.includes(lesson.id) ? "✓" : lesson.number}</span><div><h3>${escapeHTML(lesson.title)}</h3><p>${data.completed.includes(lesson.id) ? "Completed" : "Ready when you are"}</p></div><span aria-hidden="true">↗</span></a>`).join("")}<p class="score-note">Your first valid quiz answer sets the original score for each question. Answering again does not rewrite it. Your progress stays in this browser’s practice profile.</p></section>`;
 }
 
-async function reviewListView() {
-  const heading = '<section class="page-intro"><p class="eyebrow">FOCUSED PRACTICE</p><h1>Your current mistakes</h1><p>Open a lesson to give its quick check another try.</p></section>';
-  app.innerHTML = heading + '<p class="loading" role="status">Finding your questions…</p>';
-  try {
-    const result = await api('/api/review');
-    if (location.hash !== '#review') return;
-    app.innerHTML = heading + (result.count ? '<section class="progress-panel">' + result.questions.map(question => {
-      const lesson = data.lessons.find(item => item.questions.some(q => q.id === question.id));
-      return `<a class="progress-lesson" href="#lesson/${lesson.id}"><span class="lesson-index">↗</span><div><h3>${escapeHTML(question.prompt)}</h3><p>${escapeHTML(lesson.title)}</p></div><span>Open lesson ↗</span></a>`;
-    }).join('') + '</section>' : '<section class="empty-state"><h2>No mistakes waiting.</h2><p>Questions appear here when your latest answer needs another try.</p><a class="button primary" href="#home">Explore the lessons</a></section>');
-  } catch (error) { showError(error); }
-}
-
 function notFound() {
   app.innerHTML =
     '<section class="empty-state"><span>↗</span><h1>Let’s get back on track.</h1><p>That lesson is not in this classroom.</p><a class="button primary" href="#home">Back to classroom</a></section>';
 }
 
+async function loadReviewRound() {
+  if (reviewLoading) return;
+  reviewLoading = true;
+  reviewLoadError = "";
+  reviewRound = null;
+  reviewed.clear();
+  for (const key of feedback.keys())
+    if (key.startsWith("review:")) feedback.delete(key);
+  render();
+  try {
+    reviewRound = await api("/api/review");
+  } catch (error) {
+    reviewLoadError = error.message;
+  } finally {
+    reviewLoading = false;
+    render();
+  }
+}
+
+function reviewView() {
+  const intro =
+    '<section class="page-intro"><p class="eyebrow">TURN MISTAKES INTO PROGRESS</p><h1>A second look. A stronger start.</h1><p>Practise the questions that need attention. Your original score stays the same.</p></section>';
+  if (reviewLoading || reviewRound === null) {
+    app.innerHTML =
+      intro +
+      (reviewLoadError
+        ? `<section class="empty-state"><h2>Let’s try that again.</h2><p>${escapeHTML(reviewLoadError)}</p><button class="button primary" data-review-start>Load review</button></section>`
+        : '<p class="loading" role="status">Finding your practice questions…</p>');
+    return;
+  }
+  if (!reviewRound.count) {
+    app.innerHTML =
+      intro +
+      `<section class="empty-state review-empty"><span aria-hidden="true">✳</span><h2>No mistakes waiting.</h2><p>Questions appear here when your latest answer needs another try.<br>Read a lesson and try its quick checks to get started.</p><a class="button primary" href="#home">Explore the lessons <span aria-hidden="true">↗</span></a></section>`;
+    return;
+  }
+  const allAnswered = reviewed.size === reviewRound.count;
+  app.innerHTML =
+    intro +
+    `<div class="review-layout"><aside class="review-summary"><span class="eyebrow">THIS PRACTICE ROUND</span><strong class="review-number">${reviewed.size}<small> / ${reviewRound.count}</small></strong><p>questions practised</p><hr><p>Original score<br><b>${data.score.correct} / ${data.score.answered}</b></p><p>Still need a look<br><b>${data.review_count}</b></p><span class="review-tip">A corrected answer leaves your review list. This round stays visible so you can read the feedback.</span></aside><section class="review-questions" aria-label="Review questions">${allAnswered ? `<div class="round-result" role="status"><h2>${data.review_count === 0 ? "A little practice paid off." : "One round, a little stronger."}</h2><p>${data.review_count === 0 ? "You have cleared your current mistakes. Your original score is unchanged." : `${data.review_count} question${data.review_count === 1 ? " still needs" : "s still need"} another look.`}</p><button class="button secondary" data-review-start>${data.review_count === 0 ? "See the updated review list" : "Start another round"} <span aria-hidden="true">↗</span></button></div>` : ""}${reviewRound.questions.map((q) => questionCard(q, "review")).join("")}</section></div>`;
+}
+
 function render() {
   if (!data) return;
   const route = location.hash.slice(1) || "home";
+  const badge = document.querySelector("#review-badge");
+  badge.textContent = data.review_count;
+  badge.hidden = !data.review_count;
   document
     .querySelectorAll("[data-nav]")
     .forEach((link) =>
@@ -121,7 +159,7 @@ function render() {
     );
   if (route.startsWith("lesson/")) lessonView(route.slice(7));
   else if (route === "progress") progressView();
-  else if (route === "review") reviewListView();
+  else if (route === "review") reviewView();
   else if (route === "home") home();
   else notFound();
 }
@@ -146,6 +184,7 @@ app.addEventListener("submit", async (event) => {
     });
     feedback.set(key, result);
     updateProgress(result);
+    if (form.dataset.mode === "review") reviewed.add(form.dataset.question);
   } catch (error) {
     showError(error);
   } finally {
@@ -156,6 +195,10 @@ app.addEventListener("submit", async (event) => {
 });
 
 app.addEventListener("click", async (event) => {
+  if (event.target.closest("[data-review-start]")) {
+    loadReviewRound();
+    return;
+  }
   const button = event.target.closest("[data-complete]");
   if (!button || button.disabled) return;
   button.disabled = true;
@@ -176,13 +219,15 @@ app.addEventListener("click", async (event) => {
 });
 
 window.addEventListener("hashchange", () => {
-  render();
+  if (location.hash === "#review") loadReviewRound();
+  else render();
   window.scrollTo(0, 0);
 });
 api("/api/dashboard")
   .then((result) => {
     data = result;
-    render();
+    if (location.hash === "#review") loadReviewRound();
+    else render();
   })
   .catch((error) => {
     app.innerHTML =

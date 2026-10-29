@@ -21,3 +21,13 @@ class ReviewTests(unittest.TestCase):
         self.assertEqual(result["count"], 2)
         self.assertNotIn("answer", result["questions"][0])
         self.assertNotIn("explanation", result["questions"][0])
+
+    def test_correct_review_removes_error_without_rewriting_score(self):
+        self.answer(choice="B")
+        self.assertEqual(self.candidates()["count"], 1)
+        result = self.answer(choice="A", mode="review")
+        self.assertEqual(result.status_code, 200)
+        self.assertTrue(result.get_json()["correct"])
+        self.assertEqual(result.get_json()["score"], {"correct": 0, "answered": 1})
+        self.assertEqual(result.get_json()["review_count"], 0)
+        self.assertEqual(self.candidates()["count"], 0)
