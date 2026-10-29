@@ -1,5 +1,5 @@
 {
-  "title": "Small steps. Real skills.",
+  "title": "Welcome, Indonesian teachers!",
   "subtitle": "A little Python, a little practice, and a clear view of your progress.",
   "lessons": [
     {
@@ -61,7 +61,11 @@
         {
           "id": "git-inspect",
           "prompt": "Which command shows unstaged content changes in tracked files?",
-          "options": { "A": "git commit", "B": "git diff", "C": "git clone" },
+          "options": {
+            "A": "git commit",
+            "B": "git diff",
+            "C": "git clone"
+          },
           "answer": "B",
           "explanation": "git diff compares the working tree with the staging area. git status summarizes file states."
         },
