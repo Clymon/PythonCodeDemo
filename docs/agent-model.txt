@@ -35,9 +35,15 @@ The details depend on the harness. A simple overview may need no sub-agent.
 Explain delegation when it actually appears, such as the later two-axis review.
 
 Skills and durable work
-An original Skill loads a reusable method when a task needs it. The first two
-exploration questions require no planning Skill. Later use grill-me/grilling to
-resolve choices with the human, then synthesize and organize ready work. Specs,
+A Skill is a reusable set of instructions for a particular kind of task. Its
+SKILL.md provides a name, a description of when to use it and method instructions.
+The folder may also include supporting resources. The agent loads relevant
+instructions into working context when needed. The first two exploration
+questions require no planning Skill. Introduce the concept and one method excerpt
+before demonstrating the original grill-me entry for discussing product choices.
+Check actual loading and the resulting behavior. A loaded method still requires
+human judgment. Explain importing Skills or references between Skills only after
+learners have experienced one method. Then synthesize and organize ready work. Specs,
 tickets and handoffs preserve decisions and evidence across useful boundaries.
 People decide goals, trade-offs, scope and acceptance; the agent investigates facts.
 

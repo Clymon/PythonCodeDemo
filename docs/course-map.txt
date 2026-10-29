@@ -21,7 +21,10 @@ Smart zone/dumb zone is a metaphor, not a fixed percentage or a universal limit.
 
 15:20–15:40  3. Discuss a teaching need (20 min)
 The agent can investigate facts; humans decide unresolved behavior and scope.
-Use original grill-me -> grilling. Evidence: confirmed choices and a concrete example.
+Define Skill, inspect a short method excerpt, then use original grill-me for the
+concrete need. Check loading and the resulting discussion. Explain Skill-to-Skill
+references and personal import only afterward, if useful. Evidence: confirmed
+choices and a concrete example. Keep this within the existing 20-minute block.
 
 15:40–15:55  4. Specification and complete tickets (15 min)
 to-spec synthesizes the discussion. Demonstrate to-tickets for complete usable
