@@ -1,26 +1,56 @@
-THE AGENT LOOP — concepts needed to direct work
+LLM, CONTEXT AND THE AGENT LOOP
 
-Model: reasons about current information and chooses a next action.
-Harness: the application connecting the model to tools, permissions and state.
-Tools: read/edit files, run commands and inspect results when available.
-Workspace: the project folder the task should operate on.
-Permissions: control confirmation boundaries; they do not establish correctness.
-Context: instructions, conversation, file excerpts and tool output currently
-available. Keep relevant decisions easy to find and load detail when needed.
-Feedback: test results, errors and observed behavior guide the next action.
+Generation
+For the autoregressive text-generation model used in this lesson, each next
+token is generated conditioned on the current sequence. Generated output is
+appended for subsequent generation. A token is an input/output unit, not
+necessarily a word. The demonstration's token boundaries are illustrative.
 
-Observe: understand the request, investigate, act, check, adjust. People supply
-goals, choose trade-offs and accept evidence. The agent investigates facts,
-proposes options, edits and tests. Ask for an explanation when a technical choice
-changes something you need to decide.
+Context and working range
+The current context is the information available to a model call. It can include
+system rules, loaded project instructions, available tool definitions, user
+messages/history, retrieved files/tool results and prior assistant output.
+Smart zone/dumb zone describes a working-state risk as context becomes harder
+to use; it is not two physical regions of a window or a fixed percentage/token
+cutoff. Relevant facts are necessary; unrelated history, conflicts and irrelevant
+detail can make the task harder. Model and task differences matter.
 
-Work/Code is a task-scene choice. Model, workspace and permissions are separate
-controls. Use Code and select the exercise folder. A Skill packages a method;
-its name or invocation alone does not guarantee the result.
+Harness and tools
+WorkBuddy is the harness that selects context, connects the model to available
+tools, manages task state and applies permissions. A model can request a tool
+call; the harness executes permitted actions and feeds results back for later
+model calls. One user question can involve several model calls and tool actions.
+The visible activity list alone does not reveal an exact provider-request count.
+Selecting a workspace does not automatically place its whole repository in context.
+Tool definitions describe actions; tool results provide returned information.
+AGENTS.md is project guidance and is distinct from the vendor's system prompt.
 
-CONTEXT CHOICES
-Continue when the discussion is relevant and the next step fits.
-Start fresh when a self-contained task plus saved decisions is sufficient.
-Handoff when another task, colleague or tool needs a portable record.
-Compress when needed, preferably at a phase boundary, then inspect what survives.
-A fresh context is a choice, not a ritual after every message.
+Reading the actual activity
+Thinking: a visible processing status or summary, not a complete internal trace.
+Read/Browse file: retrieving local project information, distinct from web browsing.
+Tool use: executing an available action and returning its result. A grouped label
+such as Run checks does not establish that tests ran; inspect the actual command.
+Sub-agent: focused work can use a separate working context and return a report.
+The details depend on the harness. A simple overview may need no sub-agent.
+Explain delegation when it actually appears, such as the later two-axis review.
+
+Skills and durable work
+An original Skill loads a reusable method when a task needs it. The first two
+exploration questions require no planning Skill. Later use grill-me/grilling to
+resolve choices with the human, then synthesize and organize ready work. Specs,
+tickets and handoffs preserve decisions and evidence across useful boundaries.
+People decide goals, trade-offs, scope and acceptance; the agent investigates facts.
+
+Context choices
+Continue useful design discussion through spec/tickets. A self-contained approved
+ticket can begin fresh with its references. Use handoff for real portability.
+Compress at a useful boundary and inspect what survived. Starting fresh is a
+choice, not a ritual after every message. Permissions are separate from model
+selection and correctness. Use Code, the intended exercise folder and Default Permissions.
+
+Sources
+https://www.aihero.dev/workshops/ai-coding-crash-course
+https://www.aihero.dev/ai-coding-dictionary/context-window
+https://www.aihero.dev/ai-coding-dictionary/smart-zone
+https://www.aihero.dev/ai-coding-dictionary/model-provider-request
+https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents

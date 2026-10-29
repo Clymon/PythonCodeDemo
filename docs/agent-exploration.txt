@@ -1,0 +1,29 @@
+READ-ONLY PROJECT EXPLORATION — individual practice after the demonstration
+
+Keep the selected student project and Default Permissions. Start by investigating
+what exists. Do not edit code, install packages or start another server for these
+questions. No Skill invocation is required for the exploration itself.
+
+1. Ask about the product
+   What does this project do? Who is it for, and what can a learner do with it?
+   Observe which files or results the agent obtains before its explanation.
+   The participants improve this app; the sample learners use its fictional lessons.
+
+2. Ask a deeper question in the same useful conversation
+   If a learner gets a question wrong and later answers it correctly,
+   what changes on the progress page, and why?
+   Ask it to investigate existing behavior without changing files or running tests.
+   Follow the evidence it retrieves. Compare one claim with the actual page if useful.
+   Your existing practice history can affect the displayed totals; the worked
+   one-question example in the reference assumes a fresh browser profile.
+
+3. Explain an observed step
+   Identify one claim in the answer and one file/tool result supporting it.
+   Explain how that information could inform a later model call.
+   Read actual commands: Thinking or a label saying Run checks is not proof of a
+   test run. Do not demand a sub-agent merely to make the activity look complex.
+
+The colored illustration is conceptual. It shows information categories and
+separate contexts, not intercepted requests, actual token counts or a benchmark.
+Open docs/interactive/llm-context-agent.html locally in a browser for the steps.
+Later, when you need product decisions, choose original grill-me / grilling.

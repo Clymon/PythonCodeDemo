@@ -1,7 +1,8 @@
 GIT CHECKPOINTS — learner practice
 
-student is the working starting product; matt-workshop-start fixes this original-
-Skill edition. Create your own exercise branch.
+student is the current working starting product; context-workshop-start fixes
+the LLM/context/agent introduction edition. Create your own exercise branch.
+The older matt-workshop-start preserves the previous original-Skill introduction.
 Inspect git status and git diff, then save verified work with a local commit.
 Commit work you want to keep before switching to a different branch or tag.
 Ignored instance/ data persists across switches, so use independent copies for

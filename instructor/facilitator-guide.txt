@@ -1,0 +1,60 @@
+FACILITATOR GUIDE — LLM/context/agent exploration, then original Matt Skills
+
+Use student for participants; main is one full reference. The existing sample
+lessons are product content. Prepare WorkBuddy, Git, Python and original Skill
+dependencies before class. Setup/local tracker conventions are already supplied;
+the original setup Skill remains available for a new repository.
+
+Begin with the model and harness
+After the 25-minute environment/product orientation, spend 25 minutes on token
+generation, context/working range, the harness and actual read-only exploration.
+Use docs/agent-model.txt and docs/agent-exploration.txt with the offline HTML.
+The diagram uses stable category colors and illustrative chunks, not real request
+inspection or a fixed performance threshold. Explain only enough mechanics to
+make later agent activity understandable. No source-navigation entrance test.
+
+Ask what this project does, then ask what happens after a wrong answer followed
+by a correct retry. Show actual retrieval and returned evidence. An observed
+Thinking status is not a full internal trace; a grouped Run checks label does not
+mean tests ran. A simple question need not call a sub-agent. The actual 5.8.4 trial
+took 1m10s + 38s, used file reads and a directory listing and changed no tracked
+files. It executed no tests for the follow-up. See main: instructor/context-intro/.
+The generated answer was longer than needed: pause on the relevant claim and
+trace rather than reading every architecture detail aloud.
+
+Transition to design
+The agent can investigate facts. A feature still requires human choices about
+purpose, behavior, boundaries and acceptance. Use original grill-me -> grilling.
+Keep its confirmed conversation for to-spec. In the 15-minute planning block,
+demonstrate to-tickets and let participants approve one complete usable task.
+The configured local tracker writes spec and separate tickets under .scratch/.
+
+Implement and judge
+Use implement for one ready ticket, with tdd at agreed public boundaries and
+code-review. Explain diff/staging/commit at this real feature delivery, preserving
+the Git diagrams. The original implement may already have committed: inspect
+git show HEAD instead of manufacturing another commit. Judge actual checks,
+review scope and the browser. The original two-axis review needs a non-empty
+committed comparison; the actual trial noticed and handled that before review.
+
+Return to the same context model for durable rules, loaded methods, vocabulary,
+spec/tickets and handoff. A new receiving task should reconstruct an important
+decision and reason before editing. Reuse the existing Standards/Spec findings
+in acceptance rather than rerunning a whole review solely for a lesson segment.
+Original source and metadata in .codebuddy/skills remain unchanged, with MIT notice.
+
+Reference scope and pace
+T01 is a readable review list with working lesson links; T02 adds in-page review
+answers. Current start: context-workshop-start. Actual original-Skill design/list
+tags are matt-demo-design / matt-demo-review-list. The older Codex-built full
+reference and greeting checkpoint are history/optional support, not the entry task.
+Original implementation/review took 36m13s; do not promise every beginner finishes
+the full feature in 35 minutes. Explain concepts while the agent runs and keep a
+separate reference copy. Assess one verified usable slice and a clear next action.
+
+Keep Default Permissions and actual Skill loading evidence. The 5.8.4 / picker
+can omit callable project entries; use a named original invocation and inspect its
+result. Do not reinstall every dependency globally or rewrite original Skills.
+Use separate browser profiles for reproducible examples; ports do not isolate
+cookies. Git switches leave ignored instance/ data in place. Save work and never
+reset a participant's project just to demonstrate a reference.
