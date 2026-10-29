@@ -1,46 +1,58 @@
-THREE-HOUR WORKSHOP — original Matt Skills, WorkBuddy and Python
-14:30–17:30, individual practice after instructor demonstrations.
+THREE-HOUR WORKSHOP — LLM, context and original Matt Skills
+14:30–17:30; instructor demonstration followed by individual practice.
 
 Learning outcome
-Turn a teaching need into clear decisions and small, verifiable tasks; select an
-original Skill to guide an agent; judge its result using observable evidence.
+Explain how an agent obtains project evidence, then turn a teaching need into
+clear decisions and small verifiable tasks, choose an original Skill and judge
+the delivered behavior. The sample lessons inside the app are product content.
 
-14:30–15:00  1. Environment and working product (30 min)
-WorkBuddy, Git, student clone, prepared Python startup and browser tour.
-Evidence: participant opens and operates the starting product.
+14:30–14:55  1. Environment and working product (25 min)
+WorkBuddy Code workspace, model/permissions, Git clone/branch/snapshot, prepared
+Python startup and browser tour. Evidence: operate a working starting product.
+Complete installation, sign-in and dependency preparation before class.
 
-15:00–15:15  2. Agent loop and first delegation (15 min)
-Model, tools/harness, workspace, permissions, context and feedback through one
-visible greeting change. Evidence: checked result and a local Git checkpoint.
+14:55–15:20  2. LLM, context and agent exploration (25 min)
+Token generation (4), context/working range (4), harness/context categories (5),
+project-overview question (5), deeper behavior question (7).
+Use the colored context demonstration and docs/agent-exploration.txt. Observe
+actual file/tool activity. This is read-only; a code edit is not the entry task.
+Evidence: explain one claim and the project evidence the agent used to support it.
+Smart zone/dumb zone is a metaphor, not a fixed percentage or a universal limit.
 
-15:15–15:35  3. Discuss a teaching need (20 min)
-grill-me calls grilling. Agent investigates facts; human chooses rules and scope.
-Evidence: confirmed choices and a concrete example in the discussion/optional notes.
+15:20–15:40  3. Discuss a teaching need (20 min)
+The agent can investigate facts; humans decide unresolved behavior and scope.
+Use original grill-me -> grilling. Evidence: confirmed choices and a concrete example.
 
-15:35–15:55  4. Specification and complete tickets (20 min)
-to-spec synthesizes the conversation; to-tickets proposes usable vertical slices.
-Human judges acceptance, granularity and dependencies. Evidence: spec and ready ticket.
+15:40–15:55  4. Specification and complete tickets (15 min)
+to-spec synthesizes the discussion. Demonstrate to-tickets for complete usable
+slices and actual blockers; participants inspect and approve one actionable task.
+Agree on public verification boundaries. Evidence: a spec and one ready ticket.
 
 15:55–16:05  Break (10 min)
 
 16:05–16:40  5. Implementation and feedback (35 min)
-implement uses tdd and code-review; observe one meaningful red/green behavior,
-checks and a commit. Evidence: running slice and human acceptance/revision decision.
+Use implement -> tdd / code-review. Observe a real missing-behavior check then a
+passing check, inspect the running slice and the scope of the commit. Explain
+git diff/staging/commit with this first real feature change. If already committed,
+inspect git show HEAD instead of making a duplicate commit for the lesson.
 
-16:40–16:55  6. Project rules and context (15 min)
-AGENTS.md, original Skills, glossary, spec/tickets and continuity. Demonstrate
-handoff for another teacher, with a recipient reconstruction check.
+16:40–16:55  6. Project rules and continuity (15 min)
+Return to the introductory context model. Place stable rules, a loaded method,
+shared vocabulary and current spec/tickets appropriately. Use handoff for another
+teacher and check a fresh recipient's reconstruction before editing.
 
 16:55–17:20  7. Review and acceptance (25 min)
-Standards/Spec review, agreed examples, browser behavior, useful test gaps and
-backend coverage limits. Evidence: a reasoned acceptance record.
+Read the existing Standards/Spec findings and compare tests with actual browser
+evidence. Reuse that review rather than restarting it just to fill a stage.
+Check useful gaps and explain the limits of Python coverage. Decide accept/revise.
 
 17:20–17:30  Demonstration and transfer (10 min)
-Show one decision, ticket and verified result. Propose a small tool improvement
-in your own subject. No opening pretest or mandatory pairing.
+Show a decision, a complete task, a running result and an acceptance reason.
+Suggest a small improvement in a tool used in your own subject.
 
-Total: 180 minutes including the break. Prepare software, original dependencies
-and the local issue-tracker configuration before class. Installation/setup slides
-remain pre-class support. Do not require every participant to finish the entire
-instructor feature; require a genuine verified slice and a clear next action.
-The proposed timing is a teaching budget; validate pace through the rehearsal.
+Total 180 minutes including the break. Require one genuinely verified usable
+slice and a clear next action, not completion of every reference feature.
+The installed-client T01 implementation/review trial took 36m13s; keep a separate
+reference ready and explain concepts while the agent runs. No opening pretest,
+mandatory pairing, compulsory greeting edit or random AI-failure demonstration.
+Offline illustration: docs/interactive/llm-context-agent.html.

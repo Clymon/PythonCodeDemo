@@ -1,10 +1,8 @@
-ORIGINAL-SKILL REVISION
-The current student branch carries pinned original Matt Skills and local tracker
-configuration. The earlier workshop-start tag belongs to the custom-workflow
-revision; use student for the current classroom start. A new original-source
-starting tag is matt-workshop-start, fixed to the original-Skill student revision.
-The older demo sequence below remains a real prepared behavior reference built
-with Codex. It is not represented as a WorkBuddy execution of the original Skills.
+CURRENT LLM/CONTEXT INTRODUCTION EDITION
+student / context-workshop-start: current starting product, original Skills and
+read-only token/context/agent exploration. The greeting edit is optional history.
+matt-workshop-start preserves the previous original-Skill starting materials;
+workshop-start preserves the earlier custom-workflow version. Tags are not moved.
 
 ACTUAL ORIGINAL-SKILL REHEARSAL
 demo/workbuddy-matt-original preserves the WorkBuddy 5.8.4 trial.
@@ -16,7 +14,8 @@ The following prepared sequence shows the full reference feature independently.
 
 TEACHING CHECKPOINTS — inspect or use a fresh branch after saving current work
 
-student / matt-workshop-start: current starting product with original Matt Skills.
+context-workshop-start: current read-only exploration starting point.
+matt-workshop-start: previous original-Skill introduction.
 workshop-start: previous custom-workflow starting product, retained as history.
 demo-01-greeting: one delegated visible change, checked and saved.
 demo-02-design: instructor's confirmed decisions, spec and two complete task records.

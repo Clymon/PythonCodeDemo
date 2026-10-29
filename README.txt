@@ -11,6 +11,9 @@ Learner starting product:
 Instructor reference, including the completed review feature:
   git clone https://github.com/Clymon/PythonCodeDemo.git learning-lab-reference
 Enter the cloned folder. Start with docs/exercise-plan.txt and docs/course-map.txt.
+The introduction explores LLM/context/agent behavior through two read-only project
+questions. Use docs/agent-exploration.txt and open docs/interactive/llm-context-agent.html
+in a browser. It works offline. The first required code change is an approved feature.
 
 RUN (Python 3.10 or later)
   python -m venv .venv
@@ -27,6 +30,8 @@ The app needs no Node build, CDN, external font, cloud database or AI API key.
 WORKSHOP MATERIALS
   docs/client-brief.txt       the open feature request
   docs/learning-rules.txt     existing behavior to preserve
+  docs/agent-exploration.txt  the first two read-only project questions
+  docs/interactive/           the offline colored-context demonstration
   .codebuddy/skills/            unchanged Matt Skills, dependencies and MIT notice
   docs/agents/                per-repo issue-tracker and domain-doc configuration
   .scratch/                  spec and separate tickets created during the exercise
