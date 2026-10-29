@@ -1,0 +1,37 @@
+WORKBUDDY CLIENT REHEARSAL — 29 October 2026
+Status: partial. Client use is not yet fully verified.
+
+Observed installed client
+WorkBuddy AI 5.8.4, English interface, already signed in. An update notice was
+present; the test retained the installed version.
+
+Verified import route
+Experts / Skills / Connectors > Skills > Add Skill > Upload Skill.
+The actual Import Skill dialog accepts a folder/ZIP containing SKILL.md, or a
+Markdown file with YAML name and description. The classroom ZIPs contain one
+named folder with SKILL.md. Use this installed-client requirement rather than
+assuming an older documentation example applies to the same version.
+Selected lab-discuss.zip, retained the security scan, observed its Safe result,
+continued installation and observed the success message. The Installed view
+showed the custom lab-discuss Skill enabled with its English description.
+The existing marketplace plugins were left in place.
+
+Not yet verified
+Import of lab-plan, lab-implement, lab-review and lab-handoff.
+Discovery/selection/invocation of the imported Skills in a coding task.
+A complete WorkBuddy-driven discussion, plan, implementation, review and fresh-task
+handoff in the isolated student project. No slash-command spelling is asserted.
+The native Mac session became locked during the trial; manual unlock is needed
+before continuing these checks. The browser product trial is recorded separately.
+
+Classroom use until this record is completed
+Treat the ZIP import as a verified route for lab-discuss only. Before teaching,
+verify the available selector and actual task behavior in the installed version.
+Inspect the task record and resulting artifacts: a Skill listed as enabled does
+not prove that the agent loaded or followed it. Explicitly reading a local
+SKILL.md can be described as a manual fallback, not as automatic discovery.
+
+Evidence privacy
+The classroom screenshot contains the actual English import dialog. Account
+pixels are flattened behind an opaque mask before embedding. Raw account captures
+and client access URLs do not belong in learner materials or the public repository.
