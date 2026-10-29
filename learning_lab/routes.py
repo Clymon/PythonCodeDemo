@@ -36,7 +36,8 @@ def validate_write():
 def progress():
     attempts = db.history(identity())
     return {"score": quiz.first_attempt_score(attempts),
-            "completed": db.completed(identity()), "attempt_count": len(attempts)}
+            "completed": db.completed(identity()), "attempt_count": len(attempts),
+            "review_remaining": len(quiz.review_question_ids(attempts))}
 
 
 @bp.get("/")
@@ -52,6 +53,15 @@ def dashboard():
                for lesson in content["lessons"]]
     return jsonify(title=content["title"], subtitle=content["subtitle"], lessons=lessons,
                    csrf_token=session["csrf"], **progress())
+
+
+@bp.get("/api/review")
+def review():
+    remaining = set(quiz.review_question_ids(db.history(identity())))
+    questions = [{**quiz.public_question(q), "lesson_id": lesson["id"]}
+                 for lesson in catalog()["lessons"]
+                 for q in lesson["questions"] if q["id"] in remaining]
+    return jsonify(review_remaining=len(questions), questions=questions)
 
 
 @bp.post("/api/answers")

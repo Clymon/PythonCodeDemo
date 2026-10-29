@@ -107,6 +107,68 @@ class ClassroomTests(unittest.TestCase):
         self.assertEqual(result["completed"], ["first-program"])
 
 
+class ReviewListTests(unittest.TestCase):
+    def setUp(self):
+        self.directory = tempfile.TemporaryDirectory()
+        self.config = {"TESTING": True, "SECRET_KEY": "classroom-test-only",
+                       "DATABASE": str(Path(self.directory.name) / "test.sqlite")}
+        self.app = create_app(self.config)
+        self.client = self.app.test_client()
+        self.initial = self.client.get("/api/dashboard").get_json()
+        self.headers = {"X-CSRF-Token": self.initial["csrf_token"]}
+
+    def tearDown(self):
+        self.directory.cleanup()
+
+    def answer(self, question_id="python-input", choice="A", mode="quiz"):
+        return self.client.post("/api/answers", json={"question_id": question_id,
+            "choice": choice, "mode": mode}, headers=self.headers)
+
+    def review(self):
+        return self.client.get("/api/review").get_json()
+
+    def test_fresh_profile_sees_empty_review_list_and_zero_count(self):
+        result = self.review()
+        self.assertEqual(result["questions"], [])
+        self.assertEqual(result["review_remaining"], 0)
+        self.assertEqual(self.initial["review_remaining"], 0)
+
+    def test_wrong_answers_list_questions_with_public_fields_in_catalog_order(self):
+        self.answer(question_id="git-local", choice="A")
+        self.answer(choice="B")
+        result = self.review()
+        self.assertEqual([question["id"] for question in result["questions"]],
+                         ["python-input", "git-local"])
+        self.assertEqual(result["review_remaining"], 2)
+        listed = result["questions"][0]
+        self.assertEqual(set(listed), {"id", "prompt", "options", "lesson_id"})
+        self.assertEqual(listed["lesson_id"], "first-program")
+        self.assertEqual(listed["prompt"], 'In greet("Ayu"), which part is the input?')
+
+    def test_correct_quiz_reanswer_removes_question_and_keeps_first_score(self):
+        self.answer(choice="B")
+        result = self.answer(choice="A").get_json()
+        self.assertTrue(result["correct"])
+        self.assertEqual(result["score"], {"correct": 0, "answered": 1})
+        self.assertEqual(result["review_remaining"], 0)
+        self.assertEqual(self.review()["questions"], [])
+
+    def test_invalid_answer_does_not_change_the_review_list(self):
+        self.answer(choice="B")
+        self.assertEqual(self.answer(choice="Z").status_code, 400)
+        result = self.review()
+        self.assertEqual(result["review_remaining"], 1)
+        self.assertEqual([question["id"] for question in result["questions"]],
+                         ["python-input"])
+
+    def test_review_payload_never_contains_answer_keys_or_explanations(self):
+        self.answer(choice="B")
+        raw = self.client.get("/api/review").get_data(as_text=True)
+        self.assertNotIn('"answer"', raw)
+        self.assertNotIn("explanation", raw)
+        self.assertNotIn("Ayu is the argument passed into greet", raw)
+
+
 class LearningRuleTests(unittest.TestCase):
     def test_review_attempts_do_not_contribute_to_first_quiz_score(self):
         score = quiz.first_attempt_score([{"question_id": "q1", "correct": True, "mode": "review"}])

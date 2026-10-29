@@ -44,7 +44,15 @@ function updateProgress(result) {
     score: result.score,
     completed: result.completed,
     attempt_count: result.attempt_count,
+    review_remaining: result.review_remaining,
   });
+}
+
+function updateReviewCount() {
+  const badge = document.querySelector("[data-review-count]");
+  if (!badge || !data) return;
+  badge.textContent = data.review_remaining;
+  badge.classList.toggle("zero", data.review_remaining === 0);
 }
 
 function stats() {
@@ -90,6 +98,25 @@ function progressView() {
   app.innerHTML = `<section class="page-intro"><p class="eyebrow">YOUR LEARNING JOURNEY</p><h1>Progress you can see.</h1><p>Your reading progress and first-attempt quiz score measure different things.</p></section>${stats()}<section class="progress-panel"><div class="progress-summary"><h2>Keep the momentum</h2><strong>${ratio()}%</strong></div><progress value="${data.completed.length}" max="${data.lessons.length}" aria-label="Completed lessons"></progress>${data.lessons.map((lesson) => `<a class="progress-lesson" href="#lesson/${lesson.id}"><span class="lesson-index ${data.completed.includes(lesson.id) ? "finished" : ""}">${data.completed.includes(lesson.id) ? "✓" : lesson.number}</span><div><h3>${escapeHTML(lesson.title)}</h3><p>${data.completed.includes(lesson.id) ? "Completed" : "Ready when you are"}</p></div><span aria-hidden="true">↗</span></a>`).join("")}<p class="score-note">Your first valid quiz answer sets the original score for each question. Answering again does not rewrite it. Your progress stays in this browser’s practice profile.</p></section>`;
 }
 
+function reviewView() {
+  app.innerHTML = '<p class="loading">Opening your mistake review…</p>';
+  return api("/api/review").then((result) => {
+    if (!result.questions.length) {
+      app.innerHTML = `<section class="empty-state"><span>✓</span><h1>Nothing to review.</h1><p>Every question you have answered is currently correct. That is the ready-for-class finish line — keep it up.</p><a class="button primary" href="#home">Back to lessons <span aria-hidden="true">↗</span></a></section>`;
+      return;
+    }
+    const lesson = (id) => data.lessons.find((item) => item.id === id);
+    app.innerHTML = `<section class="page-intro"><p class="eyebrow">BEFORE CLASS</p><h1>Mistake review.</h1><p>${result.questions.length} question${result.questions.length === 1 ? "" : "s"} still to revisit, in course order. Open the lesson and try its quick check again — a correct answer clears the question from this list.</p></section><section class="review-list">${result.questions.map((question) => {
+      const item = lesson(question.lesson_id);
+      const label = item ? `Lesson ${item.number}` : "Open lesson";
+      return `<article class="review-item"><div class="question-top"><span class="eyebrow">QUICK CHECK</span><a class="text-link" href="#lesson/${question.lesson_id}">${escapeHTML(label)} <span aria-hidden="true">↗</span></a></div><h3>${escapeHTML(question.prompt)}</h3><ul class="review-options">${Object.entries(question.options).map(([key, text]) => `<li><span class="option-letter">${key}</span><span>${escapeHTML(text)}</span></li>`).join("")}</ul><a class="button secondary" href="#lesson/${question.lesson_id}">Retry in ${escapeHTML(label.toLowerCase())} <span aria-hidden="true">↗</span></a></article>`;
+    }).join("")}</section>`;
+  }).catch((error) => {
+    showError(error);
+    app.innerHTML = '<section class="empty-state"><h1>Your review could not load.</h1><p>Check that the Python server is running, then reload this page.</p><button class="button primary" onclick="location.reload()">Try again</button></section>';
+  });
+}
+
 function notFound() {
   app.innerHTML =
     '<section class="empty-state"><span>↗</span><h1>Let’s get back on track.</h1><p>That lesson is not in this classroom.</p><a class="button primary" href="#home">Back to classroom</a></section>';
@@ -97,6 +124,7 @@ function notFound() {
 
 function render() {
   if (!data) return;
+  updateReviewCount();
   const route = location.hash.slice(1) || "home";
   document
     .querySelectorAll("[data-nav]")
@@ -107,6 +135,7 @@ function render() {
       ),
     );
   if (route.startsWith("lesson/")) lessonView(route.slice(7));
+  else if (route === "review") reviewView();
   else if (route === "progress") progressView();
   else if (route === "home") home();
   else notFound();

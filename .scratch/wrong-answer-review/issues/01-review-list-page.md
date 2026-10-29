@@ -27,3 +27,34 @@ also appears in the shared progress payload, so the badge stays live.
 
 Approval: instructor rehearsal, 2026-10-29 (spec: ../spec.md; decisions:
 ../../../workshop/decisions.txt).
+
+## Comments
+
+### Implementation record (agent, 2026-10-29)
+
+Ticket 1 implemented on branch `rehearsal/matt-original` via the original
+implement Skill (tdd loop at the agreed HTTP seam, then code-review).
+
+**Test output** (`.venv/bin/python -m unittest tests.test_app -v`, 18 tests):
+13 pre-existing tests pass unchanged (pure additions in a new
+`ReviewListTests` class; no existing test edited); 5 new HTTP-boundary checks:
+fresh profile empty payload and count 0 (also in dashboard payload), wrong
+answers list questions with public fields only in catalog order with lesson
+link, correct quiz re-answer removes the question and keeps first-attempt
+score 0/1 with live count, invalid answer changes nothing on the list, and
+raw review payload never contains answer keys or explanations.
+
+**Browser observations** (playwright-cli against `python app.py --port 5051`):
+fresh profile shows nav link "Mistake review 0" and the friendly empty state
+linking back to lessons; a wrong lesson answer ticks the badge to 1 live
+without reload; the review page renders prompt + options only — no answer
+controls, no previous wrong choice — with "Lesson 01/02" links and "Retry in
+lesson" buttons; two wrong answers (lessons 01, 02) list both questions in
+course order with badge 2; a full page refresh and a full server restart both
+preserve the same browser profile's list and count; correct re-answers inside
+the lessons drop the badge 2 → 1 → 0 and the page returns to the empty state,
+while My progress still shows the original first-attempt score 0/2.
+
+**Human acceptance**: still open — instructor to check the boxes above after
+reviewing the commit and the running page.
+
