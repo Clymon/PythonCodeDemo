@@ -39,10 +39,15 @@ A Skill is a reusable set of instructions for a particular kind of task. Its
 SKILL.md provides a name, a description of when to use it and method instructions.
 The folder may also include supporting resources. The agent loads relevant
 instructions into working context when needed. The first two exploration
-questions require no planning Skill. Introduce the concept and one method excerpt
-before demonstrating the original grill-me entry for discussing product choices.
+questions require no planning Skill. First expose an unresolved product need and
+two plausible meanings of it. The initial request may not settle the human
+decisions, and an I understand reply alone does not confirm agreement. Then
+introduce the concept and one method excerpt before demonstrating original
+grill-me for discussing choices and confirming shared understanding.
 Check actual loading and the resulting behavior. A loaded method still requires
-human judgment. Explain importing Skills or references between Skills only after
+human judgment. Agreement about desired behavior is different from the model
+context containing instructions and facts; both matter. Explain importing Skills
+or references between Skills only after
 learners have experienced one method. Then synthesize and organize ready work. Specs,
 tickets and handoffs preserve decisions and evidence across useful boundaries.
 People decide goals, trade-offs, scope and acceptance; the agent investigates facts.
