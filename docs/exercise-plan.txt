@@ -17,10 +17,13 @@ product data. Your work is to make decisions, direct development and judge evide
    or greeting edit is required. Discuss sub-agents when they actually appear.
 
 3. DISCUSS THE NEED — grill-me
-   First learn what a Skill is: reusable instructions for a particular task,
-   stored in SKILL.md with optional supporting files. Read the short interview
-   method excerpt and predict the questions or recommendations it should produce.
-   Use docs/client-brief.txt as the open request, then select original grill-me.
+   Begin with the open review request in docs/client-brief.txt. An acknowledgment
+   such as I understand does not establish agreement on what the page should do.
+   Compare two plausible policies after a wrong answer is later corrected: keep
+   the past mistake, or remove the now-correct question. Decide the learning purpose.
+   Then learn what a Skill is: reusable instructions for a task in SKILL.md, with
+   optional supporting files. Read the original interview-method excerpt and use
+   grill-me to discuss unresolved choices and confirm shared understanding.
    Check the actual Load skill record and the discussion that follows. The agent
    investigates facts and recommends options. Skill-to-Skill references and
    personal import are optional follow-up explanations after this first example.
