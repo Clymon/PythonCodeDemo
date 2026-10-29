@@ -1,0 +1,7 @@
+INSTRUCTOR BUILD EVIDENCE
+T01: public API check failed with 404 before the review endpoint existed, then passed.
+T02: correction check failed with 400 before review mode existed, then passed.
+Remaining specified cases and the regression suite pass. The full suite has 23 tests.
+Test count is an observation, not a learner completion requirement.
+Browser verification of these new checkpoints is recorded separately in the
+WorkBuddy/browser rehearsal report; automated API checks alone do not prove it.
