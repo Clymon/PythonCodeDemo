@@ -1,6 +1,7 @@
 GIT CHECKPOINTS — learner practice
 
-student is the working starting product. Create your own exercise branch.
+student is the working starting product; matt-workshop-start fixes this original-
+Skill edition. Create your own exercise branch.
 Inspect git status and git diff, then save verified work with a local commit.
 Commit work you want to keep before switching to a different branch or tag.
 Ignored instance/ data persists across switches, so use independent copies for

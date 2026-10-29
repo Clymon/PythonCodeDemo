@@ -1,3 +1,5 @@
+INSTRUCTOR TRIAL SNAPSHOT: see REHEARSAL.txt. Ticket 01 only; Ticket 02 is open.
+
 LEARNING LAB — AI Agent Coding with WorkBuddy and Python
 
 A working browser learning platform for practising AI-assisted development.

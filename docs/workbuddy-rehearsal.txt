@@ -1,54 +1,39 @@
-WORKBUDDY REHEARSAL — original Matt Skills, 29 October 2026
-Status: original import, selection and native loading observed; engineering flow
-is still under test. This replaces the previous lab-* classroom workflow trial.
+WORKBUDDY ORIGINAL-SKILL CLIENT CHECK — 29 October 2026
 
-Source and client
-WorkBuddy AI 5.8.4, English, already signed in; pending update left unapplied.
-Unchanged Matt Skills pinned in .codebuddy/skills/UPSTREAM.json, with MIT notice.
+WorkBuddy AI 5.8.4, English, Default Permissions. Original source and MIT notice
+are pinned in .codebuddy/skills/UPSTREAM.json and LICENSE; no Skill rewrites.
 
-Personal import and selection
-Experts / Skills / Connectors > Skills > Add Skill > Upload Skill accepts a ZIP
-with a named folder containing SKILL.md. Uploads retain the security scan. When
-Auto-install non-high-risk skills is selected, installation can complete after
-scanning without a separate Continue step. The earlier lab-discuss trial observed
-Safe and manual continuation; this is not claimed for every subsequent upload.
-The original grilling, grill-me and setup-matt-pocock-skills appeared installed.
-Typing /grill in a Code task showed grill-me and grilling; selecting grill-me
-created a Skill chip. The task visibly loaded grilling, read this Python project
-and completed its first English design interview in 2m24s.
+Loading
+The repository carries 12 original entry/dependency folders. Official WorkBuddy
+Project docs support .codebuddy/skills and AGENTS.md with project precedence.
+Opening the known supplied training project normally loads that configuration.
+Personal ZIP import is optional; keep the security scan. Original grill-me was
+selected from /grill and visibly called grilling. In this version /to-tickets
+showed No results, while native Skill(to-tickets) from the project succeeded.
+Ask for the original name and inspect actual tool loading/results. A picker or
+Installed entry alone does not prove invocation.
 
-Project-level Skills: verified native resolution
-Official WorkBuddy Project documentation supports .codebuddy/skills/ in the
-selected local working folder, with project-over-user precedence and AGENTS.md.
-The isolated project contains all 12 unchanged original Skill folders and support
-files. Opening it displayed Choose how to open. Open normally loaded the known
-training configuration; Default Permissions stayed selected.
-In this installed version, /to-tickets showed No results. In a fresh task, an
-explicit request to load to-tickets using the native Skill tool succeeded from
-.codebuddy/skills/to-tickets. Expanded details showed Load skill to-tickets.
-The check stopped before planning or writing files. The picker is therefore not
-a complete list of callable project entries. Ask for a named original Skill and
-inspect the task's actual loading/result; personal ZIP import remains optional
-for a picker entry. An explicit native call is distinct from reading SKILL.md as
-a manual fallback. No original Skill content changed to obtain this result.
+Execution observed
+Original setup, discussion, spec, separate tickets and one implementation slice
+were exercised in an isolated copy. implement loaded tdd; the review method
+used two native Agent tasks and returned Standards/Spec findings separately.
+Checks, actual browser behavior and simulated instructor acceptance were kept
+separate. The original review requires a committed non-empty HEAD comparison;
+the agent committed first rather than silently reviewing an empty range.
+Some later assertions were already green; do not call every check a red/green cycle.
+The final review fixes were checked in an independent browser preview as well.
+Original handoff produced a temporary-file document; a fresh receiving task
+verified references and reconstructed decisions, evidence limits and the ready
+next ticket without editing or running it. Full instructor evidence is on main.
 
-Engineering setup and workflow trial
-The original setup-matt-pocock-skills has loaded and is proposing local Markdown
-tracker/domain configuration. Subsequent spec, tickets, implementation/TDD,
-Standards+Spec review and handoff are not yet claimed complete.
-The practice copy is isolated from the student starting product and instructor
-reference. Rehearsal choices are labelled instructor decisions, not real learner
-answers. Browser and test checks will be reported separately from Skill loading.
+Environment limits
+unittest discover was terminated inside this client's command sandbox; invoking
+the test module directly worked. It is not a general Python limitation. A browser
+CLI smoke check requested an unrelated browser configuration deletion and was
+denied; use manual browser acceptance when automation requests unrelated changes.
+Default Permissions were retained. No typecheck, Windows lab or all-version
+compatibility is claimed. Prepare client loading, model access and Python before class.
+Instructor choices, full trial evidence and timings: main/instructor/workbuddy-original/.
 
-Distribution
-The repository includes the original project-level files and their dependencies.
-A clone carries them together. Validate the target client's loading before class;
-avoid assuming every entry appears in its / picker. Setup the local issue tracker
-once before the lesson. Skills are selected by need, not all called for each edit.
-
-Privacy and limits
-Client access URLs and account pixels are excluded from public evidence. Raw
-captures remain private; classroom images receive flattened privacy masks.
-No Windows lab, version-update or every-composite-workflow result is claimed yet.
-Official project documentation:
+Official configuration documentation:
 https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Project

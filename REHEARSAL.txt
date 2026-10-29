@@ -1,0 +1,19 @@
+ACTUAL WORKBUDDY ORIGINAL-SKILL REHEARSAL — instructor reference
+
+This branch preserves the actual WorkBuddy AI 5.8.4 implementation of Ticket 01.
+Use student or matt-workshop-start for a fresh learner start; main contains the
+polished full reference feature. This branch deliberately leaves Ticket 02 open.
+
+Actual client commits: 9a2363f design, 51799d9 implementation, 9aa0d45 review
+fixes, b144d3a simulated instructor acceptance by Codex (not Meng's sign-off).
+The following publication metadata commit updates documentation only.
+
+Original Matt files and support resources are unchanged at the pin recorded in
+.codebuddy/skills/UPSTREAM.json, with MIT notice. The original handoff was written
+to the OS temporary folder. A fresh read-only task reconstructed design decisions,
+verification limits and the next ticket, without editing or implementing it.
+Full curated evidence: main/instructor/workbuddy-original/.
+
+Run/test commands are in README.txt. For this snapshot tests.test_app has 18 tests.
+Opening a clone uses a new local .venv and ignored instance/; runtime data and the
+original client's private memory/tool traces are not part of this branch.
