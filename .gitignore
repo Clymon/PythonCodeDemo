@@ -1,4 +1,4 @@
-.venv/
+.venv
 __pycache__/
 *.py[cod]
 instance/
@@ -6,3 +6,6 @@ instance/
 htmlcov/
 coverage.json
 .DS_Store
+
+# Local WorkBuddy runtime metadata
+.workbuddy-ai/

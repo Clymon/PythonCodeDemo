@@ -26,17 +26,21 @@ The app needs no Node build, CDN, external font, cloud database or AI API key.
 
 WORKSHOP MATERIALS
   docs/client-brief.txt       the open feature request
-  docs/learning-rules.txt     facts about existing behavior to preserve
-  teaching-skills/            five reusable agent collaboration methods
-  templates/                 blank decisions, spec, task, evidence and handoff forms
-  workshop/                  learner-owned, confirmed artifacts created in class
+  docs/learning-rules.txt     existing behavior to preserve
+  .codebuddy/skills/            unchanged Matt Skills, dependencies and MIT notice
+  docs/agents/                per-repo issue-tracker and domain-doc configuration
+  .scratch/                  spec and separate tickets created during the exercise
+  worksheets/                optional human decision and acceptance notes
   docs/assessment.txt        observable human design and acceptance actions
 
-Use lab-discuss for open decisions, lab-plan for a confirmed spec and small tasks,
-lab-implement for one approved task, lab-review for evidence and lab-handoff when
-continuity requires it. Skill names label methods, not a mandatory five-step ritual.
-Import and invocation instructions/evidence belong in docs/workbuddy-rehearsal.txt.
-The old all-in-one workflow is an archived instructor reference.
+Use grill-me for open choices, to-spec for synthesis, to-tickets for complete
+slices and implement for approved work. implement calls tdd and code-review.
+Use handoff when another collaborator/harness needs a portable record.
+Original names and source are preserved; choose methods to fit the task.
+Source version and attribution: .codebuddy/skills/UPSTREAM.json and .codebuddy/skills/LICENSE.
+Original setup-matt-pocock-skills configures the repository once before class.
+Current client evidence and limitations: docs/workbuddy-rehearsal.txt.
+Instructor guidance, examples and verification reports are on main under instructor/.
 
 TEST AND INSPECT EVIDENCE
   python -m unittest discover -s tests -v
