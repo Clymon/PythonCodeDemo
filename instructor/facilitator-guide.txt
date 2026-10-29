@@ -24,7 +24,11 @@ trace rather than reading every architecture detail aloud.
 
 Transition to design
 The agent can investigate facts. A feature still requires human choices about
-purpose, behavior, boundaries and acceptance. Use original grill-me -> grilling.
+purpose, behavior, boundaries and acceptance. First define Skill and show a short
+excerpt of its method instructions. Present the concrete need, then call original
+grill-me and inspect loading plus the questions/recommendations. Explain internal
+Skill references and personal import later as optional material. Keep this sequence
+inside the existing 20-minute discussion block.
 Keep its confirmed conversation for to-spec. In the 15-minute planning block,
 demonstrate to-tickets and let participants approve one complete usable task.
 The configured local tracker writes spec and separate tickets under .scratch/.
