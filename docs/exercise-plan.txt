@@ -1,0 +1,36 @@
+LEARNING LAB — classroom exercise sequence
+
+1. RUN AND EXPLORE
+   Start the Python server and open the browser. Read a lesson, submit an answer,
+   mark it complete and refresh. Explain which state survived. Identify the
+   frontend files, the answer endpoint, learning rules and SQLite file.
+
+2. FIRST VISIBLE CHANGE
+   Change the home title in learning_lab/data/catalog.json. Restart Python and
+   refresh. Check the changed heading and git diff; commit the verified change.
+
+3. FROM AN IDEA TO A FEATURE
+   Read docs/client-brief.txt. Clarify current-versus-ever-wrong membership,
+   correction, invalid input, score and persistence. Save actual decisions.
+   The instructor has a reference scenario, not a secret prompt to reproduce.
+
+4. ONE COMPLETE SLICE
+   One wrong quiz answer -> a review question -> a correction -> saved state.
+   Plan browser, route, rule and storage work for that interaction. Verify the
+   interaction end to end before expanding to mixed or repeated histories.
+
+5. CONTROL WITH A SKILL AND A HANDOFF
+   Read teaching-skills/learning-lab-feature/SKILL.md before choosing it. Import
+   the provided package into the installed WorkBuddy client and verify how that
+   client discovers and invokes it. An explicit file read is a fallback, not
+   evidence of automatic Skill loading. Use the workflow to keep changes tied
+   to the agreed behavior. Save a handoff and continue from a genuinely new task.
+
+6. CHECK BEHAVIOR, THEN EXAMINE COVERAGE
+   Test empty history, wrong/correct retries, invalid answers, original score,
+   browser-profile isolation and a server restart. Use coverage to locate backend
+   gaps. Separately operate the browser; line coverage cannot validate its UI.
+
+SUBMISSION
+   Demonstrate the behavior, explain one product decision, show a relevant diff
+   and test evidence, and record the next step in docs/handoff.txt.

@@ -1,0 +1,32 @@
+INSTRUCTOR TRIAL — 29 October 2026
+
+Environment: local macOS, Python 3.12, Flask 3.1.3. Exact installed versions are
+recorded in requirements-lock.txt. This is not a Windows or WorkBuddy-client test.
+
+Automated evidence
+  student / web-starter: 13 passing domain and API tests, temporary SQLite files.
+  review-red: 10 expected non-passing review checks (8 failures, 2 missing-function
+  errors); the missing endpoint/function is the intended cause.
+  review-green/main: 23 passing tests for validation, scoring, completion,
+  browser-profile isolation, latest-answer review and new-app-instance persistence.
+  coverage report with --branch: 95% combined backend statement/branch coverage.
+  Untested automated branches include creating/reloading the default session-key
+  file. The browser trial did exercise a real server restart with the same cookie.
+  That percentage does not measure JavaScript, CSS or rendered UI coverage.
+
+Observed in the actual browser
+  Opened the home page, lesson and reading progress pages.
+  Submitted B to python-input, observed incorrect feedback and score 0/1.
+  Marked lesson complete, observed reading progress 1/3 independently of score.
+  Stopped and restarted the actual Python service; progress remained 1/3 and 0/1.
+  Opened review with one candidate; corrected to A through the live Python API.
+  Observed original score 0/1, remaining mistakes 0 and correction feedback.
+  Opened the updated review list and observed the empty-state message.
+  Browser console showed no warning/error entries during this flow.
+  Saved real screenshots in docs/screenshots/. Progress is simulated practice.
+
+Remaining classroom checks
+  Windows installation, PowerShell activation policy, lab proxy/firewall and
+  WorkBuddy Skill import/discovery/invocation still require target-device trials.
+  Browser checking was manual; no automated end-to-end or mobile-device result
+  is claimed. This local app is not a public deployment or authenticated LMS.

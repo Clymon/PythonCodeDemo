@@ -7,5 +7,6 @@ Only the first quiz attempt per question contributes to the original score.
 Reading completion is a separate learner-controlled marker, not a grade.
 Progress survives refresh and server restart with the same browser cookie.
 
-The upcoming review request has unresolved policy questions. Clarify them before
-implementation; docs/client-brief.txt is a request, not a full specification.
+When implementing the review exercise, use docs/client-brief.txt as the request.
+The reference scenario decisions are in docs/review-spec.txt. They are proposed
+teaching rules; an instructor may explicitly revise them during the exercise.

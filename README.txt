@@ -2,6 +2,8 @@ LEARNING LAB — a Python full-stack classroom project
 
 A small, working learning platform: browse three lessons, read code examples,
 answer six questions, see Python's feedback and track reading progress.
+The instructor reference also includes mistake review with a persistent queue,
+correction feedback and an unchanged original quiz score.
 English interface. Original sample content. Anonymous simulated practice only.
 
 QUICK START (Python 3.10 or later)
@@ -25,6 +27,7 @@ Optional coverage:
   python -m coverage run --source=learning_lab -m unittest discover -s tests
   python -m coverage report -m
 Python coverage measures executed backend lines, not browser behavior.
+requirements-lock.txt records the exact packages used in the instructor trial.
 
 WHERE TO LOOK
   app.py                       start the local server
@@ -63,3 +66,19 @@ Matt's downloaded TypeScript repository remains separate; its source code and
 paid course text are not copied. This is an original Python teaching project.
 Flask tutorial: https://flask.palletsprojects.com/en/stable/tutorial/
 SQLite setup: https://flask.palletsprojects.com/en/stable/tutorial/database/
+
+CLASSROOM CHECKPOINTS
+  student / web-starter   readable starting product, 13 passing tests
+  baseline               original starting-product commit, 13 passing tests
+  review-red             10 additional review checks, expected to fail
+  review-green           completed review feature, 23 passing tests
+  main                   instructor reference, screenshots and teaching notes
+
+The supplied python-learning-lab-web.bundle includes those branches and tags:
+  git clone -b student python-learning-lab-web.bundle learning-lab
+The ZIP exports contain source files without Git history. Use the bundle for
+Git exercises. This repository has not been published to GitHub.
+
+Read docs/instructor-guide.txt for the demonstration and exercise-plan.txt for
+learner tasks. The portable Skill in teaching-skills/ is a sample; import and
+invocation must be verified in the target WorkBuddy client.
