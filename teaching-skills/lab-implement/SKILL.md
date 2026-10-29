@@ -19,7 +19,8 @@ Use this for a selected task whose design decisions and acceptance are ready.
    observed behavior and gaps in workshop/evidence.txt using templates/evidence.txt.
    Report the task result for human acceptance; make a checkpoint when requested.
 
-Complete when the approved task's criteria are verified or a specific remaining
-criterion is reported incomplete. Keep work in the chosen exercise folder.
+Complete when the approved task's criteria are verified. When a criterion remains
+unverified, report the task as incomplete and identify the next check needed.
+Keep work in the chosen exercise folder.
 Publishing or pushing requires the learner's request. Test count and coverage
 percentage do not replace evidence for the requested behavior.
