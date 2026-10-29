@@ -1,0 +1,26 @@
+THE AGENT LOOP — concepts needed to direct work
+
+Model: reasons about current information and chooses a next action.
+Harness: the application connecting the model to tools, permissions and state.
+Tools: read/edit files, run commands and inspect results when available.
+Workspace: the project folder the task should operate on.
+Permissions: control confirmation boundaries; they do not establish correctness.
+Context: instructions, conversation, file excerpts and tool output currently
+available. Keep relevant decisions easy to find and load detail when needed.
+Feedback: test results, errors and observed behavior guide the next action.
+
+Observe: understand the request, investigate, act, check, adjust. People supply
+goals, choose trade-offs and accept evidence. The agent investigates facts,
+proposes options, edits and tests. Ask for an explanation when a technical choice
+changes something you need to decide.
+
+Work/Code is a task-scene choice. Model, workspace and permissions are separate
+controls. Use Code and select the exercise folder. A Skill packages a method;
+its name or invocation alone does not guarantee the result.
+
+CONTEXT CHOICES
+Continue when the discussion is relevant and the next step fits.
+Start fresh when a self-contained task plus saved decisions is sufficient.
+Handoff when another task, colleague or tool needs a portable record.
+Compress when needed, preferably at a phase boundary, then inspect what survives.
+A fresh context is a choice, not a ritual after every message.

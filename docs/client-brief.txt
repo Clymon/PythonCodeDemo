@@ -3,7 +3,8 @@ FEATURE REQUEST — wrong-answer review
 Our learners can read lessons, answer questions and see their first-attempt score.
 They need a convenient way to practise questions they got wrong before class.
 
-Explore the current browser app and follow an answer through the Python backend.
-Ask the instructor about learning policy: what counts as wrong, what happens
-after a correction, and whether review changes the original score.
-Implementation facts can be learned from the repository instead of the instructor.
+Help me decide what a useful first version should do before implementing it.
+Investigate the existing application yourself. Explain findings that affect my
+choices in plain language, and ask me for product decisions you cannot look up.
+
+I will confirm the rules, scope and examples used to accept the result.

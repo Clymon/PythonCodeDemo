@@ -1,0 +1,9 @@
+NEXT-TASK HANDOFF
+Purpose of the next task:
+Current branch / commit and uncommitted work:
+Decisions and why (reference the decision record):
+Specification and task references:
+Evidence already collected:
+Open questions and known limitations:
+Next action and suggested Skill:
+Before editing: restate the preserved rules and selected task.
