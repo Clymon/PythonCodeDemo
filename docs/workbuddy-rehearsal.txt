@@ -1,37 +1,54 @@
-WORKBUDDY CLIENT REHEARSAL — 29 October 2026
-Status: partial. Client use is not yet fully verified.
+WORKBUDDY REHEARSAL — original Matt Skills, 29 October 2026
+Status: original import, selection and native loading observed; engineering flow
+is still under test. This replaces the previous lab-* classroom workflow trial.
 
-Observed installed client
-WorkBuddy AI 5.8.4, English interface, already signed in. An update notice was
-present; the test retained the installed version.
+Source and client
+WorkBuddy AI 5.8.4, English, already signed in; pending update left unapplied.
+Unchanged Matt Skills pinned in .codebuddy/skills/UPSTREAM.json, with MIT notice.
 
-Verified import route
-Experts / Skills / Connectors > Skills > Add Skill > Upload Skill.
-The actual Import Skill dialog accepts a folder/ZIP containing SKILL.md, or a
-Markdown file with YAML name and description. The classroom ZIPs contain one
-named folder with SKILL.md. Use this installed-client requirement rather than
-assuming an older documentation example applies to the same version.
-Selected lab-discuss.zip, retained the security scan, observed its Safe result,
-continued installation and observed the success message. The Installed view
-showed the custom lab-discuss Skill enabled with its English description.
-The existing marketplace plugins were left in place.
+Personal import and selection
+Experts / Skills / Connectors > Skills > Add Skill > Upload Skill accepts a ZIP
+with a named folder containing SKILL.md. Uploads retain the security scan. When
+Auto-install non-high-risk skills is selected, installation can complete after
+scanning without a separate Continue step. The earlier lab-discuss trial observed
+Safe and manual continuation; this is not claimed for every subsequent upload.
+The original grilling, grill-me and setup-matt-pocock-skills appeared installed.
+Typing /grill in a Code task showed grill-me and grilling; selecting grill-me
+created a Skill chip. The task visibly loaded grilling, read this Python project
+and completed its first English design interview in 2m24s.
 
-Not yet verified
-Import of lab-plan, lab-implement, lab-review and lab-handoff.
-Discovery/selection/invocation of the imported Skills in a coding task.
-A complete WorkBuddy-driven discussion, plan, implementation, review and fresh-task
-handoff in the isolated student project. No slash-command spelling is asserted.
-The native Mac session became locked during the trial; manual unlock is needed
-before continuing these checks. The browser product trial is recorded separately.
+Project-level Skills: verified native resolution
+Official WorkBuddy Project documentation supports .codebuddy/skills/ in the
+selected local working folder, with project-over-user precedence and AGENTS.md.
+The isolated project contains all 12 unchanged original Skill folders and support
+files. Opening it displayed Choose how to open. Open normally loaded the known
+training configuration; Default Permissions stayed selected.
+In this installed version, /to-tickets showed No results. In a fresh task, an
+explicit request to load to-tickets using the native Skill tool succeeded from
+.codebuddy/skills/to-tickets. Expanded details showed Load skill to-tickets.
+The check stopped before planning or writing files. The picker is therefore not
+a complete list of callable project entries. Ask for a named original Skill and
+inspect the task's actual loading/result; personal ZIP import remains optional
+for a picker entry. An explicit native call is distinct from reading SKILL.md as
+a manual fallback. No original Skill content changed to obtain this result.
 
-Classroom use until this record is completed
-Treat the ZIP import as a verified route for lab-discuss only. Before teaching,
-verify the available selector and actual task behavior in the installed version.
-Inspect the task record and resulting artifacts: a Skill listed as enabled does
-not prove that the agent loaded or followed it. Explicitly reading a local
-SKILL.md can be described as a manual fallback, not as automatic discovery.
+Engineering setup and workflow trial
+The original setup-matt-pocock-skills has loaded and is proposing local Markdown
+tracker/domain configuration. Subsequent spec, tickets, implementation/TDD,
+Standards+Spec review and handoff are not yet claimed complete.
+The practice copy is isolated from the student starting product and instructor
+reference. Rehearsal choices are labelled instructor decisions, not real learner
+answers. Browser and test checks will be reported separately from Skill loading.
 
-Evidence privacy
-The classroom screenshot contains the actual English import dialog. Account
-pixels are flattened behind an opaque mask before embedding. Raw account captures
-and client access URLs do not belong in learner materials or the public repository.
+Distribution
+The repository includes the original project-level files and their dependencies.
+A clone carries them together. Validate the target client's loading before class;
+avoid assuming every entry appears in its / picker. Setup the local issue tracker
+once before the lesson. Skills are selected by need, not all called for each edit.
+
+Privacy and limits
+Client access URLs and account pixels are excluded from public evidence. Raw
+captures remain private; classroom images receive flattened privacy masks.
+No Windows lab, version-update or every-composite-workflow result is claimed yet.
+Official project documentation:
+https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Project

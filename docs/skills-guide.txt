@@ -1,21 +1,51 @@
-CLASSROOM SKILLS — reusable methods for working with an agent
+MATT POCOCK'S ORIGINAL SKILLS — classroom selection
 
-lab-discuss    Open idea -> confirmed human decisions and examples.
-lab-plan       Confirmed decisions -> spec and approved complete tasks.
-lab-implement  One approved task -> working behavior and verification evidence.
-lab-review     Task result -> evidence mapping and human acceptance decision.
-lab-handoff    Current artifacts -> a usable next-task entry point when needed.
+Source: https://github.com/mattpocock/skills
+Pinned source and selected paths: .codebuddy/skills/UPSTREAM.json.
+Original Skill files and their supporting resources are unchanged. MIT license
+and copyright notice: .codebuddy/skills/LICENSE. Classroom explanations and Python
+examples live outside the Skills. The earlier lab-* workflows are archived on main.
 
-Use a Skill when its situation fits. Small clear requests can be implemented
-without a long planning chain. The first greeting change is deliberately simple.
-The feature exercise uses discussion and planning because its policy is open.
+Five main entry points for this workshop
+  grill-me     Discuss unresolved choices until you share an understanding.
+  to-spec      Synthesize the confirmed discussion into a specification.
+  to-tickets   Propose complete vertical slices and real blocking dependencies.
+  implement    Build approved work, use TDD, run checks, review and commit.
+  handoff      Prepare a portable record for another collaborator or harness.
+Choose the method that fits. A clear tiny request need not use the full chain.
 
-Human responsibilities: state purpose, decide trade-offs, confirm scope and
-examples, judge task boundaries and accept evidence. Agent responsibilities:
-investigate project facts, propose options, implement, test and explain gaps.
+Dependencies, prepared before class
+  grill-me -> grilling
+  grill-with-docs -> grilling + domain-modeling (optional persistent vocabulary)
+  implement -> tdd + code-review
+  tdd -> codebase-design when an interface/seam needs design vocabulary
+  setup-matt-pocock-skills -> per-repo issue tracker and domain-doc configuration
+All 12 original folders are included in .codebuddy/skills/. The installed 5.8.4
+client loaded to-tickets natively from this project without global installation.
+Open the supplied exercise normally to load its project configuration, keeping
+Default Permissions. Project entry points may not appear in the / picker in this
+version; explicitly ask the agent to use the named Skill and inspect its Load skill
+record. Personal ZIP imports are an optional way to expose an entry in the picker.
+Both the entry point and its dependencies must be present.
 
-These are original classroom adaptations informed by Matt Pocock's engineering
-workflows, not copies of paid course text. Skill installation, selection and
-invocation depend on the installed WorkBuddy client. Use the verified procedure
-in docs/workbuddy-rehearsal.txt once the instructor trial has recorded it.
-An explicit request to read SKILL.md is a fallback, not automatic discovery.
+Project preparation
+Use the original setup-matt-pocock-skills once per exercise repository. For this
+local workshop, the issue tracker is local Markdown under .scratch/, so learners
+can work without publishing GitHub Issues. Glossary and ADR conventions belong
+in the project configuration. A glossary records shared terms; an ADR records a
+consequential decision only when the original method's criteria justify it.
+
+Work and context
+Keep discussion, spec and task breakdown in the same useful conversation.
+A self-contained ticket can start in a fresh task with its spec and dependencies.
+Use handoff for actual portability, rather than after every message. The original
+handoff writes to the OS temporary directory and references existing artifacts.
+
+Human responsibilities remain purpose, trade-offs, scope, task boundaries and
+acceptance. The agent investigates code facts, proposes options, builds and checks.
+The original examples may use another programming language; demonstrate their
+engineering idea against this Python app's public API and actual browser.
+
+Installed-client import/selection/invocation evidence and remaining checks:
+docs/workbuddy-rehearsal.txt. A selected Skill or successful import is not proof
+that every nested tool, sub-agent or review step was performed.

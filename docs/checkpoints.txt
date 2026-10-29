@@ -1,25 +1,13 @@
-TEACHING CHECKPOINTS — inspect or use a fresh branch after saving current work
+GIT CHECKPOINTS — learner practice
 
-student / workshop-start: working starting product and learner collaboration materials.
-demo-01-greeting: one delegated visible change, checked and saved.
-demo-02-design: instructor's confirmed decisions, spec and two complete task records.
-demo-03-review-list: T01 works through the page and API; one new behavior check has
-been observed failing before implementation and passing afterwards.
-demo-04-review-correction: T02's correction path works; its new behavior check has
-likewise been observed failing before implementation and passing afterwards.
-demo-05-review-verified: remaining specified cases and regression checks are verified.
-Demo branch: demo/agent-workflow. Instructor worked records are demonstration choices.
+student is the working starting product. Create your own exercise branch.
+Inspect git status and git diff, then save verified work with a local commit.
+Commit work you want to keep before switching to a different branch or tag.
+Ignored instance/ data persists across switches, so use independent copies for
+reference demonstrations and separate browser profiles when needed.
 
-The counts and observed evidence for these tags are recorded in the instructor
-build/verification report. Class completion is judged against agreed examples,
-not against a required test count or a replica of the instructor's policy.
-
-Example without discarding work:
-  git status
-  git switch -c my-inspection demo-03-review-list
-Use a fresh branch name. Commit work you want to keep before switching. To return,
-switch to your saved branch. Ignored instance/ data remains across switches.
-For reproducible state, use a separate exercise copy and browser profile.
-
-Historical tags baseline, review-red, review-green, web-starter and teaching-ready
-remain available. review-red is a batch reference, not the new incremental lesson.
+The instructor's incremental reference tags and their build evidence are listed
+on main in instructor/checkpoints.txt. Ask for a reference when it helps answer
+a concrete question. They illustrate one design, not a required learner policy.
+Older published tags remain available. The earlier batch of failing tests is a
+historical reference; the current lesson observes one behavior before adding more.
