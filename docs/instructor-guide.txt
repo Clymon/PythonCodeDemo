@@ -32,7 +32,13 @@
   student 分支：学员起点，基于 baseline，含整理后的教学辅助资料。
   main：讲师参考成品及实际截图、演练记录。
 
-使用学员 Git bundle
+从 GitHub 下载学员起点
+  git clone --branch student https://github.com/Clymon/PythonCodeDemo.git learning-lab
+  cd learning-lab
+  按 README.txt 创建环境、安装依赖、运行 Python。
+  GitHub 默认 main 分支是讲师参考成品；授课时请明确指定 student。
+
+使用学员 Git bundle（离线分发仓库资源）
   git clone -b student python-learning-lab-web.bundle learning-lab
   cd learning-lab
   按 README.txt 创建环境、安装依赖、运行 Python。

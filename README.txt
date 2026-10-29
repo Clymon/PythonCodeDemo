@@ -6,6 +6,13 @@ The instructor reference also includes mistake review with a persistent queue,
 correction feedback and an unchanged original quiz score.
 English interface. Original sample content. Anonymous simulated practice only.
 
+GET THE PROJECT
+Learner starting point:
+  git clone --branch student https://github.com/Clymon/PythonCodeDemo.git learning-lab
+Instructor reference (includes the completed review feature):
+  git clone https://github.com/Clymon/PythonCodeDemo.git learning-lab-reference
+Then enter the cloned directory and follow QUICK START below.
+
 QUICK START (Python 3.10 or later)
   python -m venv .venv
   Windows PowerShell: .venv\Scripts\Activate.ps1
@@ -77,7 +84,7 @@ CLASSROOM CHECKPOINTS
 The supplied python-learning-lab-web.bundle includes those branches and tags:
   git clone -b student python-learning-lab-web.bundle learning-lab
 The ZIP exports contain source files without Git history. Use the bundle for
-Git exercises. This repository has not been published to GitHub.
+Git exercises. GitHub: https://github.com/Clymon/PythonCodeDemo
 
 Read docs/instructor-guide.txt for the demonstration and exercise-plan.txt for
 learner tasks. The portable Skill in teaching-skills/ is a sample; import and
