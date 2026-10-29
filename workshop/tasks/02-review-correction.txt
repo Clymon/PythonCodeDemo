@@ -1,0 +1,10 @@
+T02 — practise a listed mistake
+Status: ready after T01 (instructor demonstration)
+Specification: workshop/spec.txt
+Delivery: submit a review answer, read feedback, then see updated review membership.
+Acceptance: wrong quiz -> correct review -> no next-round candidate, original 0/1
+unchanged. Wrong review stays eligible; invalid review records nothing. Refresh persists.
+Blocked by: T01's candidate-selection behavior and review page.
+Evidence: one red/green behavior check first, then browser and remaining edge cases.
+Outside: new scoring policy, accounts or a teacher dashboard.
+Approval: instructor worked-example scope.

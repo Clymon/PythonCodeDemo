@@ -1,0 +1,14 @@
+INSTRUCTOR WORKED EXAMPLE — one valid design, not a participant interview
+Status: confirmed for this demonstration
+Need: focused practice before the next class.
+Existing rules: preserve first valid quiz score, invalid-input rejection and saved state.
+Choice: review questions whose latest valid answer is incorrect; unanswered excluded.
+Reason: focus on what still needs attention, rather than every historical mistake.
+Alternative: retain all historically wrong questions for periodic revision.
+After correction: remove the question from the next review list; retain this round's
+feedback long enough to read it. A later wrong quiz answer can make it eligible again.
+Normal example: wrong quiz answer -> appears in review -> correct review -> removed.
+Boundary: no attempts -> empty state; invalid option -> no new attempt.
+Persistence: keep history after refresh/restart with the same browser profile.
+Out of scope: accounts, teacher dashboard, AI-generated questions and deployment.
+Confirmed by: instructor scenario, 29 October 2026.
