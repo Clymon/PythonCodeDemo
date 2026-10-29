@@ -24,11 +24,14 @@ trace rather than reading every architecture detail aloud.
 
 Transition to design
 The agent can investigate facts. A feature still requires human choices about
-purpose, behavior, boundaries and acceptance. First define Skill and show a short
-excerpt of its method instructions. Present the concrete need, then call original
-grill-me and inspect loading plus the questions/recommendations. Explain internal
-Skill references and personal import later as optional material. Keep this sequence
-inside the existing 20-minute discussion block.
+purpose, behavior, boundaries and acceptance. Present the unclear review request
+first. Use an illustrative I understand reply, then the same wrong-then-correct
+answer history with two plausible review policies. Neither policy is an AI failure.
+The human may still be forming their own design choices. Ask how to reach shared
+agreement before implementation. Then define Skill, show the original method
+excerpt and use grill-me to investigate facts, discuss choices and confirm the
+behavior with an example. Explain Skill references/import later if useful. Keep
+this sequence inside the existing 20-minute discussion block.
 Keep its confirmed conversation for to-spec. In the 15-minute planning block,
 demonstrate to-tickets and let participants approve one complete usable task.
 The configured local tracker writes spec and separate tickets under .scratch/.

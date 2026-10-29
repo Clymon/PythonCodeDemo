@@ -21,10 +21,14 @@ Smart zone/dumb zone is a metaphor, not a fixed percentage or a universal limit.
 
 15:20–15:40  3. Discuss a teaching need (20 min)
 The agent can investigate facts; humans decide unresolved behavior and scope.
-Define Skill, inspect a short method excerpt, then use original grill-me for the
-concrete need. Check loading and the resulting discussion. Explain Skill-to-Skill
-references and personal import only afterward, if useful. Evidence: confirmed
-choices and a concrete example. Keep this within the existing 20-minute block.
+Present the unclear wrong-answer-review need first. An illustrative I understand
+reply leaves the behavior undecided. Compare a history of past mistakes with a
+current-mistake list after the same wrong-then-correct answer. Both are plausible.
+Then introduce Skill as a reusable method, inspect the original interview excerpt
+and use grill-me to discuss choices until shared understanding is confirmed.
+Check actual loading and discussion. This is product design, not prompt rewriting.
+Skill references and personal import remain optional later explanations. Evidence:
+confirmed behavior, its reason and an example within the same 20-minute block.
 
 15:40–15:55  4. Specification and complete tickets (15 min)
 to-spec synthesizes the discussion. Demonstrate to-tickets for complete usable
