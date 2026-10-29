@@ -9,10 +9,12 @@ product data. Your work is to make decisions, direct development and judge evide
    Open a lesson, answer a question and refresh. Describe existing capabilities.
    Ask the agent to investigate relevant implementation facts when needed.
 
-2. ONE SMALL DELEGATION
-   Agree on a greeting suitable for your class and what should stay unchanged.
-   Delegate the change. Observe tools, inspect the result, operate the page and
-   save a verified Git checkpoint. A small clear change needs no long Skill chain.
+2. LLM, CONTEXT AND AGENT EXPLORATION
+   Use the stepped token/context illustration, then docs/agent-exploration.txt.
+   Ask what the project does; follow up on wrong-then-correct scoring behavior.
+   Keep this exploration read-only. Observe actual Thinking/file/tool activity
+   and explain how one retrieved result supports the answer. No planning Skill
+   or greeting edit is required. Discuss sub-agents when they actually appear.
 
 3. DISCUSS THE NEED — grill-me
    Use docs/client-brief.txt as the open request. Select the original grill-me
@@ -24,7 +26,8 @@ product data. Your work is to make decisions, direct development and judge evide
 4. MAKE THE WORK READY — to-spec, then to-tickets when useful
    Use to-spec to synthesize the discussion. Confirm a useful public verification
    boundary; the agent explains what it catches and misses. Review scope/examples.
-   Use to-tickets for a feature requiring multiple independently usable slices.
+   Watch the to-tickets demonstration for complete, independently usable slices.
+   Inspect and approve one actionable ticket within the short planning block.
    Judge what works after each ticket and which dependencies genuinely block it.
    The configured local tracker stores the spec and separate ticket files under
    .scratch/<feature>/ . Approve the breakdown before implementation.
@@ -33,7 +36,9 @@ product data. Your work is to make decisions, direct development and judge evide
    Select one ready ticket and use implement. It calls tdd where appropriate,
    builds one red/green behavior at a time, runs checks, calls code-review and commits.
    Agree on test boundaries before tests. Try the real page and inspect evidence.
-   A commit is an agent delivery checkpoint; the human still accepts or requests revision.
+   Explain Git diff/staging/commit with this first real feature change. If already
+   committed, inspect git show HEAD. A commit is a delivery checkpoint; the human
+   still accepts or requests revision.
 
 6. CONTEXT AND CONTINUITY
    Distinguish durable project rules, on-demand Skills, shared vocabulary and

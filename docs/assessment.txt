@@ -1,5 +1,8 @@
 ASSESSMENT — human judgment in AI-assisted development
 
+During project exploration, explain one claim and the file/tool evidence the
+agent used to support it. This is a learning observation, not an opening pretest.
+
 Each participant submits short artifacts and demonstrates a result. Use this
 rubric for formative feedback; the reference implementation is one valid design.
 
