@@ -21,3 +21,9 @@ def first_attempt_score(attempts):
 
 def public_question(question):
     return {key: question[key] for key in ("id", "prompt", "options")}
+
+
+def review_questions(attempts, question_bank):
+    """Latest valid attempt decides membership; question-bank order stays stable."""
+    latest = {attempt["question_id"]: bool(attempt["correct"]) for attempt in attempts}
+    return [question for question in question_bank if latest.get(question["id"]) is False]

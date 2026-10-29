@@ -90,6 +90,19 @@ function progressView() {
   app.innerHTML = `<section class="page-intro"><p class="eyebrow">YOUR LEARNING JOURNEY</p><h1>Progress you can see.</h1><p>Your reading progress and first-attempt quiz score measure different things.</p></section>${stats()}<section class="progress-panel"><div class="progress-summary"><h2>Keep the momentum</h2><strong>${ratio()}%</strong></div><progress value="${data.completed.length}" max="${data.lessons.length}" aria-label="Completed lessons"></progress>${data.lessons.map((lesson) => `<a class="progress-lesson" href="#lesson/${lesson.id}"><span class="lesson-index ${data.completed.includes(lesson.id) ? "finished" : ""}">${data.completed.includes(lesson.id) ? "✓" : lesson.number}</span><div><h3>${escapeHTML(lesson.title)}</h3><p>${data.completed.includes(lesson.id) ? "Completed" : "Ready when you are"}</p></div><span aria-hidden="true">↗</span></a>`).join("")}<p class="score-note">Your first valid quiz answer sets the original score for each question. Answering again does not rewrite it. Your progress stays in this browser’s practice profile.</p></section>`;
 }
 
+async function reviewListView() {
+  const heading = '<section class="page-intro"><p class="eyebrow">FOCUSED PRACTICE</p><h1>Your current mistakes</h1><p>Open a lesson to give its quick check another try.</p></section>';
+  app.innerHTML = heading + '<p class="loading" role="status">Finding your questions…</p>';
+  try {
+    const result = await api('/api/review');
+    if (location.hash !== '#review') return;
+    app.innerHTML = heading + (result.count ? '<section class="progress-panel">' + result.questions.map(question => {
+      const lesson = data.lessons.find(item => item.questions.some(q => q.id === question.id));
+      return `<a class="progress-lesson" href="#lesson/${lesson.id}"><span class="lesson-index">↗</span><div><h3>${escapeHTML(question.prompt)}</h3><p>${escapeHTML(lesson.title)}</p></div><span>Open lesson ↗</span></a>`;
+    }).join('') + '</section>' : '<section class="empty-state"><h2>No mistakes waiting.</h2><p>Questions appear here when your latest answer needs another try.</p><a class="button primary" href="#home">Explore the lessons</a></section>');
+  } catch (error) { showError(error); }
+}
+
 function notFound() {
   app.innerHTML =
     '<section class="empty-state"><span>↗</span><h1>Let’s get back on track.</h1><p>That lesson is not in this classroom.</p><a class="button primary" href="#home">Back to classroom</a></section>';
@@ -108,6 +121,7 @@ function render() {
     );
   if (route.startsWith("lesson/")) lessonView(route.slice(7));
   else if (route === "progress") progressView();
+  else if (route === "review") reviewListView();
   else if (route === "home") home();
   else notFound();
 }

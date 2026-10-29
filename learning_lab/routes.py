@@ -81,3 +81,10 @@ def complete_lesson(lesson_id):
         return jsonify(error="Completed must be true or false."), 400
     db.set_completed(identity(), lesson_id, value)
     return jsonify(**progress())
+
+
+@bp.get("/api/review")
+def review():
+    candidates = quiz.review_questions(db.history(identity()), questions())
+    safe = [quiz.public_question(question) for question in candidates]
+    return jsonify(questions=safe, count=len(safe))
