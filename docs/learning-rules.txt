@@ -1,0 +1,11 @@
+LEARNING LAB — current behavior
+
+One browser profile represents one anonymous learner. No names or real records.
+The server owns the answer keys, scoring and persistent attempts.
+An invalid option records nothing. A valid answer appends an attempt.
+Only the first quiz attempt per question contributes to the original score.
+Reading completion is a separate learner-controlled marker, not a grade.
+Progress survives refresh and server restart with the same browser cookie.
+
+The upcoming review request has unresolved policy questions. Clarify them before
+implementation; docs/client-brief.txt is a request, not a full specification.

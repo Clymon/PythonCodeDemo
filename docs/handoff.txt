@@ -1,0 +1,4 @@
+Baseline: a working browser classroom, Python API and SQLite persistence.
+The next feature request is in docs/client-brief.txt. Review is not implemented.
+Run the current tests and inspect Git state before choosing the next change.
+Record actual product decisions and verification evidence here as work proceeds.
