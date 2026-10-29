@@ -8,7 +8,8 @@ Reading completion is a separate learner-controlled marker, not a grade.
 Progress survives refresh and server restart with the same browser cookie.
 
 These describe existing behavior. New review policy is a design decision:
-read docs/client-brief.txt, discuss it with the learner and record the confirmed
-choices in workshop/decisions.txt. Reasonable alternatives may be explored.
+read docs/client-brief.txt and discuss it with the learner. Carry the confirmed
+choices into the feature spec and tickets using the configured tracker.
+Reasonable alternatives may be explored.
 Explain any proposed change to an existing rule and obtain a deliberate decision.
 The instructor reference illustrates one solution; it does not choose for you.

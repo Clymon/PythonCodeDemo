@@ -1,0 +1,72 @@
+VALIDATION RECORD — 29 October 2026
+
+Scope
+Local macOS, Python 3.12, Flask 3.1.3. Exact Python packages are recorded in
+requirements-lock.txt. Separate automated, browser and WorkBuddy evidence below.
+The sample data is simulated. No Windows, mobile or public deployment is claimed.
+
+Incremental demonstration build
+student/workshop-start: 13 existing domain/API tests passed.
+demo-01-greeting: one visible title change; 13 tests passed.
+demo-02-design: a reference policy, spec and two approved task records.
+T01: one review-list check failed with the missing endpoint (404), then the
+complete list slice passed that check and all 14 tests (demo-03-review-list).
+T02: one correction check failed with unsupported review mode (400), then the
+complete correction slice passed that check and all 15 tests
+(demo-04-review-correction).
+The remaining cases and regression checks passed all 23 tests at
+demo-05-review-verified. Actual command summaries, exit codes and commit hashes
+are in instructor/demo-build-evidence.json on main. The reference sequence was
+prepared using Codex scripts, not generated through WorkBuddy.
+
+First-slice browser observation (new revision)
+Used an isolated export of demo-03-review-list and a real local Flask server.
+Observed an empty review list before answering; submitted B to the first lesson's
+input question; observed incorrect feedback and the question in the review list.
+Reloaded and observed the same listed question. Followed its link to the original
+lesson; corrected to A there; observed that the question left the review list.
+Screenshot on main: docs/screenshots/demo-review-list.jpg.
+This verifies T01's independently useful list and link. It does not claim direct
+review-answer interaction, which belongs to T02.
+
+Earlier final-reference browser observation
+Opened home, lesson and progress; submitted B to python-input, observed incorrect
+feedback and first-attempt score 0/1. Marked reading complete and observed 1/3
+independently of the score. Restarted the real server with the same cookie and
+observed preserved progress. Corrected to A in review, observed remaining mistakes
+0 and original score 0/1; then observed the empty list. No console warning/error
+was observed in that trial. PNGs in docs/screenshots/ record those observations.
+Current final-checkpoint browser observation (new revision)
+Used an isolated export of demo-05-review-verified with a real Flask server.
+Observed the empty state; answered B to the input question; marked reading done.
+Review showed one candidate and original score 0/1. Stopped and restarted the
+actual server, reloaded the same browser and observed the candidate and score
+persist. Corrected directly to A in review: observed correct feedback, remaining
+count 0 and original score still 0/1. Opened the updated list and reloaded; observed
+it stayed empty. Progress showed reading 1/3, first-attempt score 0/1 and two
+practice attempts. New JPEG viewport captures on main, demo-review-before/after/empty and demo-progress
+record this trial. These are manual browser observations, not WorkBuddy actions.
+
+Coverage boundary
+An earlier main run measured 95% combined backend statement/branch coverage.
+That historic number is not a fresh revision result or a learning target.
+Python coverage excludes JavaScript/CSS and visual or browser interaction.
+Tests use temporary SQLite databases and include input validation, scoring,
+completion, browser-profile separation and new-app-instance persistence.
+Inspect the assertions and the confirmed acceptance examples when judging gaps.
+
+Client and target-device boundaries
+See docs/workbuddy-rehearsal.txt for actual Skill import evidence and outstanding
+invocation/workflow checks. macOS client availability was interrupted by lock.
+Windows installation, PowerShell policy, machine-room network/model access and
+classroom pace still need the relevant target-device/preclass checks.
+No automated end-to-end test result is claimed by these manual browser trials.
+
+
+Original-Skill migration
+The current source is pinned unchanged under .codebuddy/skills/. Native original
+loading, project-level resolution and setup have been observed. The old figures
+above remain evidence for the earlier prepared app/checkpoints, not proof of the
+complete new Skill composition. Current client evidence is maintained separately
+in docs/workbuddy-rehearsal.txt. New implementation/review/handoff results will
+be added only after their actual trial.

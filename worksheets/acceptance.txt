@@ -1,0 +1,9 @@
+HUMAN ACCEPTANCE NOTES — optional classroom worksheet
+Specification and selected ticket:
+Expected result from an agreed example:
+Observed result and method (test / browser / other):
+What a test or code-review report proves:
+What remains unverified:
+Your decision (accept / revise / continue):
+Reason and next step:
+A Git commit records a snapshot. Your acceptance decision still needs evidence.

@@ -1,6 +1,14 @@
-WORKSHOP ENTRY POINT
+CONTINUITY WITH THE ORIGINAL handoff SKILL
 
-Use docs/exercise-plan.txt for the learner workflow. Current task records belong
-in workshop/; templates/ contains empty forms. Create workshop/handoff.txt when
-there is an actual continuation need. Instructor examples live separately.
-Read current Git state and learner-confirmed decisions before continuing.
+Use a fresh implementation task when its spec and ticket are self-contained.
+Continue the current discussion when it still carries useful reasoning.
+
+For another collaborator, harness or directory, use Matt's original handoff.
+It writes a portable document in the operating system's temporary directory
+(TMPDIR, /tmp, or Windows TEMP), references existing artifacts instead of copying
+them, redacts sensitive data and suggests Skills for the next agent.
+
+Supply the returned document to the receiving task and ask it to reconstruct the
+relevant choices, current state and next action before editing. A written file
+alone does not show that the recipient understood the work.
+The worksheet in worksheets/acceptance.txt can hold the human continuity check.

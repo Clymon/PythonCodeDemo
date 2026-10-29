@@ -1,0 +1,36 @@
+ENGINEERING IDEAS YOU CAN USE WITH AN AGENT
+
+Behavior before implementation
+"A learner can revisit a current mistake" is a result. Which file or database
+query produces it is something the agent investigates. You decide what counts
+as a current mistake and why that choice helps learning.
+
+Concrete examples make a rule checkable
+Wrong B, then correct A: should the question remain listed? What should the score
+show? A worked example supplies an expected result independently of the code.
+
+A complete slice crosses the necessary layers
+A usable review list may need a page, a read API and saved attempt history. Those
+parts belong in one small delivery, rather than three disconnected layer tasks.
+The next slice can add answering directly on that list.
+
+A public boundary keeps checks stable
+An HTTP response can prove list contents, count, errors and preserved score
+without caring how the agent organizes helper functions. Browser evidence proves
+a different claim: that people can navigate, read feedback and complete the action.
+
+Feedback controls the next step
+A meaningful check fails for the missing behavior, the agent builds that behavior,
+and the check passes. Only then choose the next behavior. A setup error is a
+different problem. The original TDD Skill provides this method; Python supplies
+the concrete test implementation for our project.
+
+Project knowledge has different homes
+Durable rules stay brief. A Skill is loaded when its method fits. A glossary names
+shared concepts. A spec and tickets carry agreed work. Existing artifacts can be
+referenced from a new task instead of copied into every conversation.
+
+Evidence has a scope
+A Standards/Spec review, passing API check, browser observation, restart trial and
+coverage report answer different questions. Ask what a result proves and what it
+still misses. You remain responsible for the acceptance decision.

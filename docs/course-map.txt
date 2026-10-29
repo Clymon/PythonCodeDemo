@@ -1,46 +1,46 @@
-THREE-HOUR WORKSHOP — AI Agent Coding with WorkBuddy and Python
+THREE-HOUR WORKSHOP — original Matt Skills, WorkBuddy and Python
 14:30–17:30, individual practice after instructor demonstrations.
 
 Learning outcome
-Turn a teaching need into clear decisions and small, verifiable tasks; use Skills
-to guide an AI agent to build a change; judge it using observable evidence.
+Turn a teaching need into clear decisions and small, verifiable tasks; select an
+original Skill to guide an agent; judge its result using observable evidence.
 
-14:30–15:00  Module 1: Environment and working product (30 min)
-WorkBuddy, Git, student clone, Python startup, browser tour. Prepare accounts and
-software before class; installation/login slides also serve as pre-class help.
+14:30–15:00  1. Environment and working product (30 min)
+WorkBuddy, Git, student clone, prepared Python startup and browser tour.
 Evidence: participant opens and operates the starting product.
 
-15:00–15:15  Module 2: Agent loop and first delegation (15 min)
-Model, harness/tools, workspace, permissions, context and feedback. Delegate one
-visible greeting change. Evidence: check it and save a checkpoint.
+15:00–15:15  2. Agent loop and first delegation (15 min)
+Model, tools/harness, workspace, permissions, context and feedback through one
+visible greeting change. Evidence: checked result and a local Git checkpoint.
 
-15:15–15:35  Module 3: Discuss a teaching need (20 min)
-Introduce a Skill as a reusable method. Use lab-discuss for the open review brief.
-Human chooses policy; agent investigates facts. Evidence: decision record.
+15:15–15:35  3. Discuss a teaching need (20 min)
+grill-me calls grilling. Agent investigates facts; human chooses rules and scope.
+Evidence: confirmed choices and a concrete example in the discussion/optional notes.
 
-15:35–15:55  Module 4: Specification and task design (20 min)
-Use lab-plan. Judge scope, examples, complete slices and real dependencies.
-Evidence: confirmed spec and first approved task.
+15:35–15:55  4. Specification and complete tickets (20 min)
+to-spec synthesizes the conversation; to-tickets proposes usable vertical slices.
+Human judges acceptance, granularity and dependencies. Evidence: spec and ready ticket.
 
 15:55–16:05  Break (10 min)
 
-16:05–16:40  Module 5: Implementation and feedback (35 min)
-Use lab-implement; observe one red/green behavior cycle and browser feedback.
-Continue only after checking the first behavior. Evidence: running slice,
-relevant checks and a justified checkpoint.
+16:05–16:40  5. Implementation and feedback (35 min)
+implement uses tdd and code-review; observe one meaningful red/green behavior,
+checks and a commit. Evidence: running slice and human acceptance/revision decision.
 
-16:40–16:55  Module 6: Project instructions and context (15 min)
-AGENTS.md, Skills and task artifacts have different roles. Use lab-handoff for
-purposeful continuation. Evidence: next task reconstructs decisions and next action.
+16:40–16:55  6. Project rules and context (15 min)
+AGENTS.md, original Skills, glossary, spec/tickets and continuity. Demonstrate
+handoff for another teacher, with a recipient reconstruction check.
 
-16:55–17:20  Module 7: Review and acceptance (25 min)
-Use lab-review; compare evidence with examples. Discuss meaningful tests, backend
-coverage limits and untested paths. Evidence: acceptance record.
+16:55–17:20  7. Review and acceptance (25 min)
+Standards/Spec review, agreed examples, browser behavior, useful test gaps and
+backend coverage limits. Evidence: a reasoned acceptance record.
 
-17:20–17:30  Module 7 continued: demonstration and transfer (10 min)
-Show a decision, task and verified result. Propose a small change to a tool in
-your own subject. No mandatory pairing or opening pretest.
+17:20–17:30  Demonstration and transfer (10 min)
+Show one decision, ticket and verified result. Propose a small tool improvement
+in your own subject. No opening pretest or mandatory pairing.
 
-Total: 180 minutes including a 10-minute break. Technical investigation, coding
-and test authoring are agent work; people retain design and acceptance decisions.
-This is a delivery budget; observe actual pace during rehearsal.
+Total: 180 minutes including the break. Prepare software, original dependencies
+and the local issue-tracker configuration before class. Installation/setup slides
+remain pre-class support. Do not require every participant to finish the entire
+instructor feature; require a genuine verified slice and a clear next action.
+The proposed timing is a teaching budget; validate pace through the rehearsal.
