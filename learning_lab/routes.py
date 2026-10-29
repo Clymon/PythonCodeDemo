@@ -37,7 +37,15 @@ def progress():
     attempts = db.history(identity())
     return {"score": quiz.first_attempt_score(attempts),
             "completed": db.completed(identity()), "attempt_count": len(attempts),
-            "review_remaining": len(quiz.review_question_ids(attempts))}
+            "review_remaining": len(review_questions(attempts))}
+
+
+def review_questions(attempts):
+    """Public data for questions still to review, in catalog order."""
+    remaining = set(quiz.review_question_ids(attempts))
+    return [{**quiz.public_question(q), "lesson_id": lesson["id"]}
+            for lesson in catalog()["lessons"]
+            for q in lesson["questions"] if q["id"] in remaining]
 
 
 @bp.get("/")
@@ -57,10 +65,7 @@ def dashboard():
 
 @bp.get("/api/review")
 def review():
-    remaining = set(quiz.review_question_ids(db.history(identity())))
-    questions = [{**quiz.public_question(q), "lesson_id": lesson["id"]}
-                 for lesson in catalog()["lessons"]
-                 for q in lesson["questions"] if q["id"] in remaining]
+    questions = review_questions(db.history(identity()))
     return jsonify(review_remaining=len(questions), questions=questions)
 
 

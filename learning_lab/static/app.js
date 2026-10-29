@@ -50,7 +50,7 @@ function updateProgress(result) {
 
 function updateReviewCount() {
   const badge = document.querySelector("[data-review-count]");
-  if (!badge || !data) return;
+  if (!badge) return;
   badge.textContent = data.review_remaining;
   badge.classList.toggle("zero", data.review_remaining === 0);
 }
@@ -101,6 +101,8 @@ function progressView() {
 function reviewView() {
   app.innerHTML = '<p class="loading">Opening your mistake review…</p>';
   return api("/api/review").then((result) => {
+    data.review_remaining = result.review_remaining;
+    updateReviewCount();
     if (!result.questions.length) {
       app.innerHTML = `<section class="empty-state"><span>✓</span><h1>Nothing to review.</h1><p>Every question you have answered is currently correct. That is the ready-for-class finish line — keep it up.</p><a class="button primary" href="#home">Back to lessons <span aria-hidden="true">↗</span></a></section>`;
       return;
