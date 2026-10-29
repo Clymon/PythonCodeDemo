@@ -4,6 +4,12 @@ A small, working learning platform: browse three lessons, read code examples,
 answer six questions, see Python's feedback and track reading progress.
 English interface. Original sample content. Anonymous simulated practice only.
 
+GET THE STUDENT STARTER
+  git clone --branch student https://github.com/Clymon/PythonCodeDemo.git learning-lab
+  cd learning-lab
+GitHub's default main branch contains the instructor reference implementation.
+This student branch is the starting product for the classroom exercises.
+
 QUICK START (Python 3.10 or later)
   python -m venv .venv
   Windows PowerShell: .venv\Scripts\Activate.ps1
