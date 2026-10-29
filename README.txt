@@ -63,3 +63,17 @@ Matt's downloaded TypeScript repository remains separate; its source code and
 paid course text are not copied. This is an original Python teaching project.
 Flask tutorial: https://flask.palletsprojects.com/en/stable/tutorial/
 SQLite setup: https://flask.palletsprojects.com/en/stable/tutorial/database/
+
+TEACHING CHECKPOINTS
+This student branch is the working starting product. Wrong-answer review is the
+feature to build. Start with docs/exercise-plan.txt and docs/client-brief.txt.
+The portable development workflow lives under teaching-skills/. It is a sample
+to import and verify in WorkBuddy, not an automatically installed Skill.
+
+The bundle also includes main (instructor reference), review-red (ten expected
+failing review checks) and review-green (working review implementation). Save
+your work before creating or switching branches. Ignored instance/ data stays
+when you switch. The full bundle preserves history; ZIP exports do not.
+
+For repeatable classroom setup, requirements-lock.txt records the versions used
+in the instructor trial; pip install -r requirements-lock.txt installs those.
