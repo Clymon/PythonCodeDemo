@@ -1,0 +1,35 @@
+ORIGINAL HANDOFF + RECEIVER — actual WorkBuddy trial
+
+Original handoff was loaded via the native Skill tool. It recorded simulated
+instructor acceptance in a separate ticket comment, committed it as b144d3a,
+then wrote learning-lab-ticket-02-handoff.md in the OS temporary directory.
+The handoff task completed in 3m51s. Ticket 02 was not implemented.
+
+A fresh Code task selected the same exercise folder and received the actual
+handoff path, with read-only instructions. It completed in 1m11s and checked
+spec, both tickets, decisions and Git state; it reported no missing references.
+It reconstructed:
+1. Latest valid answer determines membership, correction removes a question,
+   original first quiz score remains. Rationale: an actionable list that shrinks
+   toward readiness, rather than a permanent record of every original mistake.
+2. Ticket 01 is the usable list/count/lesson-link slice. Its acceptance is
+   simulated by Codex, explicitly not Meng's personal sign-off.
+3. Ticket 02 adds answering directly in review; the route still rejects review
+   mode and that frontend currently has no answer controls. Storage already
+   supports the mode, so the recipient identified no required schema change.
+4. New automated checks belong at the agreed HTTP boundary; those checks do not
+   prove browser feedback, live counts or actual refresh/server-restart behavior.
+5. Next original Skill: implement, with the ready Ticket 02 path and saved spec;
+   tdd and code-review are dependencies, not a requirement to repeat planning.
+It made no tracked-file changes, did not run tests or start a server.
+
+Chronology note
+The recipient also noticed the original implementation comment saying acceptance
+was still open. That describes delivery before the later simulated acceptance
+entry; Meng's actual personal approval remains distinct and has not been claimed.
+
+handoff-reference.txt is a preserved generated snapshot with the local workspace
+path replaced by <exercise-root> for publication. Its local-origin/branch statements
+record the original trial at b144d3a. The receiver used the unaltered temporary file;
+for current use select your own cloned project root and consult Git status.
+The full source Skills remain unchanged; this report is teaching evidence.

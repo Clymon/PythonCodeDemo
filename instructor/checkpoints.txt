@@ -1,0 +1,42 @@
+ORIGINAL-SKILL REVISION
+The current student branch carries pinned original Matt Skills and local tracker
+configuration. The earlier workshop-start tag belongs to the custom-workflow
+revision; use student for the current classroom start. A new original-source
+starting tag is matt-workshop-start, fixed to the original-Skill student revision.
+The older demo sequence below remains a real prepared behavior reference built
+with Codex. It is not represented as a WorkBuddy execution of the original Skills.
+
+ACTUAL ORIGINAL-SKILL REHEARSAL
+demo/workbuddy-matt-original preserves the WorkBuddy 5.8.4 trial.
+matt-demo-design: original discussion, spec and approved separate tickets.
+matt-demo-review-list: actual Ticket 01 implementation and review corrections;
+  18 tests pass, actual browser evidence and later simulated acceptance recorded.
+Ticket 02 remains open in this trial. Full report: instructor/workbuddy-original/.
+The following prepared sequence shows the full reference feature independently.
+
+TEACHING CHECKPOINTS — inspect or use a fresh branch after saving current work
+
+student / matt-workshop-start: current starting product with original Matt Skills.
+workshop-start: previous custom-workflow starting product, retained as history.
+demo-01-greeting: one delegated visible change, checked and saved.
+demo-02-design: instructor's confirmed decisions, spec and two complete task records.
+demo-03-review-list: T01 works through the page and API; one new behavior check has
+been observed failing before implementation and passing afterwards.
+demo-04-review-correction: T02's correction path works; its new behavior check has
+likewise been observed failing before implementation and passing afterwards.
+demo-05-review-verified: remaining specified cases and regression checks are verified.
+Demo branch: demo/agent-workflow. Instructor worked records are demonstration choices.
+
+The counts and observed evidence for these tags are recorded in the instructor
+build/verification report. Class completion is judged against agreed examples,
+not against a required test count or a replica of the instructor's policy.
+
+Example without discarding work:
+  git status
+  git switch -c my-inspection demo-03-review-list
+Use a fresh branch name. Commit work you want to keep before switching. To return,
+switch to your saved branch. Ignored instance/ data remains across switches.
+For reproducible state, use a separate exercise copy and browser profile.
+
+Historical tags baseline, review-red, review-green, web-starter and teaching-ready
+remain available. review-red is a batch reference, not the new incremental lesson.

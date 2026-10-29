@@ -1,0 +1,77 @@
+DECISION RECORD — wrong-answer review (docs/client-brief.txt)
+Status: confirmed
+Teaching need and intended learner:
+  Anonymous classroom learners (one browser practice profile each) need a
+  convenient way to practise questions they currently got wrong, before class.
+  This record is the confirmed product design agreed in grilling rounds 1-2.
+
+Existing behavior to preserve:
+  Server owns answer keys, scoring and persistent attempts; answer keys and
+  explanations are never sent before a valid attempt. An invalid option
+  records nothing. Only the first valid quiz attempt sets the original score.
+  Reading completion stays a separate learner-controlled marker. Progress
+  persists per browser profile (session cookie + SQLite in ignored instance/).
+
+Open choices:
+  Resolved in grilling (see Chosen rule). One choice deliberately deferred:
+  how to slice delivery into independently usable increments is left to the
+  planning stage (lab-plan / .scratch spec and issue files).
+
+Chosen rule and why:
+  A question appears on the Mistake review page when the learner's LATEST
+  valid answer to it (in quiz or review mode) is wrong. A later correct
+  answer in either mode removes it. The original first-attempt score never
+  changes. Why: one simple, self-healing rule the learner can trust —
+  "your most recent answer decides whether a question still needs practise" —
+  and a live remaining count that ticks down to a clear "ready for class"
+  finish line. Review practice therefore measures recovery, not repair.
+
+Alternative considered and its consequence:
+  First-attempt-wrong membership: a permanent record of initial
+  misconceptions, philosophically consistent with first-attempt scoring, but
+  the list never shrinks, which demotivates before-class practice; rejected.
+  Showing the previous wrong option next to the question (anchoring aid) was
+  also considered; rejected in favour of a clean question so the learner
+  recalls the material rather than re-reading their old mistake.
+  Retry-first feedback (explanation withheld until a second attempt) was
+  considered; rejected in favour of the same immediate feedback as lessons.
+
+What happens after a correction:
+  A correct answer in review (or a later correct answer in a lesson) updates
+  the latest answer, so the question leaves the review list on the next list
+  load; the original first-attempt score is unchanged. A wrong answer in
+  review keeps the question listed and shows the same immediate
+  Correct / Keep practising tag plus explanation as lesson quizzes.
+
+Interface decisions:
+  Dedicated Mistake review page (hash route) with a stable, always-visible
+  navigation link carrying a live remaining count. Questions are listed in
+  catalog order with no extra grouping interface, rendered clean (no previous
+  choice shown), answerable directly on the page. Empty list (including a
+  fresh profile) shows a friendly empty state linking back to lessons.
+  Known consequence of existing code: review attempts increment the existing
+  "Practice attempts" counter (it counts all saved attempts).
+
+Normal example (given / action / expected result):
+  Given a fresh browser profile: open lesson 01, answer python-input with B
+  (wrong) and check. Open Mistake review: the question is listed, nav count
+  shows 1, previous wrong option is NOT shown. Choose A and check: "Correct"
+  plus explanation appears; the next list load shows the empty state and
+  count 0; the first-attempt score remains 0/1.
+
+Boundary example:
+  Given the same profile, POST an invalid option (e.g. "Z" or a non-string)
+  as a review answer: nothing is recorded, the list and count are unchanged,
+  and an error is returned. A profile with no attempt history sees the empty
+  state, not an error.
+
+Persistence expectation:
+  With the same browser profile, refresh and full server restart preserve
+  the review list, the remaining count and the original score (SQLite in
+  instance/ plus the session cookie).
+
+Out of scope:
+  Learner accounts or names; teacher analytics or dashboards; spaced
+  repetition or scheduling; AI-generated questions; deployment.
+
+Confirmed by / date: instructor rehearsal, 2026-10-29, in grilling rounds 1-2.

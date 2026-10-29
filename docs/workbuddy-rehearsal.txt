@@ -1,37 +1,39 @@
-WORKBUDDY CLIENT REHEARSAL — 29 October 2026
-Status: partial. Client use is not yet fully verified.
+WORKBUDDY ORIGINAL-SKILL CLIENT CHECK — 29 October 2026
 
-Observed installed client
-WorkBuddy AI 5.8.4, English interface, already signed in. An update notice was
-present; the test retained the installed version.
+WorkBuddy AI 5.8.4, English, Default Permissions. Original source and MIT notice
+are pinned in .codebuddy/skills/UPSTREAM.json and LICENSE; no Skill rewrites.
 
-Verified import route
-Experts / Skills / Connectors > Skills > Add Skill > Upload Skill.
-The actual Import Skill dialog accepts a folder/ZIP containing SKILL.md, or a
-Markdown file with YAML name and description. The classroom ZIPs contain one
-named folder with SKILL.md. Use this installed-client requirement rather than
-assuming an older documentation example applies to the same version.
-Selected lab-discuss.zip, retained the security scan, observed its Safe result,
-continued installation and observed the success message. The Installed view
-showed the custom lab-discuss Skill enabled with its English description.
-The existing marketplace plugins were left in place.
+Loading
+The repository carries 12 original entry/dependency folders. Official WorkBuddy
+Project docs support .codebuddy/skills and AGENTS.md with project precedence.
+Opening the known supplied training project normally loads that configuration.
+Personal ZIP import is optional; keep the security scan. Original grill-me was
+selected from /grill and visibly called grilling. In this version /to-tickets
+showed No results, while native Skill(to-tickets) from the project succeeded.
+Ask for the original name and inspect actual tool loading/results. A picker or
+Installed entry alone does not prove invocation.
 
-Not yet verified
-Import of lab-plan, lab-implement, lab-review and lab-handoff.
-Discovery/selection/invocation of the imported Skills in a coding task.
-A complete WorkBuddy-driven discussion, plan, implementation, review and fresh-task
-handoff in the isolated student project. No slash-command spelling is asserted.
-The native Mac session became locked during the trial; manual unlock is needed
-before continuing these checks. The browser product trial is recorded separately.
+Execution observed
+Original setup, discussion, spec, separate tickets and one implementation slice
+were exercised in an isolated copy. implement loaded tdd; the review method
+used two native Agent tasks and returned Standards/Spec findings separately.
+Checks, actual browser behavior and simulated instructor acceptance were kept
+separate. The original review requires a committed non-empty HEAD comparison;
+the agent committed first rather than silently reviewing an empty range.
+Some later assertions were already green; do not call every check a red/green cycle.
+The final review fixes were checked in an independent browser preview as well.
+Original handoff produced a temporary-file document; a fresh receiving task
+verified references and reconstructed decisions, evidence limits and the ready
+next ticket without editing or running it. Full instructor evidence is on main.
 
-Classroom use until this record is completed
-Treat the ZIP import as a verified route for lab-discuss only. Before teaching,
-verify the available selector and actual task behavior in the installed version.
-Inspect the task record and resulting artifacts: a Skill listed as enabled does
-not prove that the agent loaded or followed it. Explicitly reading a local
-SKILL.md can be described as a manual fallback, not as automatic discovery.
+Environment limits
+unittest discover was terminated inside this client's command sandbox; invoking
+the test module directly worked. It is not a general Python limitation. A browser
+CLI smoke check requested an unrelated browser configuration deletion and was
+denied; use manual browser acceptance when automation requests unrelated changes.
+Default Permissions were retained. No typecheck, Windows lab or all-version
+compatibility is claimed. Prepare client loading, model access and Python before class.
+Instructor choices, full trial evidence and timings: main/instructor/workbuddy-original/.
 
-Evidence privacy
-The classroom screenshot contains the actual English import dialog. Account
-pixels are flattened behind an opaque mask before embedding. Raw account captures
-and client access URLs do not belong in learner materials or the public repository.
+Official configuration documentation:
+https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Project

@@ -1,0 +1,107 @@
+# Handoff — Learning Lab: continue with Ticket 02 (answer directly from the review list)
+
+Written 2026-10-29 for a fresh agent session (or a teacher directing one) in
+the Learning Lab instructor-rehearsal workspace. Ticket 01 is done and
+accepted; the next slice is Ticket 02. **Do not re-implement or rework
+Ticket 01.**
+
+## Project location and state
+
+- Workspace: `<exercise-root>`
+- Branch: `rehearsal/matt-original`, clean tree, HEAD `b144d3a`.
+- Relevant commits (oldest → newest):
+  - `9a2363f` — approved spec + two tickets (fixed comparison point used for review)
+  - `51799d9` — Ticket 01: mistake review list page with live count
+  - `9aa0d45` — code-review fixes (single shared count derivation, badge sync on review-page load)
+  - `b144d3a` — simulated instructor acceptance of Ticket 01 by Codex
+- Remote `origin` is a local filesystem path; there is no GitHub/GitLab.
+
+## Authoritative documents — read these, they are not duplicated here
+
+- Feature spec (full agreed scope + implementation/testing decisions):
+  `.scratch/wrong-answer-review/spec.md`
+- Ticket 01 (accepted, all boxes checked, evidence in `## Comments`):
+  `.scratch/wrong-answer-review/issues/01-review-list-page.md`
+- **Ticket 02 (your task, status ready-for-agent, blocked-by satisfied):**
+  `.scratch/wrong-answer-review/issues/02-answer-in-review.md`
+- Confirmed decision record: `workshop/decisions.txt`
+- Repo conventions: `AGENTS.md`; behavior baseline: `docs/learning-rules.txt`;
+  layering and API map: `docs/architecture.txt`; tracker rules:
+  `docs/agents/issue-tracker.md`; domain-doc policy: `docs/agents/domain.md`.
+
+## What exists after Ticket 01 (orientation, not spec)
+
+- `learning_lab/quiz.py`: `make_attempt(question, choice, mode)` already
+  accepts `"review"` as a mode; `review_question_ids(attempts)` derives list
+  membership (latest valid answer per question, either mode, wrong = listed);
+  `first_attempt_score` counts only first quiz-mode attempts.
+- `learning_lab/routes.py`: `POST /api/answers` currently **rejects any mode
+  other than `"quiz"`** (`Unknown practice mode.`, 400) — enabling review mode
+  at this boundary is precisely Ticket 02's backend change. `GET /api/review`
+  and the shared `review_remaining` progress field already exist.
+- `learning_lab/static/app.js`: `questionCard(question, mode)` is already
+  mode-aware and the submit handler posts `mode` from `data-mode`; the review
+  page (`reviewView()`) currently renders questions clean with **no** answer
+  controls — Ticket 02 adds the in-page answering there.
+- Storage (`learning_lab/db.py`) already persists `mode` per attempt; no
+  schema change is needed.
+
+## Verification boundary (confirmed, binding)
+
+All NEW automated checks for this feature run at the HTTP boundary only, via
+the existing test-client pattern in `tests/test_app.py` (temporary database,
+CSRF handshake, POST answers, GET review). Existing learning-rules module
+tests stay unchanged as regression checks; no new helper-level tests.
+Ticket 02's agreed acceptance example (spec Testing Decisions + ticket box):
+wrong B in a lesson, then correct A in review → next list load empty, count 0,
+original score still 0/1; invalid input records nothing; keys/explanations
+only after a valid attempt.
+
+## Environment and known limits
+
+- Use the prepared interpreter: `.venv/bin/python` (project venv, Python 3.12).
+  Run tests with `.venv/bin/python -m unittest tests.test_app` — **do not use
+  `unittest discover`**, it gets SIGTERM'd in this sandbox.
+- Current suite: 18 tests, all passing (13 pre-existing + 5 from Ticket 01).
+- A server may be running on port 5051 for instructor inspection — it is not
+  yours; do not stop or restart it. Start your own instance with
+  `.venv/bin/python app.py --port <other-port>` when you need to demonstrate
+  the actual page. Simulated practice data lives in the ignored `instance/`.
+- Browser observation is manual acceptance evidence by convention; record it
+  under `## Comments` in the ticket, keeping agent observations and human
+  acceptance as separate entries (see Ticket 01 for the established format).
+- Acceptance in this rehearsal is simulated instructor acceptance by Codex —
+  it is recorded as such and is not Meng's personal sign-off.
+- Original Skills in `.codebuddy/skills/` must be preserved untouched.
+- `GLOSSARY.md`/`docs/adr/` are intentionally lazy — create only if terms or
+  decisions genuinely need recording (see `docs/agents/domain.md`).
+- Fixed review comparison point used for Ticket 01's code-review: `9a2363f`.
+
+## Working rules (from AGENTS.md, condensed)
+
+One complete, independently verifiable behavior at a time; English learner
+interface; app stays one local Flask process with local assets; agree test
+boundaries before testing; inspect Git state; separate test output, browser
+observations and human acceptance; the instructor reference illustrates one
+solution, it does not choose for you.
+
+## Suggested skills
+
+Call the Skill tool for these original project Skills (they live in
+`.codebuddy/skills/` and load from there):
+
+1. `implement` — with the ticket path
+   `.scratch/wrong-answer-review/issues/02-answer-in-review.md` as argument.
+2. `tdd` — the implement skill will load it for the red/green loop; the seam
+   is already agreed (HTTP boundary), so no seam negotiation is needed.
+3. `code-review` — after implementation, with a fixed comparison point
+   (suggest `b144d3a`, the pre-implementation HEAD).
+4. `handoff` — at the end, to pass the work on again.
+
+## Suggested first steps
+
+1. Read Ticket 02, the spec's Implementation/Testing Decisions, and Ticket
+   01's `## Comments` (evidence format).
+2. `git log --oneline -5` and `git status` to confirm the state above.
+3. Run the suite: `.venv/bin/python -m unittest tests.test_app` (expect 18 OK).
+4. Load the `implement` skill and follow it. Do not start by editing code.

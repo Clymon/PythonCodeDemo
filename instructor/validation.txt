@@ -61,3 +61,12 @@ invocation/workflow checks. macOS client availability was interrupted by lock.
 Windows installation, PowerShell policy, machine-room network/model access and
 classroom pace still need the relevant target-device/preclass checks.
 No automated end-to-end test result is claimed by these manual browser trials.
+
+
+Original-Skill migration
+The current source is pinned unchanged under .codebuddy/skills/. Native original
+loading, project-level resolution and setup have been observed. The old figures
+above remain evidence for the earlier prepared app/checkpoints, not proof of the
+complete new Skill composition. Current client evidence is maintained separately
+in docs/workbuddy-rehearsal.txt. New implementation/review/handoff results will
+be added only after their actual trial.

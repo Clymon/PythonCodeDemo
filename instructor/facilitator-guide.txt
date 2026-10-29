@@ -1,0 +1,74 @@
+FACILITATOR GUIDE — original Matt Skills and the Python Learning Lab
+
+Purpose and starting point
+Participants decide purpose, scope and acceptance while an agent investigates
+and builds a working browser product. The sample Python/Git/testing lessons are
+product content. Use student as the learner start; main holds one instructor
+reference. The route and outcomes are in docs/course-map.txt and assessment.txt.
+The English runbook and visual teaching moves accompany the classroom deck.
+
+Original source and preparation
+The pinned original source is under .codebuddy/skills/, with UPSTREAM.json and
+MIT LICENSE. Twelve folders include five main entry points and their dependencies.
+No classroom lab-* replacement is required. Earlier local workflows are archived.
+The official setup-matt-pocock-skills configures local Markdown tracking and
+single-context domain documents. The supplied repository includes that preparation.
+In an isolated trial, the original Skill explored, proposed files, received the
+instructor's confirmation and wrote docs/agents/ plus the AGENTS.md pointers.
+Domain vocabulary and ADR files are created lazily, not as empty bureaucracy.
+
+Installed-client behavior to demonstrate accurately
+Use Code, select the exercise folder and retain Default Permissions. The known
+training repository's project configuration loads through Open normally when the
+client asks. In 5.8.4, an original personal grill-me import was visible in the /
+selector; it loaded grilling. Project-level to-tickets was absent from that picker,
+but a named native Skill invocation loaded the original file from the project.
+Teach the distinction and inspect Load skill evidence. Personal ZIP import is an
+optional picker route, not a requirement to reinstall every dependency globally.
+Current complete/partial observations: docs/workbuddy-rehearsal.txt.
+
+Teaching sequence
+1. Operate the starting page. Delegate one small visible greeting change, inspect
+   tools/diff, try it and commit. Avoid a framework or source-navigation entrance test.
+2. Use grill-me for the open feature brief. Let the agent find facts and propose
+   options; participants choose learner-facing consequences. Keep the discussion.
+3. Use to-spec for synthesis. Judge scope and examples, then agree on a public
+   verification boundary. For the trial, the instructor selected new HTTP tests
+   plus manual browser evidence, retaining old domain checks without adding more.
+4. Use to-tickets to approve complete usable slices and real dependencies. Local
+   specs and separate ticket files live under .scratch/<feature>/.
+5. Open a fresh task for one approved ticket and use implement. It calls tdd and
+   code-review, runs checks and commits. Verify what actually ran and which diff
+   the review covered. A checkpoint is not human acceptance.
+6. Continue useful context or pass it deliberately. Use handoff for another teacher
+   or harness, then inspect the receiving task's reconstruction before editing.
+7. Compare Standards/Spec findings, tests and browser observations with the agreed
+   examples. The human accepts/revises/continues and states one useful limitation.
+
+Reference design and complete slices
+One instructor example uses latest valid answer wrong, removes a corrected
+question from the next list, preserves original score and rejects invalid writes.
+T01 is a readable review list with a link to each existing lesson. It is usable
+before direct review answers exist. T02 adds answering within review and saved
+correction. Different learner policies are valid if deliberately chosen and checked.
+The earlier demonstration sequence was built using Codex, not WorkBuddy; its real
+red/green outputs remain in instructor/verification/ and its tags are documented
+in instructor/checkpoints.txt. They illustrate behavior and are historical primary
+sources, not proof that a current client ran the original Skill composition.
+Original-Skill client rehearsal has a separate report and artifacts.
+
+Reference browser demonstration
+Answer B to the first lesson's input question, observe incorrect feedback, mark
+reading complete and view progress independently of first-attempt score. In T01,
+open the review list, follow a lesson link and correct there. In the full reference,
+correct to A directly in review; inspect feedback, remaining count and original
+0/1 score, then the empty state. Refresh/restart with the same browser profile.
+The wrong answer is controlled sample input. No random AI-failure show is needed.
+
+Work preservation and pace
+Use separate exercise/reference copies. Save work before switching; Git ignores
+instance/ so switching commits does not clear data. Ports alone do not isolate
+cookies. Keep source ZIPs/bundle and screenshots available locally, with Python
+packages already prepared or cached for the target OS. Use only simulated records.
+The formative rubric rewards decisions, complete tasks, evidence and continuity;
+it does not require finishing every reference feature or reaching a coverage score.

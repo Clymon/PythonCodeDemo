@@ -1,6 +1,6 @@
 T01 — see current mistakes
 Status: ready (instructor demonstration)
-Specification: workshop/spec.txt
+Specification: instructor/worked-example/spec.txt
 Delivery: a learner can open a review page and see current mistakes, each once in
 question-bank order, or a useful empty state. This is a complete readable interaction.
 Acceptance: answer a question wrong, open review, see it once; answer keys are absent

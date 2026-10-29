@@ -1,55 +1,56 @@
-LEARNING LAB — learn to direct an AI coding agent
+LEARNING LAB — direct an AI coding agent with original Matt Skills
 
-The teacher demonstrates each activity, then each participant works independently.
-Use the student branch. The webpage is the product you improve during the course.
-The sample Python/Git/testing lessons are practice data, not this workshop's
-curriculum. Your work is to make decisions, direct development and judge evidence.
+The instructor demonstrates, then each participant works independently.
+Use student. The webpage is a working product to improve; its sample lessons are
+product data. Your work is to make decisions, direct development and judge evidence.
 
 1. ENVIRONMENT AND PRODUCT
-   Clone student, install the recorded dependencies and run python app.py.
-   Open the browser, read a lesson, answer a question and refresh.
-   Human output: describe what the product already lets a learner do.
-   Agent work: investigate files and explain relevant existing capabilities.
+   Clone student, prepare the recorded Python environment and run python app.py.
+   Open a lesson, answer a question and refresh. Describe existing capabilities.
+   Ask the agent to investigate relevant implementation facts when needed.
 
 2. ONE SMALL DELEGATION
-   Ask the agent to make the homepage greeting suit your class. Agree on the
-   visible result and keep the change small. Observe its tool actions, inspect
-   its summary/diff, refresh the browser and commit the verified change.
-   Human output: accept or revise one observable result, with a reason.
+   Agree on a greeting suitable for your class and what should stay unchanged.
+   Delegate the change. Observe tools, inspect the result, operate the page and
+   save a verified Git checkpoint. A small clear change needs no long Skill chain.
 
-3. DISCUSS A FEATURE — lab-discuss
-   Use docs/client-brief.txt as the request. Ask the agent to use lab-discuss.
-   Choose among the rules it identifies; ask what each option changes for learners.
-   Save confirmed choices in workshop/decisions.txt using templates/decisions.txt.
-   Human output: at least one reasoned choice, a boundary and a concrete example.
+3. DISCUSS THE NEED — grill-me
+   Use docs/client-brief.txt as the open request. Select the original grill-me
+   Skill; it calls grilling. The agent investigates facts and recommends options.
+   Choose rules and boundaries, ask about consequences and confirm shared understanding.
+   Keep the discussion for the next stage. worksheets/decisions.txt is optional
+   human note-taking, not a required output format imposed on the original Skill.
 
-4. TURN DECISIONS INTO WORK — lab-plan
-   Use lab-plan with the confirmed record. Review the proposed spec and small
-   tasks: what works after each task, how can you check it, and what genuinely
-   depends on another task? Revise before approving work.
-   Human output: a confirmed spec and one ready, independently verifiable task.
+4. MAKE THE WORK READY — to-spec, then to-tickets when useful
+   Use to-spec to synthesize the discussion. Confirm a useful public verification
+   boundary; the agent explains what it catches and misses. Review scope/examples.
+   Use to-tickets for a feature requiring multiple independently usable slices.
+   Judge what works after each ticket and which dependencies genuinely block it.
+   The configured local tracker stores the spec and separate ticket files under
+   .scratch/<feature>/ . Approve the breakdown before implementation.
 
-5. IMPLEMENT ONE TASK — lab-implement
-   Choose an approved task and use lab-implement for that task. Watch one behavior
-   check fail for missing behavior, then pass after the smallest implementation.
-   Try the actual page. Add the next behavior only after checking the first.
-   Human output: a running result and a decision to accept, revise or continue.
+5. IMPLEMENT ONE APPROVED TICKET — implement
+   Select one ready ticket and use implement. It calls tdd where appropriate,
+   builds one red/green behavior at a time, runs checks, calls code-review and commits.
+   Agree on test boundaries before tests. Try the real page and inspect evidence.
+   A commit is an agent delivery checkpoint; the human still accepts or requests revision.
 
-6. CONTEXT AND CONTINUITY — lab-handoff when useful
-   Distinguish durable project rules, on-demand Skills and current task records.
-   Decide whether to continue, start fresh with saved artifacts or hand work to
-   another task. In a fresh task, supply the handoff and ask it to restate the
-   agreed rules and next action before editing.
-   Human output: a next-task brief that preserves the important decisions.
+6. CONTEXT AND CONTINUITY
+   Distinguish durable project rules, on-demand Skills, shared vocabulary and
+   current spec/tickets/evidence. Keep useful discussion together. A new task can
+   implement a self-contained ticket using its saved references.
+   Use handoff to simulate passing the project to another teacher. It writes a
+   portable document in the OS temporary folder. Supply it to a fresh task in the
+   project and check whether the recipient reconstructs decisions and next action.
 
-7. REVIEW AND ACCEPT — lab-review
-   Compare the implementation with the agreed examples. Run relevant tests,
-   operate the browser and ask what remains unverified. Record evidence using
-   templates/evidence.txt. Check a normal and a boundary case; test refresh/restart
-   when the requirement includes persistence.
-   Human output: a justified acceptance decision and a stated limitation.
+7. REVIEW AND ACCEPT
+   Read the Standards and Spec findings from code-review. Compare them with actual
+   checks and browser behavior. A code review does not replace user acceptance.
+   Check a normal case and a boundary; refresh/restart when saving is required.
+   Use worksheets/acceptance.txt if helpful. State what remains unverified and
+   decide accept/revise/continue with a reason.
 
-Submit decisions, the spec/task, evidence and a brief demonstration.
-Assessment rewards decisions, task boundaries and evidence. Source navigation,
-manual Python coding, test count and a coverage target are not completion
-requirements. See docs/assessment.txt.
+Show a design choice, one complete ticket, a running result and an acceptance
+reason. See docs/assessment.txt. Source tracing, hand-written Python, a test count
+and a coverage threshold are not completion requirements. Instructor references
+are on main and used only when requested or demonstrated by the instructor.

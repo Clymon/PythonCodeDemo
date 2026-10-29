@@ -1,6 +1,6 @@
 INSTRUCTOR WORKED EXAMPLE — review current mistakes
 Status: confirmed for demonstration
-Decision record: workshop/decisions.txt
+Decision record: instructor/worked-example/decisions.txt
 Problem: the learner needs focused practice on questions still needing attention.
 Behavior: show each current mistake once in question-bank order. Let the learner
 retry, keep feedback visible, update next-round membership and preserve original score.
