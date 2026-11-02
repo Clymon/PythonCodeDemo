@@ -34,6 +34,13 @@ Sub-agent: focused work can use a separate working context and return a report.
 The details depend on the harness. A simple overview may need no sub-agent.
 Explain delegation when it actually appears, such as the later two-axis review.
 
+Development work around the agent
+The development workflow still includes requirements, design, planning,
+implementation and verification/delivery, with feedback. The AI-coding workshop
+uses four challenges to organize human judgment: shared requirements, bounded
+usable tasks, evidence for results and context continuity. See development-workflow.txt.
+Introduce the whole map before the first requirements example or Skill.
+
 Skills and durable work
 A Skill is a reusable set of instructions for a particular kind of task. Its
 SKILL.md provides a name, a description of when to use it and method instructions.
