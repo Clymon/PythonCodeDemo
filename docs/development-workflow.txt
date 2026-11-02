@@ -1,0 +1,42 @@
+SOFTWARE DEVELOPMENT AND THE AI-CODING CHALLENGES
+
+First see the whole workflow
+1. Requirements: what should change, for whom, and why? Agree behavior/examples.
+2. Design: how should the interactions and data rules work? Compare options.
+3. Planning: what usable result comes first? Bound tasks and real dependencies.
+4. Implementation: build the approved result, with focused checks and feedback.
+5. Verification and delivery: inspect behavior, review evidence and accept/revise.
+Feedback and maintenance can return us to earlier decisions. Testing starts during
+implementation and continues through acceptance. This is a simplified workshop
+map for a project or feature, not a rigid universal lifecycle. Classroom delivery
+is a verified local change; production deployment is outside this exercise.
+
+Four problems the workshop addresses
+Challenge 1 — Requirements: the same request can hide different assumptions.
+Response: discuss the desired behavior and examples until understanding is shared.
+Challenge 2 — Design/planning: large requests hide scope and dependencies.
+Response: specify the agreed result and divide complete usable tasks.
+Challenge 3 — Implementation/verification: plausible code or a success claim may
+lack evidence. Response: test behavior, inspect the change and operate the page.
+Challenge 4 — Continuity: decisions can disappear between conversations.
+Response: preserve current decisions and pass on relevant project context.
+Continuity supports every stage. Verification returns during final acceptance.
+These are possible risks, not a claim that every AI agent necessarily fails.
+
+First case: shared requirements
+Only after the workflow and problem map, introduce the wrong-answer-review request.
+An illustrative I understand acknowledgment leaves a key decision open: after a
+wrong answer is corrected, should the review keep the historical mistake or show
+only current mistakes? Both purposes are plausible, and the teacher may still be
+forming their own design decisions. Discussing and aligning requirements is the
+response to Challenge 1, not the whole of software development.
+
+Where Skills fit
+A Skill provides reusable task instructions. Introduce the concept and one method
+excerpt after the problem is concrete. Original grill-me supports discussion and
+confirmation of shared understanding. Later, to-spec/to-tickets support Challenge
+2; implement with tdd/code-review supports Challenge 3; handoff and saved project
+artifacts support Challenge 4. Choose the method for the work that needs doing.
+Check actual loading and behavior. Human acceptance still requires judgment.
+This problem map is a workshop synthesis, not Matt's verbatim lesson sequence.
+The original method files and pinned source notices remain unchanged.
