@@ -19,16 +19,16 @@ actual file/tool activity. This is read-only; a code edit is not the entry task.
 Evidence: explain one claim and the project evidence the agent used to support it.
 Smart zone/dumb zone is a metaphor, not a fixed percentage or a universal limit.
 
-15:20–15:40  3. Discuss a teaching need (20 min)
-The agent can investigate facts; humans decide unresolved behavior and scope.
-Present the unclear wrong-answer-review need first. An illustrative I understand
-reply leaves the behavior undecided. Compare a history of past mistakes with a
-current-mistake list after the same wrong-then-correct answer. Both are plausible.
-Then introduce Skill as a reusable method, inspect the original interview excerpt
-and use grill-me to discuss choices until shared understanding is confirmed.
-Check actual loading and discussion. This is product design, not prompt rewriting.
-Skill references and personal import remain optional later explanations. Evidence:
-confirmed behavior, its reason and an example within the same 20-minute block.
+15:20–15:40  3. Workflow and shared requirements (20 min)
+First explain the main development workflow and four AI-coding challenges using
+docs/development-workflow.txt. Requirements alignment addresses Challenge 1.
+Then present the unclear review request and illustrative I understand response.
+Compare two valid meanings after the same wrong-then-correct answer. Introduce
+Skill as a reusable method and use original grill-me to discuss/confirm behavior.
+Keep the other challenges visible for the later task, testing and context stages.
+Pace: workflow/challenges 5 min; concrete need 3; method 2; discussion/confirmation 10.
+Evidence: locate the current development stage and confirm behavior with an example.
+Personal import and Skill references remain optional later explanations.
 
 15:40–15:55  4. Specification and complete tickets (15 min)
 to-spec synthesizes the discussion. Demonstrate to-tickets for complete usable
@@ -38,18 +38,20 @@ Agree on public verification boundaries. Evidence: a spec and one ready ticket.
 15:55–16:05  Break (10 min)
 
 16:05–16:40  5. Implementation and feedback (35 min)
-Use implement -> tdd / code-review. Observe a real missing-behavior check then a
+Return to Challenge 3: implementation needs evidence. Use implement -> tdd /
+code-review. Observe a real missing-behavior check then a
 passing check, inspect the running slice and the scope of the commit. Explain
 git diff/staging/commit with this first real feature change. If already committed,
 inspect git show HEAD instead of making a duplicate commit for the lesson.
 
 16:40–16:55  6. Project rules and continuity (15 min)
-Return to the introductory context model. Place stable rules, a loaded method,
+Return to Challenge 4 and the introductory context model. Place stable rules, a loaded method,
 shared vocabulary and current spec/tickets appropriately. Use handoff for another
 teacher and check a fresh recipient's reconstruction before editing.
 
 16:55–17:20  7. Review and acceptance (25 min)
-Read the existing Standards/Spec findings and compare tests with actual browser
+Return to Challenge 3 at final verification/delivery. Read the existing Standards/Spec
+findings and compare tests with actual browser
 evidence. Reuse that review rather than restarting it just to fill a stage.
 Check useful gaps and explain the limits of Python coverage. Decide accept/revise.
 

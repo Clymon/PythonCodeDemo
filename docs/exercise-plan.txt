@@ -16,8 +16,11 @@ product data. Your work is to make decisions, direct development and judge evide
    and explain how one retrieved result supports the answer. No planning Skill
    or greeting edit is required. Discuss sub-agents when they actually appear.
 
-3. DISCUSS THE NEED — grill-me
-   Begin with the open review request in docs/client-brief.txt. An acknowledgment
+3. DEVELOPMENT WORKFLOW, THEN SHARED REQUIREMENTS
+   First use docs/development-workflow.txt to see requirements, design, planning,
+   implementation, verification/delivery and feedback. Locate the four challenges:
+   assumptions, unbounded tasks, insufficient evidence and lost context.
+   Begin Challenge 1 with the open review request in docs/client-brief.txt. An acknowledgment
    such as I understand does not establish agreement on what the page should do.
    Compare two plausible policies after a wrong answer is later corrected: keep
    the past mistake, or remove the now-correct question. Decide the learning purpose.
@@ -32,6 +35,7 @@ product data. Your work is to make decisions, direct development and judge evide
    human note-taking, not a required output format imposed on the original Skill.
 
 4. MAKE THE WORK READY — to-spec, then to-tickets when useful
+   Challenge 2: turn the agreed need into precise, complete and manageable work.
    Use to-spec to synthesize the discussion. Confirm a useful public verification
    boundary; the agent explains what it catches and misses. Review scope/examples.
    Watch the to-tickets demonstration for complete, independently usable slices.
@@ -41,6 +45,7 @@ product data. Your work is to make decisions, direct development and judge evide
    .scratch/<feature>/ . Approve the breakdown before implementation.
 
 5. IMPLEMENT ONE APPROVED TICKET — implement
+   Challenge 3: require evidence for the intended behavior.
    Select one ready ticket and use implement. It calls tdd where appropriate,
    builds one red/green behavior at a time, runs checks, calls code-review and commits.
    Agree on test boundaries before tests. Try the real page and inspect evidence.
@@ -49,6 +54,7 @@ product data. Your work is to make decisions, direct development and judge evide
    still accepts or requests revision.
 
 6. CONTEXT AND CONTINUITY
+   Challenge 4: preserve the decisions needed by the next task.
    Distinguish durable project rules, on-demand Skills, shared vocabulary and
    current spec/tickets/evidence. Keep useful discussion together. A new task can
    implement a self-contained ticket using its saved references.
@@ -57,6 +63,7 @@ product data. Your work is to make decisions, direct development and judge evide
    project and check whether the recipient reconstructs decisions and next action.
 
 7. REVIEW AND ACCEPT
+   Return to Challenge 3 during verification and delivery.
    Read the Standards and Spec findings from code-review. Compare them with actual
    checks and browser behavior. A code review does not replace user acceptance.
    Check a normal case and a boundary; refresh/restart when saving is required.
