@@ -22,7 +22,15 @@ files. It executed no tests for the follow-up. See main: instructor/context-intr
 The generated answer was longer than needed: pause on the relevant claim and
 trace rather than reading every architecture detail aloud.
 
-Transition to design
+Development workflow before the first problem
+Give the full workflow and the four-challenge map in docs/development-workflow.txt
+before the review request or any Skill. Requirements alignment is the response
+to Challenge 1; later tasks, evidence and continuity address Challenges 2–4.
+Use about five minutes for these maps inside the existing 20-minute block, then
+three for the example, two for the method and ten for discussion/confirmation.
+Return to the map at each later stage rather than presenting unrelated tools.
+
+Transition to Challenge 1
 The agent can investigate facts. A feature still requires human choices about
 purpose, behavior, boundaries and acceptance. Present the unclear review request
 first. Use an illustrative I understand reply, then the same wrong-then-correct
