@@ -4,7 +4,7 @@ WorkBuddy AI 5.8.4, English, Default Permissions. Original source and MIT notice
 are pinned in .codebuddy/skills/UPSTREAM.json and LICENSE; no Skill rewrites.
 
 Loading
-The repository carries 12 original entry/dependency folders. Official WorkBuddy
+At the recorded rehearsal, the repository carried 12 original entry/dependency folders. Official WorkBuddy
 Project docs support .codebuddy/skills and AGENTS.md with project precedence.
 Opening the known supplied training project normally loads that configuration.
 Personal ZIP import is optional; keep the security scan. Original grill-me was
@@ -37,3 +37,11 @@ Instructor choices, full trial evidence and timings: main/instructor/workbuddy-o
 
 Official configuration documentation:
 https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Project
+
+3 November curriculum update
+The classroom selection now contains 16 original folders / 47 upstream files.
+Added prototype, improve-codebase-architecture, retro and writing-for-agents,
+unchanged at the same pinned source revision. Their WorkBuddy runtime execution
+is not yet rehearsed. The prepared clickable prototype is external teaching
+material, not a recorded original-Skill execution. Native loading observations
+above remain scoped to the actual named methods and client version.

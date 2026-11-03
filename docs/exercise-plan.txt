@@ -62,13 +62,22 @@ product data. Your work is to make decisions, direct development and judge evide
    portable document in the OS temporary folder. Supply it to a fresh task in the
    project and check whether the recipient reconstructs decisions and next action.
 
-7. REVIEW AND ACCEPT
-   Return to Challenge 3 during verification and delivery.
-   Read the Standards and Spec findings from code-review. Compare them with actual
-   checks and browser behavior. A code review does not replace user acceptance.
-   Check a normal case and a boundary; refresh/restart when saving is required.
-   Use worksheets/acceptance.txt if helpful. State what remains unverified and
-   decide accept/revise/continue with a reason.
+7. EXPLORE DESIGNS AND IMPROVE FUTURE RUNS
+   Checking and acceptance already belong to implement; use the reported checks,
+   Standards/Spec findings and actual page there. Do not repeat that whole cycle.
+   prototype: choose one unsettled design question. For example, should a new
+   mastery mode remove an item after one correct answer or two in a row?
+   Let the agent build a throwaway state demo; operate wrong/correct/correct and
+   correct/wrong sequences. Confirm a verdict and reason before real development.
+   Preserve the demo outside main on its own throwaway branch and link it from
+   the issue. No tests, production persistence or elaborate abstractions in it.
+   improve-codebase-architecture: scope a changed area, inspect the agent's
+   before/after HTML candidates, then select one or choose no refactor. Discuss
+   module interface, hidden complexity and the behavior tests that must survive.
+   retro: provide the actual session sources. Ask for ranked environment
+   improvements after inspecting existing check commands and guardrails.
+   Choose a small useful follow-up; a proposal is not an automatic repository edit.
+   Practise one method meaningfully; the lecturer demonstrates the other paths.
 
 Show a design choice, one complete ticket, a running result and an acceptance
 reason. See docs/assessment.txt. Source tracing, hand-written Python, a test count

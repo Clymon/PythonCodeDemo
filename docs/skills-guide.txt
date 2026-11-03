@@ -6,7 +6,7 @@ Original Skill files and their supporting resources are unchanged. MIT license
 and copyright notice: .codebuddy/skills/LICENSE. Classroom explanations and Python
 examples live outside the Skills. The earlier lab-* workflows are archived on main.
 
-Five main entry points for this workshop
+Core delivery methods
   grill-me     Discuss unresolved choices until you share an understanding.
   to-spec      Synthesize the confirmed discussion into a specification.
   to-tickets   Propose complete vertical slices and real blocking dependencies.
@@ -20,13 +20,15 @@ Dependencies, prepared before class
   implement -> tdd + code-review
   tdd -> codebase-design when an interface/seam needs design vocabulary
   setup-matt-pocock-skills -> per-repo issue tracker and domain-doc configuration
-All 12 original folders are included in .codebuddy/skills/. The installed 5.8.4
+All 16 original folders are included in .codebuddy/skills/. The installed 5.8.4
 client loaded to-tickets natively from this project without global installation.
 Open the supplied exercise normally to load its project configuration, keeping
 Default Permissions. Project entry points may not appear in the / picker in this
 version; explicitly ask the agent to use the named Skill and inspect its Load skill
 record. Personal ZIP imports are an optional way to expose an entry in the picker.
 Both the entry point and its dependencies must be present.
+
+Installation steps: docs/skills-installation.txt.
 
 Project preparation
 Use the original setup-matt-pocock-skills once per exercise repository. For this
@@ -49,3 +51,27 @@ engineering idea against this Python app's public API and actual browser.
 Installed-client import/selection/invocation evidence and remaining checks:
 docs/workbuddy-rehearsal.txt. A selected Skill or successful import is not proof
 that every nested tool, sub-agent or review step was performed.
+
+AFTER A USABLE FEATURE — choose a method for a real question
+  prototype: throwaway code to settle one design question. Logic branch produces
+    one clickable HTML with visible state, free play and guided cases; UI branch
+    compares structurally different views. No production database by default.
+    Capture the verdict and a source pointer in the issue; preserve the prototype
+    on a throwaway branch outside main. It can also be used earlier in design.
+  improve-codebase-architecture: investigate recent change hotspots and domain
+    docs; present visual before/after candidates in an HTML report; let the human
+    select one, then grill through constraints and interfaces. A report is not
+    permission to refactor everything. Dependency: codebase-design, grilling,
+    domain-modeling. A small repository can legitimately need no refactor.
+  retro: inspect actual session sources and suggest improvements to the agent
+    environment, ordered by severity. Read existing checks first; deterministic
+    errors belong in automated guardrails, judgment belongs in review guidance.
+    Dependency: writing-for-agents. Retro does not mean architecture refactoring.
+
+implement already uses TDD at agreed seams where possible, checks regularly,
+runs the full suite at the end, calls code-review and commits. Read its evidence
+and try the delivered behavior in that block; do not repeat a separate manual
+test-and-review ceremony afterwards. Coverage questions belong in this loop.
+The new methods' source files are installed; their WorkBuddy execution has not
+yet been rehearsed. Existing native-loading evidence applies only to the named
+Skills in docs/workbuddy-rehearsal.txt.
