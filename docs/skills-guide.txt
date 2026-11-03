@@ -78,3 +78,6 @@ Skills in docs/workbuddy-rehearsal.txt.
 
 Concise input / Agent actions / output summaries for all 16 methods:
 docs/skills-at-a-glance.txt. Original files remain authoritative.
+
+Principles before methods: docs/design-principles.txt explains tracer bullets
+before to-tickets, and deep modules before tdd and architecture improvement.

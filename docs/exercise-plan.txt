@@ -38,6 +38,8 @@ product data. Your work is to make decisions, direct development and judge evide
    Challenge 2: turn the agreed need into precise, complete and manageable work.
    Use to-spec to synthesize the discussion. Confirm a useful public verification
    boundary; the agent explains what it catches and misses. Review scope/examples.
+   Before to-tickets, use the tracer-bullet principle: one narrow complete behavior
+   across the layers it needs, usable or verifiable on its own.
    Watch the to-tickets demonstration for complete, independently usable slices.
    Inspect and approve one actionable ticket within the short planning block.
    Judge what works after each ticket and which dependencies genuinely block it.
@@ -48,7 +50,10 @@ product data. Your work is to make decisions, direct development and judge evide
    Challenge 3: require evidence for the intended behavior.
    Select one ready ticket and use implement. It calls tdd where appropriate,
    builds one red/green behavior at a time, runs checks, calls code-review and commits.
-   Agree on test boundaries before tests. Try the real page and inspect evidence.
+   Agree on test boundaries before tests. Use deep modules to explain why callers
+   and tests can observe a clear interface while implementation details stay
+   inside it. GET /api/review is the project illustration.
+   Try the real page and inspect evidence.
    Explain Git diff/staging/commit with this first real feature change. If already
    committed, inspect git show HEAD. A commit is a delivery checkpoint; the human
    still accepts or requests revision.

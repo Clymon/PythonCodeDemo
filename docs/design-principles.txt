@@ -1,0 +1,44 @@
+TWO DESIGN PRINCIPLES FOR AI CODING
+
+TRACER BULLET — how to divide the work
+A tracer bullet is one narrow, complete end-to-end behavior through the layers
+it needs, independently demonstrable or verifiable and small enough for one
+fresh Agent context. Existing layers can be reused. It does not require touching
+every file, every layer or the schema in every ticket.
+
+Learning Lab:
+  T01: see current mistakes and reopen the relevant lesson.
+  T02: answer directly in review. It depends on the review list.
+Both are usable outcomes. Grouping all layouts, all endpoints and all data work
+separately delays a complete result. Ask what a learner can do after each ticket.
+Use to-tickets to propose these slices and their real blocking edges, then approve
+the granularity. Wide mechanical refactors may instead need expand-contract;
+this is an explicit exception in the original method, not today's feature task.
+
+DEEP MODULES — how to hide complexity
+A deep module offers substantial capability behind a small interface. Callers
+learn fewer details while useful behavior remains hidden inside the module.
+The interface includes behavior, constraints and errors, not just a function's
+argument count or a URL. Depth is a relationship, not a source-line measurement.
+
+Learning Lab illustration:
+  Caller: the review page requests GET /api/review.
+  Inside: identify the learner, read history, apply the latest-answer rule,
+          return safe public questions and a count.
+  Observable contract: the agreed review behavior at the HTTP interface.
+Tests exercise that contract. Internal implementation can change while those
+behavior checks survive. The small teaching endpoint illustrates encapsulation;
+it is not a measured demonstration of unusually deep architecture.
+
+Use the principle before introducing tdd, then recall it when evaluating an
+architecture candidate: can a review-rule change remain behind one interface?
+The current app already centralizes review membership in quiz.review_questions.
+Do not invent duplicated frontend rules or force a refactor in a small app.
+Let improve-codebase-architecture investigate actual recent change hot spots,
+show evidence-backed before/after candidates, then select one or no change.
+
+Teaching order: principle, project example, human judgment, appropriate Skill.
+Projection: tracer bullet 49-51 before to-tickets 52; deep modules 57 before the
+internal implement/tdd explanation 58; recall and architecture judgment 75-76.
+Source: Matt Pocock's original to-tickets and codebase-design, pinned in
+.codebuddy/skills/UPSTREAM.json. Original files and MIT license are unchanged.
