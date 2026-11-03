@@ -24,12 +24,12 @@ Continuity supports every stage. Verification returns during final acceptance.
 These are possible risks, not a claim that every AI agent necessarily fails.
 
 First case: shared requirements
-Only after the workflow and problem map, introduce the wrong-answer-review request.
-An illustrative I understand acknowledgment leaves a key decision open: after a
-wrong answer is corrected, should the review keep the historical mistake or show
-only current mistakes? Both purposes are plausible, and the teacher may still be
-forming their own design decisions. Discussing and aligning requirements is the
-response to Challenge 1, not the whole of software development.
+After the workflow and problem map, revisit the teacher's goal: maintain their
+own lesson material and let students study it. Existing-lesson editing, adding
+lessons and importing material are different solutions. Saving immediately and
+preparing a draft before publication create different teaching workflows. The
+Agent investigates existing capabilities; the human chooses useful behavior and
+scope. Confirm concrete examples before using to-spec and to-tickets.
 
 Where Skills fit
 A Skill provides reusable task instructions. Introduce the concept and one method

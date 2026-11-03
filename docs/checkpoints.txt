@@ -1,15 +1,15 @@
-GIT CHECKPOINTS — learner practice
+REFERENCE VERSIONS
 
-student is the current working starting product; context-workshop-start fixes
-the LLM/context/agent introduction edition. Create your own exercise branch.
-The older matt-workshop-start preserves the previous original-Skill introduction.
-Inspect git status and git diff, then save verified work with a local commit.
-Commit work you want to keep before switching to a different branch or tag.
-Ignored instance/ data persists across switches, so use independent copies for
-reference demonstrations and separate browser profiles when needed.
+student / lms-workshop-start: the English LMS learner starting product. No teacher
+content-writing UI. This is the branch cloned for participant exercises.
+main / lms-instructor-reference: the same LMS plus a prepared local text editor,
+preview and save-to-student-view reference. It illustrates one choice, not the
+participant's required answer. No actual WorkBuddy run is claimed for this version.
 
-The instructor's incremental reference tags and their build evidence are listed
-on main in instructor/checkpoints.txt. Ask for a reference when it helps answer
-a concrete question. They illustrate one design, not a required learner policy.
-Older published tags remain available. The earlier batch of failing tests is a
-historical reference; the current lesson observes one behavior before adding more.
+demo/workbuddy-matt-original and matt-demo-* preserve historical original-Skill
+WorkBuddy rehearsal on the earlier mistake-review product. demo/agent-workflow,
+workshop-start and older demo-* tags preserve older prepared examples. They are
+not the current LMS starting point and their tags are not moved.
+
+Save your work before switching. Ignored local SQLite/instance data is not reset
+by Git. Use separate copies and browser contexts for independent demonstrations.

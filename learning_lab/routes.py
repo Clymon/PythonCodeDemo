@@ -1,7 +1,7 @@
-"""HTTP boundary: validate requests, call learning rules, return safe JSON."""
+"""HTTP interface for course navigation, practice and saved learning progress."""
 import secrets
-from flask import Blueprint, current_app, jsonify, render_template, request, session
-from . import db, quiz
+from flask import Blueprint, jsonify, render_template, request, session
+from . import catalog, db, quiz
 
 bp = Blueprint("classroom", __name__)
 
@@ -13,15 +13,7 @@ def identity():
     return session["learner"]
 
 
-def catalog():
-    return current_app.config["CATALOG"]
-
-
-def questions():
-    return [q for lesson in catalog()["lessons"] for q in lesson["questions"]]
-
-
-@bp.before_request
+@bp.before_app_request
 def validate_write():
     identity()
     if request.method == "POST":
@@ -33,43 +25,67 @@ def validate_write():
             return jsonify(error="Send a JSON object."), 400
 
 
-def progress():
-    attempts = db.history(identity())
-    return {"score": quiz.first_attempt_score(attempts),
-            "completed": db.completed(identity()), "attempt_count": len(attempts),
-            "review_count": len(quiz.review_questions(attempts, questions()))}
+def progress(selected=None):
+    visible_lessons = catalog.lessons(selected)
+    lesson_ids = {l["id"] for l in visible_lessons}
+    question_ids = {q["id"] for l in visible_lessons for q in l.get("questions", [])}
+    attempts = [a for a in db.history(identity()) if a["question_id"] in question_ids]
+    completed = [key for key in db.completed(identity()) if key in lesson_ids]
+    return {"score": quiz.first_attempt_score(attempts), "completed": completed,
+            "attempt_count": len(attempts), "lesson_count": len(visible_lessons),
+            "question_count": len(question_ids),
+            "completion_percent": round(100 * len(completed) / len(visible_lessons)) if visible_lessons else 0}
+
+
+def summary(selected):
+    return {**{k: v for k, v in selected.items() if k != "chapters"},
+            "chapter_count": len(selected.get("chapters", [])), **progress(selected)}
 
 
 @bp.get("/")
-def index():
+@bp.get("/courses/<course_id>")
+@bp.get("/courses/<course_id>/lessons/<lesson_id>")
+def index(course_id=None, lesson_id=None):
+    if course_id:
+        selected = catalog.course(course_id)
+        if selected is None or (lesson_id and lesson_id not in {l["id"] for l in catalog.lessons(selected)}):
+            return render_template("not-found.html"), 404
     return render_template("index.html")
+
+
+@bp.get("/api/courses")
+def course_list():
+    return jsonify(title=catalog.content()["title"], courses=[summary(c) for c in catalog.courses()],
+                   csrf_token=session["csrf"])
+
+
+@bp.get("/api/courses/<course_id>")
+def course_detail(course_id):
+    selected = catalog.course(course_id)
+    if selected is None:
+        return jsonify(error="Course not found."), 404
+    return jsonify(course=catalog.public_course(selected), progress=progress(selected),
+                   csrf_token=session["csrf"])
 
 
 @bp.get("/api/dashboard")
 def dashboard():
-    content = catalog()
-    lessons = [{**{k: v for k, v in lesson.items() if k != "questions"},
-                "questions": [quiz.public_question(q) for q in lesson["questions"]]}
-               for lesson in content["lessons"]]
-    return jsonify(title=content["title"], subtitle=content["subtitle"], lessons=lessons,
+    # Aggregate learning state remains useful to checks and future platform work.
+    return jsonify(title=catalog.content()["title"], courses=[summary(c) for c in catalog.courses()],
+                   lessons=[l for c in catalog.courses() for ch in catalog.public_course(c)["chapters"] for l in ch["lessons"]],
                    csrf_token=session["csrf"], **progress())
 
 
 @bp.post("/api/answers")
 def answer():
     payload = request.get_json()
-    question = next((q for q in questions() if q["id"] == payload.get("question_id")), None)
+    question = next((q for q in catalog.questions() if q["id"] == payload.get("question_id")), None)
     if question is None:
         return jsonify(error="Question not found."), 404
-    mode = payload.get("mode", "quiz")
-    if mode not in ("quiz", "review"):
+    if payload.get("mode", "quiz") != "quiz":
         return jsonify(error="Unknown practice mode."), 400
-    if mode == "review":
-        candidates = quiz.review_questions(db.history(identity()), questions())
-        if question["id"] not in {q["id"] for q in candidates}:
-            return jsonify(error="This question is no longer in your review. Start a new round."), 409
     try:
-        attempt = quiz.make_attempt(question, payload.get("choice"), mode)
+        attempt = quiz.make_attempt(question, payload.get("choice"), "quiz")
     except ValueError as error:
         return jsonify(error=str(error)), 400
     db.save_attempt(identity(), attempt)
@@ -77,16 +93,9 @@ def answer():
                    explanation=question["explanation"], **progress())
 
 
-@bp.get("/api/review")
-def review():
-    candidates = quiz.review_questions(db.history(identity()), questions())
-    safe = [quiz.public_question(question) for question in candidates]
-    return jsonify(questions=safe, count=len(safe))
-
-
 @bp.post("/api/lessons/<lesson_id>/complete")
 def complete_lesson(lesson_id):
-    if not any(lesson["id"] == lesson_id for lesson in catalog()["lessons"]):
+    if catalog.lesson(lesson_id) is None:
         return jsonify(error="Lesson not found."), 404
     value = request.get_json().get("completed")
     if not isinstance(value, bool):

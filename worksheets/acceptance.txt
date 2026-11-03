@@ -1,9 +1,10 @@
-HUMAN ACCEPTANCE NOTES — optional classroom worksheet
-Specification and selected ticket:
-Expected result from an agreed example:
-Observed result and method (test / browser / other):
-What a test or code-review report proves:
+OPTIONAL DELIVERY NOTES
+
+Approved goal and usable path:
+What I observed as teacher:
+What I observed as student:
+One normal and one meaningful boundary example:
+Existing learning behavior preserved:
+What the Agent checked/reviewed:
 What remains unverified:
-Your decision (accept / revise / continue):
-Reason and next step:
-A Git commit records a snapshot. Your acceptance decision still needs evidence.
+Accept / request correction / continue, and why:

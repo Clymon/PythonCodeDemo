@@ -1,35 +1,18 @@
-ONE ANSWER, THROUGH THE WHOLE SYSTEM
+LMS STARTING PRODUCT — navigate when investigation needs it
 
-Browser page (templates/index.html + static/app.css)
-    Learner selects an option and presses Check answer.
-        |
-Browser behavior (static/app.js)
-    fetch POST /api/answers {question_id, choice, mode}
-        |
-HTTP boundary (routes.py)
-    Validate JSON, browser token, question and practice mode.
-        |
-Learning rules (quiz.py)
-    Check the answer; preserve original score; select review candidates.
-        |
-Storage (db.py)
-    Append an attempt in instance/learning-lab.sqlite.
-        |
-JSON response -> browser feedback, counters and next interaction.
+app.py starts one local Flask process. learning_lab/__init__.py loads course content
+and initializes storage. catalog.py is the shared reading interface over the course,
+chapter and lesson hierarchy. routes.py exposes course/navigation/learning behavior.
+quiz.py holds existing scoring rules; db.py stores learner progress and attempts.
+The English interface is templates/index.html and static/app.js/app.css. Local
+resources need no CDN, build step or cloud account.
 
-Python serves both the frontend files and API. The frontend is HTML/CSS/JS;
-Python runs on the server, not directly inside the browser. SQLite is a local
-file, not an additional service. All assets are local; no Node build is needed.
+Trace a real teaching flow before proposing changes. The participant describes a
+teaching purpose; the Agent investigates source facts and relevant checks, then
+explains reusable capabilities, missing capabilities and meaningful consequences.
 
-API MAP
-GET  /                       HTML shell
-GET  /api/dashboard          safe lesson content and this profile's progress
-POST /api/answers            check and persist a valid quiz/review answer
-POST /api/lessons/<id>/complete  save or undo reading completion
-GET  /api/review             latest-answer-wrong questions (reference version)
-
-Question keys remain in server-side JSON. The ordinary dashboard and review
-responses omit answer keys. Feedback explains an answer after submission.
-Reading completion, original score and current review membership are different
-concepts. A corrected review can reduce current mistakes while leaving 0/1 as
-the original score. Tests should preserve that distinction.
+On student, content is read-only and loaded once at startup. A future maintenance
+workflow needs a deliberate persistence/visibility decision. Do not mutate stable
+IDs or quiz policy as a side effect of editing text. Main adds one prepared local
+text-maintenance reference. See instructor/content-authoring/ only when a reference
+is requested; it is not the learner's approved specification.

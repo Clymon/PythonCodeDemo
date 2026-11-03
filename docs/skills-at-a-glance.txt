@@ -20,7 +20,7 @@ to-tickets
   You get: Usable tasks + blockers.
 
 implement
-  You provide: Ready T01 + specification + test interface
+  You provide: Ready task + specification + test interface
   Agent: Builds and checks the change; Calls code-review; Commits the result.
   You get: Code + evidence + a commit.
 

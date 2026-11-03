@@ -1,0 +1,160 @@
+.editor-layout {
+  display: grid;
+  grid-template-columns: 290px minmax(0, 1fr);
+  min-height: calc(100vh - 76px);
+}
+.editor-directory {
+  padding: 28px 23px;
+  background: #fff;
+  border-right: 1px solid var(--line);
+}
+.editor-directory > .back-link {
+  margin: 0 0 30px;
+}
+.editor-directory label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 9px;
+}
+.editor-directory select {
+  width: 100%;
+  font: 13px Arial;
+  padding: 11px 8px;
+  border: 1px solid #d9e1ed;
+  border-radius: 5px;
+  background: white;
+  color: #324663;
+}
+.editor-directory .chapter h3 {
+  margin-left: 0;
+}
+.editor-directory .chapter button {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 13px;
+  text-align: left;
+  background: none;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5a6c85;
+  border-radius: 5px;
+}
+.editor-directory .chapter button.active {
+  background: #eaf1ff;
+  color: #235dc5;
+  font-weight: 650;
+}
+.editor-work {
+  padding: 33px 47px;
+  max-width: 1190px;
+}
+.editor-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+.editor-heading h1 {
+  font-size: 29px;
+}
+.editor-heading p {
+  font-size: 13px;
+  color: var(--muted);
+}
+.editor-policy {
+  font-size: 12px;
+  color: #526b96;
+  background: #eaf0fa;
+  padding: 13px 16px;
+  border-radius: 5px;
+  margin: 25px 0;
+}
+#lesson-form {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px;
+}
+#lesson-form label {
+  font-size: 13px;
+  font-weight: 650;
+  display: block;
+  margin: 0 0 9px;
+}
+#lesson-form input,
+#lesson-form textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d6deea;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #263a55;
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+#lesson-form textarea {
+  resize: vertical;
+}
+.field-help {
+  margin: -4px 0 11px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.editor-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+#save-message {
+  font-size: 12px;
+  color: #267c55;
+  line-height: 1.6;
+  max-width: 300px;
+}
+#preview-panel {
+  padding: 30px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  margin-top: 26px;
+}
+#preview-panel h2 {
+  font-size: 26px;
+}
+#preview-panel > p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.teaching-link {
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: 0;
+}
+@media (max-width: 760px) {
+  .editor-layout {
+    display: block;
+  }
+  .editor-directory {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .editor-work {
+    padding: 25px 20px;
+  }
+  .editor-heading {
+    display: block;
+  }
+  .editor-heading > .button {
+    margin-top: 10px;
+  }
+  #lesson-form {
+    padding: 20px;
+  }
+  .teaching-link {
+    display: none;
+  }
+}

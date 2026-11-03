@@ -1,14 +1,12 @@
-CONTINUITY WITH THE ORIGINAL handoff SKILL
+HANDOFF FOR A FRESH AGENT
 
-Use a fresh implementation task when its spec and ticket are self-contained.
-Continue the current discussion when it still carries useful reasoning.
+Use original handoff when context portability helps. Preserve the human's choices,
+why they matter, the approved spec/current task, branch, evidence and next action.
+Reference existing artifacts instead of copying them. The method writes its portable
+record in the OS temporary directory and suggests the next Skills.
 
-For another collaborator, harness or directory, use Matt's original handoff.
-It writes a portable document in the operating system's temporary directory
-(TMPDIR, /tmp, or Windows TEMP), references existing artifacts instead of copying
-them, redacts sensitive data and suggests Skills for the next agent.
-
-Supply the returned document to the receiving task and ask it to reconstruct the
-relevant choices, current state and next action before editing. A written file
-alone does not show that the recipient understood the work.
-The worksheet in worksheets/acceptance.txt can hold the human continuity check.
+A fresh recipient should explain: what teaching problem are we solving; which
+content/visibility choices were approved; what works now; what remains; and what
+would count as completion? Check its explanation before allowing edits.
+Main's optional reference is text editing with immediate visibility, not a default
+policy for the class. Old review-feature run records describe the earlier product.

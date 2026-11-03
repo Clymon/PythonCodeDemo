@@ -31,7 +31,7 @@ class ClassroomTests(unittest.TestCase):
                 self.assertEqual(asset.status_code, 200)
 
     def test_fresh_profile_has_lessons_without_answer_keys(self):
-        self.assertEqual(len(self.initial["lessons"]), 3)
+        self.assertEqual(len(self.initial["lessons"]), 5)
         self.assertEqual(self.initial["score"], {"correct": 0, "answered": 0})
         self.assertEqual(self.initial["completed"], [])
         for lesson in self.initial["lessons"]:
@@ -105,6 +105,57 @@ class ClassroomTests(unittest.TestCase):
         result = restarted.get("/api/dashboard").get_json()
         self.assertEqual(result["attempt_count"], 1)
         self.assertEqual(result["completed"], ["first-program"])
+
+
+    def test_courses_have_real_chapters_and_scoped_lesson_routes(self):
+        listing = self.client.get("/api/courses").get_json()
+        self.assertEqual([c["id"] for c in listing["courses"]], ["ai-coding", "teaching-practice"])
+        detail = self.client.get("/api/courses/ai-coding").get_json()
+        self.assertEqual(len(detail["course"]["chapters"]), 2)
+        self.assertEqual(detail["progress"]["lesson_count"], 3)
+        self.assertEqual(self.client.get("/courses/ai-coding/lessons/first-program").status_code, 200)
+        self.assertEqual(self.client.get("/courses/teaching-practice/lessons/first-program").status_code, 404)
+        self.assertEqual(self.client.get("/api/courses/missing").status_code, 404)
+
+    def test_general_subject_content_has_optional_code_quizzes_and_resources(self):
+        detail = self.client.get("/api/courses/teaching-practice").get_json()
+        lesson = detail["course"]["chapters"][0]["lessons"][0]
+        self.assertEqual(lesson["id"], "activity-design")
+        self.assertNotIn("code", lesson)
+        self.assertEqual(lesson["questions"], [])
+        self.assertTrue(lesson["paragraphs"])
+        with self.client.get(lesson["resources"][0]["url"]) as response:
+            self.assertEqual(response.status_code, 200)
+        for ch in detail["course"]["chapters"]:
+            for lesson in ch["lessons"]:
+                for q in lesson["questions"]:
+                    self.assertEqual(set(q), {"id", "prompt", "options"})
+
+    def test_learning_progress_and_scores_are_scoped_to_the_course(self):
+        self.answer()
+        self.answer(question_id="feedback-action", choice="B")
+        self.client.post("/api/lessons/activity-design/complete", json={"completed": True}, headers=self.headers)
+        ai = self.client.get("/api/courses/ai-coding").get_json()["progress"]
+        teaching = self.client.get("/api/courses/teaching-practice").get_json()["progress"]
+        self.assertEqual(ai["score"], {"correct": 1, "answered": 1})
+        self.assertEqual(ai["completed"], [])
+        self.assertEqual(teaching["score"], {"correct": 1, "answered": 1})
+        self.assertEqual(teaching["completed"], ["activity-design"])
+        self.assertEqual(teaching["completion_percent"], 50)
+
+    def test_empty_course_is_valid_and_reports_zero_progress(self):
+        self.app.config["CATALOG"]["courses"].append({"id": "empty", "title": "Empty", "chapters": []})
+        result = self.client.get("/api/courses/empty").get_json()
+        self.assertEqual(result["progress"]["completion_percent"], 0)
+        self.assertEqual(result["progress"]["lesson_count"], 0)
+
+    def test_catalog_identity_conflict_is_rejected_at_startup(self):
+        fixture = json.loads((Path(self.app.root_path) / "data/catalog.json").read_text())
+        fixture["courses"][1]["chapters"][0]["lessons"][0]["id"] = "first-program"
+        path = Path(self.directory.name) / "invalid-catalog.json"
+        path.write_text(json.dumps(fixture))
+        with self.assertRaisesRegex(ValueError, "unique, stable id"):
+            create_app({**self.config, "CATALOG_PATH": str(path)})
 
 
 class LearningRuleTests(unittest.TestCase):

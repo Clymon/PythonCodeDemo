@@ -1,29 +1,33 @@
-READ-ONLY PROJECT EXPLORATION — individual practice after the demonstration
+EXPLORE THE PLATFORM FOR A TEACHING PURPOSE
 
-Keep the selected student project and Default Permissions. Start by investigating
-what exists. Do not edit code, install packages or start another server for these
-questions. No Skill invocation is required for the exploration itself.
+First operate it: My courses -> Course -> Content -> Lesson. Open a reading-only
+lesson and a lesson with questions. Try a question and mark a lesson complete.
+Use My progress to see what the student can see afterwards. These sample lessons
+are product data, not the syllabus that workshop participants must study.
 
-1. Ask about the product
-   What does this project do? Who is it for, and what can a learner do with it?
-   Observe which files or results the agent obtains before its explanation.
-   The participants improve this app; the sample learners use its fictional lessons.
+Situation: I have a lesson plan and two practice questions. I want my students to
+complete that learning in this platform and I want to maintain my material myself.
 
-2. Ask a deeper question in the same useful conversation
-   If a learner gets a question wrong and later answers it correctly,
-   what changes on the progress page, and why?
-   Ask it to investigate existing behavior without changing files or running tests.
-   Follow the evidence it retrieves. Compare one claim with the actual page if useful.
-   Your existing practice history can affect the displayed totals; the worked
-   one-question example in the reference assumes a fresh browser profile.
+1. Get oriented with the Agent
+   Help me understand this platform as a teacher. What can students do now, how
+   is learning organized, and which parts of my teaching arrangement can it use?
 
-3. Explain an observed step
-   Identify one claim in the answer and one file/tool result supporting it.
-   Explain how that information could inform a later model call.
-   Read actual commands: Thinking or a label saying Run checks is not proof of a
-   test run. Do not demand a sub-agent merely to make the activity look complex.
+2. Investigate the intended improvement in the same useful discussion
+   Please check what is already possible, what teachers and students would do,
+   what is missing, and two simple ways to move forward. Explain their effects
+   on teaching work. Recommend a first step. Investigate before changing anything.
 
-The colored illustration is conceptual. It shows information categories and
-separate contexts, not intercepted requests, actual token counts or a benchmark.
-Open docs/interactive/llm-context-agent.html locally in a browser for the steps.
-Later, when you need product decisions, choose original grill-me / grilling.
+These are example situations, not scripts to memorize. Ask a follow-up that
+matters to your intended lesson. The Agent chooses which files, tools, existing
+checks or browser observations provide evidence. Technical discovery belongs to
+the Agent; the participant does not need to ask where data loads or why a server
+restarts. The Agent translates findings into capabilities, limits and consequences.
+
+3. Make a supported decision
+   Check one important claim against the actual page or evidence the Agent used.
+   Explain why its recommended first step would help and what choice is still open.
+   Keep that useful context for the requirements discussion; do not implement yet.
+
+Observe real Thinking/file/tool activity as it happens. A tool label is not proof
+of a test run. No compulsory sub-agent, greeting edit or staged AI failure.
+The colored context illustration is conceptual, not an intercepted model request.
