@@ -34,6 +34,8 @@ The prepared clone includes the methods; personal import is optional.
 15:40–15:55  4. Specification and complete tickets (15 min)
 to-spec synthesizes the discussion. Demonstrate to-tickets for complete usable
 slices and actual blockers; participants inspect and approve one actionable task.
+Before the method, teach tracer bullets as narrow complete usable behaviors.
+Use the project T01/T02 outcomes rather than a technical-layer work package.
 Agree on public verification boundaries. Evidence: a spec and one ready ticket.
 
 15:55–16:05  Break (10 min)
@@ -44,6 +46,8 @@ code-review. Observe a real missing-behavior check then a
 passing check, inspect the running slice and the scope of the commit. Explain
 git diff/staging/commit with this first real feature change. If already committed,
 inspect git show HEAD instead of making a duplicate commit for the lesson.
+Use the deep-module principle before tdd: a small public interface hides
+useful behavior. Observe GET /api/review, then test the agreed behavior there.
 Read the existing Standards/Spec review, discuss any meaningful coverage gap
 and accept or revise from the specification and actual product evidence here.
 
@@ -58,7 +62,8 @@ acceptance in the implementation block; no second disconnected check workflow.
 Prototype (9 min): one design question, original method, clickable state and a
 verdict; extend review practice with one-correct versus two-consecutive-correct.
 Architecture (7 min): inspect an actual changed area, see a visual candidate
-report, choose whether a refactor pays off. Use improve-codebase-architecture.
+report, choose whether a refactor pays off. Recall deep modules: can a rule
+change stay behind one useful interface? Use improve-codebase-architecture.
 Retro (6 min): inspect the actual session and existing checks; propose one
 environment improvement rather than more instructions. Use retro.
 Choose the next useful method (3 min). Prototype can also happen before
