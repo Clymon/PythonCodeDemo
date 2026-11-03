@@ -1,0 +1,95 @@
+MATT'S ORIGINAL SKILLS — QUICK REFERENCE
+
+For each method: what you provide, what the Agent does, what you get.
+These summaries explain unchanged upstream methods; they are not replacement
+Skill instructions. Select a method when its problem appears, not as a fixed chain.
+
+grill-me
+  You provide: An idea with open choices
+  Agent: Investigates code facts; Asks ready questions; Recommends and confirms.
+  You get: Decisions + reasons.
+
+to-spec
+  You provide: Confirmed discussion
+  Agent: Synthesizes agreed choices; Confirms where to test; Writes to the tracker.
+  You get: Feature spec + test decisions.
+
+to-tickets
+  You provide: Specification + project facts
+  Agent: Drafts usable slices; Checks genuine blockers; Publishes after approval.
+  You get: Usable tasks + blockers.
+
+implement
+  You provide: Ready T01 + specification + test interface
+  Agent: Builds and checks the change; Calls code-review; Commits the result.
+  You get: Code + evidence + a commit.
+
+handoff
+  You provide: Current session + next focus
+  Agent: Captures state and next focus; Links existing artifacts; Suggests the next Skills.
+  You get: Handoff doc + references.
+
+prototype
+  You provide: One unsettled design question
+  Agent: Chooses a logic or UI demo; Builds a throwaway prototype; Exposes state or alternatives.
+  You get: A clickable experiment.
+
+improve-codebase-architecture
+  You provide: A painful change + domain docs
+  Agent: Explores change hot spots; Creates a visual HTML report; Discusses your chosen option.
+  You get: Before / after + a proposal.
+
+retro
+  You provide: Actual session + repo checks
+  Agent: Reads session evidence; Checks friction and guardrails; Ranks improvement candidates.
+  You get: Prioritized improvements.
+
+setup-matt-pocock-skills
+  You provide: An existing project
+  Agent: Inspects current configuration; Agrees tracker and doc layout; Gets approval, then writes.
+  You get: Tracker + project guidance.
+
+grilling
+  You provide: Unsettled design choices
+  Agent: Maps dependent decisions; Asks ready questions in rounds; Confirms shared understanding.
+  You get: Explicit choices + reasons.
+
+tdd
+  You provide: An agreed public test seam
+  Agent: Writes one failing behavior check; Makes the smallest change that passes.
+  You get: A passing behavior slice.
+
+code-review
+  You provide: A diff, fixed point and spec
+  Agent: Reviews Standards and Spec with separate Agents; Reports the axes separately.
+  You get: Two review reports.
+
+codebase-design
+  You provide: An interface design question
+  Agent: Consults deep-module vocabulary and principles.
+  You get: Clearer interface decisions.
+
+domain-modeling
+  You provide: Unclear project terminology
+  Agent: Challenges terms against examples and code; Records resolved terms and qualifying trade-offs.
+  You get: Glossary and warranted ADRs.
+
+grill-with-docs
+  You provide: A design needing durable domain records
+  Agent: Combines grilling and domain-modeling.
+  You get: Shared decisions and domain records.
+
+writing-for-agents
+  You provide: A document an Agent must follow
+  Agent: Clarifies steps, completion criteria and reference pointers.
+  You get: Usable Agent instructions.
+
+implement calls tdd where possible at pre-agreed seams, runs applicable checks
+regularly and the full suite once at the end, calls code-review and commits.
+tdd uses one red/green behavior slice at a time; refactoring belongs to review.
+The human still confirms intent, approves task boundaries and accepts delivery.
+
+Source: https://github.com/mattpocock/skills
+Pin: 59db609eb1e18aaf59b63284d0e52255aff0c63c. MIT license preserved.
+Full original instructions/resources: .codebuddy/skills/.
+Installation: docs/skills-installation.txt. Evidence: docs/workbuddy-rehearsal.txt.
