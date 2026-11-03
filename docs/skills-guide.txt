@@ -75,3 +75,6 @@ test-and-review ceremony afterwards. Coverage questions belong in this loop.
 The new methods' source files are installed; their WorkBuddy execution has not
 yet been rehearsed. Existing native-loading evidence applies only to the named
 Skills in docs/workbuddy-rehearsal.txt.
+
+Concise input / Agent actions / output summaries for all 16 methods:
+docs/skills-at-a-glance.txt. Original files remain authoritative.
