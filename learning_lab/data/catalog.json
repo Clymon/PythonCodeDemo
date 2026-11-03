@@ -1,120 +1,221 @@
 {
-  "title": "Small steps. Real skills.",
-  "subtitle": "A little Python, a little practice, and a clear view of your progress.",
-  "lessons": [
+  "title": "Learning Lab",
+  "courses": [
     {
-      "id": "first-program",
-      "number": "01",
-      "category": "PYTHON",
-      "color": "orange",
-      "minutes": 5,
-      "title": "Your first Python program",
-      "description": "Give a small program an input and make its output your own.",
-      "objective": "Recognize input, processing and output in a tiny Python program.",
-      "paragraphs": [
-        "A program turns an input into a result by following explicit rules. Start with one small behavior you can observe.",
-        "In this example, the learner's name is the input. The function builds a greeting and returns it. print displays the result."
-      ],
-      "code": "def greet(name):\n    return f\"Hello, {name}!\"\n\nprint(greet(\"Ayu\"))",
-      "takeaway": "Change the input to predict a different output. Then run the program to check your prediction.",
-      "questions": [
+      "id": "ai-coding",
+      "code": "AI101",
+      "title": "AI Coding Essentials",
+      "description": "Explore a working program, preserve useful changes and check real behavior.",
+      "instructor": "Learning Lab Faculty",
+      "term": "Teacher Development",
+      "accent": "blue",
+      "chapters": [
         {
-          "id": "python-input",
-          "prompt": "In greet(\"Ayu\"), which part is the input?",
-          "options": {
-            "A": "The name Ayu",
-            "B": "The word return",
-            "C": "The printed greeting"
-          },
-          "answer": "A",
-          "explanation": "Ayu is the argument passed into greet. The function uses it to build the greeting."
+          "id": "foundations",
+          "title": "Working with a project",
+          "lessons": [
+            {
+              "id": "first-program",
+              "minutes": 5,
+              "title": "Your first Python program",
+              "description": "Give a small program an input and make its output your own.",
+              "objective": "Recognize input, processing and output in a tiny Python program.",
+              "paragraphs": [
+                "A program turns an input into a result by following explicit rules. Start with one small behavior you can observe.",
+                "In this example, the learner's name is the input. The function builds a greeting and returns it. print displays the result."
+              ],
+              "code": "def greet(name):\n    return f\"Hello, {name}!\"\n\nprint(greet(\"Ayu\"))",
+              "takeaway": "Change the input to predict a different output. Then run the program to check your prediction.",
+              "questions": [
+                {
+                  "id": "python-input",
+                  "prompt": "In greet(\"Ayu\"), which part is the input?",
+                  "options": {
+                    "A": "The name Ayu",
+                    "B": "The word return",
+                    "C": "The printed greeting"
+                  },
+                  "answer": "A",
+                  "explanation": "Ayu is the argument passed into greet. The function uses it to build the greeting."
+                },
+                {
+                  "id": "python-return",
+                  "prompt": "What does return do inside greet?",
+                  "options": {
+                    "A": "Closes the terminal",
+                    "B": "Sends a result back to the caller",
+                    "C": "Automatically saves a file"
+                  },
+                  "answer": "B",
+                  "explanation": "return provides the function's result to its caller. Printing and saving are separate operations."
+                }
+              ],
+              "code_language": "python",
+              "resources": []
+            },
+            {
+              "id": "git-checkpoint",
+              "minutes": 6,
+              "title": "Keep a useful checkpoint",
+              "description": "See what changed before you save a version of your project.",
+              "objective": "Inspect a change, select it and record it as a local commit.",
+              "paragraphs": [
+                "Before accepting an AI-generated change, inspect what the agent changed. git status lists file states; git diff shows changes to tracked files that you have not staged.",
+                "git add selects file contents for the next commit. git commit records that staged snapshot in your local repository. Uploading it is a separate operation."
+              ],
+              "code": "git status\ngit diff\ngit add app.py\ngit diff --staged\ngit commit -m \"Improve greeting\"",
+              "takeaway": "A useful checkpoint has an understandable change and evidence that the behavior still works.",
+              "questions": [
+                {
+                  "id": "git-inspect",
+                  "prompt": "Which command shows unstaged content changes in tracked files?",
+                  "options": {
+                    "A": "git commit",
+                    "B": "git diff",
+                    "C": "git clone"
+                  },
+                  "answer": "B",
+                  "explanation": "git diff compares the working tree with the staging area. git status summarizes file states."
+                },
+                {
+                  "id": "git-local",
+                  "prompt": "Where does git commit save the staged snapshot?",
+                  "options": {
+                    "A": "Only on GitHub",
+                    "B": "Inside the browser",
+                    "C": "In the local repository"
+                  },
+                  "answer": "C",
+                  "explanation": "A commit is local. A later push can send commits to a remote repository."
+                }
+              ],
+              "code_language": "shell",
+              "resources": []
+            }
+          ]
         },
         {
-          "id": "python-return",
-          "prompt": "What does return do inside greet?",
-          "options": {
-            "A": "Closes the terminal",
-            "B": "Sends a result back to the caller",
-            "C": "Automatically saves a file"
-          },
-          "answer": "B",
-          "explanation": "return provides the function's result to its caller. Printing and saving are separate operations."
+          "id": "quality",
+          "title": "Building with confidence",
+          "lessons": [
+            {
+              "id": "behavior-tests",
+              "minutes": 6,
+              "title": "Test what matters",
+              "description": "Turn a rule into a check that can catch a real mistake.",
+              "objective": "Connect a behavior requirement to an observable test result.",
+              "paragraphs": [
+                "An agent saying 'done' is a starting point for review. Agree on what should happen for a specific input, then check the observed result.",
+                "For a greeting, check the returned text. For a quiz, also check invalid choices, repeated answers and whether progress survives a restart."
+              ],
+              "code": "import unittest\n\nclass GreetingTests(unittest.TestCase):\n    def test_uses_the_learners_name(self):\n        self.assertEqual(greet(\"Ayu\"), \"Hello, Ayu!\")",
+              "takeaway": "A passing test supports the behavior it checks. Think about which important behaviors remain untested.",
+              "questions": [
+                {
+                  "id": "test-done",
+                  "prompt": "What is the best evidence that a requested behavior works?",
+                  "options": {
+                    "A": "The agent says it is finished",
+                    "B": "The program has many files",
+                    "C": "The observed result matches an agreed check"
+                  },
+                  "answer": "C",
+                  "explanation": "Verify an observable result against the agreed behavior. Neither a completion message nor file count proves correctness."
+                },
+                {
+                  "id": "test-context",
+                  "prompt": "What helps a fresh agent session continue your work?",
+                  "options": {
+                    "A": "Saved decisions, relevant files and current test results",
+                    "B": "Assuming it remembers every earlier conversation",
+                    "C": "Starting with an empty project"
+                  },
+                  "answer": "A",
+                  "explanation": "A handoff records decisions and evidence. The next session can inspect the current files and checks."
+                }
+              ],
+              "code_language": "python",
+              "resources": []
+            }
+          ]
         }
       ]
     },
     {
-      "id": "git-checkpoint",
-      "number": "02",
-      "category": "GIT",
-      "color": "blue",
-      "minutes": 6,
-      "title": "Keep a useful checkpoint",
-      "description": "See what changed before you save a version of your project.",
-      "objective": "Inspect a change, select it and record it as a local commit.",
-      "paragraphs": [
-        "Before accepting an AI-generated change, inspect what the agent changed. git status lists file states; git diff shows changes to tracked files that you have not staged.",
-        "git add selects file contents for the next commit. git commit records that staged snapshot in your local repository. Uploading it is a separate operation."
-      ],
-      "code": "git status\ngit diff\ngit add app.py\ngit diff --staged\ngit commit -m \"Improve greeting\"",
-      "takeaway": "A useful checkpoint has an understandable change and evidence that the behavior still works.",
-      "questions": [
+      "id": "teaching-practice",
+      "code": "EDU102",
+      "title": "Designing Learning Activities",
+      "description": "Plan a useful activity and support learners with actionable feedback.",
+      "instructor": "Teaching Practice Team",
+      "term": "Teacher Development",
+      "accent": "violet",
+      "chapters": [
         {
-          "id": "git-inspect",
-          "prompt": "Which command shows unstaged content changes in tracked files?",
-          "options": { "A": "git commit", "B": "git diff", "C": "git clone" },
-          "answer": "B",
-          "explanation": "git diff compares the working tree with the staging area. git status summarizes file states."
+          "id": "activity-planning",
+          "title": "From outcomes to activities",
+          "lessons": [
+            {
+              "id": "activity-design",
+              "title": "Design a focused learning activity",
+              "description": "Connect a learning outcome with an observable student action.",
+              "minutes": 7,
+              "objective": "Choose an activity that produces visible evidence of learning.",
+              "paragraphs": [
+                "Start with one thing the learner should be able to do. Choose a small task that lets them demonstrate it.",
+                "For a comparison lesson, learners can sort two examples and explain their decision. That gives the teacher something more useful than a show of hands.",
+                "A useful activity connects its instructions, learner action and evidence. Keep the first attempt short enough to discuss."
+              ],
+              "takeaway": "Ask what learners will produce, and how that work will inform your next step.",
+              "resources": [
+                {
+                  "label": "Activity planning worksheet",
+                  "url": "/static/resources/activity-planning.txt"
+                }
+              ],
+              "questions": []
+            }
+          ]
         },
         {
-          "id": "git-local",
-          "prompt": "Where does git commit save the staged snapshot?",
-          "options": {
-            "A": "Only on GitHub",
-            "B": "Inside the browser",
-            "C": "In the local repository"
-          },
-          "answer": "C",
-          "explanation": "A commit is local. A later push can send commits to a remote repository."
-        }
-      ]
-    },
-    {
-      "id": "behavior-tests",
-      "number": "03",
-      "category": "TESTING",
-      "color": "green",
-      "minutes": 6,
-      "title": "Test what matters",
-      "description": "Turn a rule into a check that can catch a real mistake.",
-      "objective": "Connect a behavior requirement to an observable test result.",
-      "paragraphs": [
-        "An agent saying 'done' is a starting point for review. Agree on what should happen for a specific input, then check the observed result.",
-        "For a greeting, check the returned text. For a quiz, also check invalid choices, repeated answers and whether progress survives a restart."
-      ],
-      "code": "import unittest\n\nclass GreetingTests(unittest.TestCase):\n    def test_uses_the_learners_name(self):\n        self.assertEqual(greet(\"Ayu\"), \"Hello, Ayu!\")",
-      "takeaway": "A passing test supports the behavior it checks. Think about which important behaviors remain untested.",
-      "questions": [
-        {
-          "id": "test-done",
-          "prompt": "What is the best evidence that a requested behavior works?",
-          "options": {
-            "A": "The agent says it is finished",
-            "B": "The program has many files",
-            "C": "The observed result matches an agreed check"
-          },
-          "answer": "C",
-          "explanation": "Verify an observable result against the agreed behavior. Neither a completion message nor file count proves correctness."
-        },
-        {
-          "id": "test-context",
-          "prompt": "What helps a fresh agent session continue your work?",
-          "options": {
-            "A": "Saved decisions, relevant files and current test results",
-            "B": "Assuming it remembers every earlier conversation",
-            "C": "Starting with an empty project"
-          },
-          "answer": "A",
-          "explanation": "A handoff records decisions and evidence. The next session can inspect the current files and checks."
+          "id": "feedback",
+          "title": "Supporting the next attempt",
+          "lessons": [
+            {
+              "id": "useful-feedback",
+              "title": "Feedback that supports a next attempt",
+              "description": "Help a learner see the gap and choose a useful next action.",
+              "minutes": 5,
+              "objective": "Distinguish actionable feedback from general praise.",
+              "paragraphs": [
+                "Feedback helps when it names what is working, identifies a specific gap and offers a next step.",
+                "A learner should be able to use the feedback in a second attempt. Keep it about the task and the evidence you observed."
+              ],
+              "questions": [
+                {
+                  "id": "feedback-action",
+                  "prompt": "Which response gives a learner a useful next action?",
+                  "options": {
+                    "A": "Good job.",
+                    "B": "Compare the two examples and explain one difference.",
+                    "C": "Please work harder."
+                  },
+                  "answer": "B",
+                  "explanation": "A specific comparison gives the learner an action they can take and evidence they can discuss."
+                },
+                {
+                  "id": "feedback-evidence",
+                  "prompt": "What helps you judge whether feedback was useful?",
+                  "options": {
+                    "A": "The learner can improve a later attempt.",
+                    "B": "The feedback is very long.",
+                    "C": "Every learner receives the same sentence."
+                  },
+                  "answer": "A",
+                  "explanation": "An improved later attempt is observable evidence that the feedback helped."
+                }
+              ]
+            }
+          ]
         }
       ]
     }

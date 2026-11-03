@@ -43,3 +43,8 @@ unchanged at the same pinned source revision. Their WorkBuddy runtime execution
 is not yet rehearsed. The prepared clickable prototype is external teaching
 material, not a recorded original-Skill execution. Native loading observations
 above remain scoped to the actual named methods and client version.
+
+LMS revision, 3 November 2026: the earlier question/implementation/18-check records
+above describe the old mistake-review product. Native loading observations retain
+their named-method/client scope. The current LMS and content-maintenance reference
+have Python/browser checks but have not been run through WorkBuddy yet.

@@ -3,7 +3,8 @@
 Keep the app runnable as one local Flask process with local assets. Use English
 in the learner interface. Simulated practice data belongs in ignored instance/.
 
-Read docs/learning-rules.txt for existing behavior. Resolve new product choices
+Read docs/learning-rules.txt for existing behavior and GLOSSARY.md for course,
+chapter and lesson meaning. Resolve new product choices
 with the learner and carry confirmed decisions into the configured feature spec
 and tickets. Investigate code facts yourself. Instructor examples and reference
 history are used when requested, rather than choosing a policy for the learner.

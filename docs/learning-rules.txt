@@ -1,15 +1,18 @@
-LEARNING LAB — current behavior
+LEARNING LAB — existing behavior for the LMS starting product
 
-One browser profile represents one anonymous learner. No names or real records.
-The server owns the answer keys, scoring and persistent attempts.
-An invalid option records nothing. A valid answer appends an attempt.
-Only the first quiz attempt per question contributes to the original score.
-Reading completion is a separate learner-controlled marker, not a grade.
-Progress survives refresh and server restart with the same browser cookie.
+Courses contain ordered chapters; chapters contain lessons. IDs are stable and
+unique. A lesson can contain ordinary text; code, resources and checks are optional.
+One browser profile is an anonymous learner. Reading completion and valid attempts
+are stored in SQLite. First valid quiz answers set the original score; retries do
+not replace it. Invalid answers save no attempt. Reading completion awards no mark.
+Course progress and scores include that course's current lessons/questions only.
+Records survive refresh and server restart with the same browser cookie.
 
-These describe existing behavior. New review policy is a design decision:
-read docs/client-brief.txt and discuss it with the learner. Carry the confirmed
-choices into the feature spec and tickets using the configured tracker.
-Reasonable alternatives may be explored.
-Explain any proposed change to an existing rule and obtain a deliberate decision.
-The instructor reference illustrates one solution; it does not choose for you.
+The student catalog is prepared content loaded from a local file at server startup.
+It has no content-writing endpoint or teacher editor. That fact is for the Agent
+to investigate when it matters; learners discuss its effects on teaching work.
+Decisions for content maintenance remain open: first supported workflow, content
+scope, preview/visibility, identity and learning-record compatibility. Explain any
+change to an existing rule and get a deliberate decision. Instructor examples do
+not select the participant's policy. This is a local workshop, not an institutional
+account system. The main Teaching demo is explicitly a local reference view.

@@ -1,15 +1,14 @@
 """Application setup. Routes, learning rules and storage live in separate files."""
-import json
 import os
 import secrets
 from pathlib import Path
 from flask import Flask
-from . import db, routes
+from . import db, routes, catalog
 
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(DATABASE=str(Path(app.instance_path) / "learning-lab.sqlite"))
+    app.config.from_mapping(DATABASE=os.environ.get("LEARNING_LAB_DATABASE", str(Path(app.instance_path) / "learning-lab.sqlite")))
     if test_config:
         app.config.update(test_config)
     Path(app.instance_path).mkdir(parents=True, exist_ok=True)
@@ -24,8 +23,7 @@ def create_app(test_config=None):
         app.config["SECRET_KEY"] = key_file.read_text(encoding="utf-8")
     app.config.update(SESSION_COOKIE_HTTPONLY=True, SESSION_COOKIE_SAMESITE="Lax",
                       MAX_CONTENT_LENGTH=8192)
-    app.config["CATALOG"] = json.loads(
-        (Path(app.root_path) / "data/catalog.json").read_text(encoding="utf-8"))
+    app.config["CATALOG"] = catalog.load(app.config.get("CATALOG_PATH", Path(app.root_path) / "data/catalog.json"))
     db.init_app(app)
     app.register_blueprint(routes.bp)
     return app

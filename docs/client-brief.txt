@@ -1,10 +1,14 @@
-FEATURE REQUEST — wrong-answer review
+PLATFORM IMPROVEMENT — teachers maintain their own content
 
-Our learners can read lessons, answer questions and see their first-attempt score.
-They need a convenient way to practise questions they got wrong before class.
+I have a lesson plan and two practice questions. I want my students to complete
+that learning in this platform. Later I need to maintain my material myself,
+without editing program files.
 
-Help me decide what a useful first version should do before implementing it.
-Investigate the existing application yourself. Explain findings that affect my
-choices in plain language, and ask me for product decisions you cannot look up.
+Help me understand what the platform can already support, what teachers and
+students would do, and what is missing. Investigate facts yourself. Explain
+options through their effect on teaching and learning. Recommend a useful first
+step, ask me for decisions you cannot discover and wait for shared understanding.
 
-I will confirm the rules, scope and examples used to accept the result.
+The shared goal is not a prescribed feature list. An editor, import workflow,
+new-lesson workflow and draft/publish behavior are possible choices, not already
+approved requirements. Agree scope and evidence with the human before building.
