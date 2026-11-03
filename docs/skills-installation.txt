@@ -1,0 +1,52 @@
+INSTALL MATT'S ORIGINAL SKILLS — WorkBuddy Code workspace
+
+CLASSROOM CLONE
+Cloning student copies the prepared .codebuddy/skills/ folder. Inspect it before
+first use; you do not need to clone Matt's source again inside the exercise.
+It contains 16 original folders and 47 unchanged upstream files plus notices.
+
+NEW PROJECT: DOWNLOAD THE SOURCE OUTSIDE YOUR TARGET PROJECT
+Source: https://github.com/mattpocock/skills
+  git clone https://github.com/mattpocock/skills.git matt-skills
+  git -C matt-skills checkout 59db609eb1e18aaf59b63284d0e52255aff0c63c
+ZIP alternative:
+https://github.com/mattpocock/skills/archive/59db609eb1e18aaf59b63284d0e52255aff0c63c.zip
+
+COPY COMPLETE FOLDERS
+Create .codebuddy/skills/ under your target Python project. Copy these complete
+folders directly into it, retaining names, SKILL.md and every supporting file.
+From skills/productivity/:
+  grill-me, grilling, handoff, writing-for-agents
+From skills/engineering/:
+  grill-with-docs, domain-modeling, setup-matt-pocock-skills, to-spec, to-tickets,
+  implement, tdd, code-review, codebase-design, prototype,
+  improve-codebase-architecture, retro
+Example: learning-lab/.codebuddy/skills/prototype/SKILL.md
+Also keep the MIT license and source pin/selection. Do not nest the whole Matt
+source repository as one Skill, or copy entry SKILL.md files without resources.
+
+CHECK ACTUAL LOADING
+Open the target root as WorkBuddy's Code workspace. Request a setup-only native
+load of the original named Skill, report its source, then stop before its workflow.
+Inspect the actual Load skill activity and project path. Recorded 5.8.4 evidence
+shows to-tickets loaded from the project even when absent from the slash picker.
+That observation does not establish every newly added method's runtime behavior.
+Check docs/workbuddy-rehearsal.txt for exact observed methods and limitations.
+
+CONFIGURE A NEW PROJECT
+File installation and project workflow configuration are separate steps.
+Original setup-matt-pocock-skills explores the project, discusses tracker choices,
+presents intended edits and waits for confirmation before writing. The classroom
+clone already has AGENTS.md and docs/agents/ configured for a local Markdown
+tracker under .scratch/. Inspect and reuse them. Run setup for a project that
+needs configuration; do not rerun it just to reproduce a classroom screenshot.
+
+OPTIONAL PERSONAL IMPORT
+The offline learner package has one original ZIP per Skill. Import those through
+Skills > Add Skill > Upload Skill when personal reuse is wanted, retain scanning
+and dependencies, then inspect loading. The full source-repository ZIP is source
+material, not a prepared single-Skill import. Keep Default Permissions.
+
+Official project configuration reference:
+https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Project
+Original source/license: .codebuddy/skills/UPSTREAM.json and LICENSE.

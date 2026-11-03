@@ -22,13 +22,14 @@ Smart zone/dumb zone is a metaphor, not a fixed percentage or a universal limit.
 15:20–15:40  3. Workflow and shared requirements (20 min)
 First explain the main development workflow and four AI-coding challenges using
 docs/development-workflow.txt. Requirements alignment addresses Challenge 1.
-Then present the unclear review request and illustrative I understand response.
+Then present the concrete review request and compare plausible interpretations.
 Compare two valid meanings after the same wrong-then-correct answer. Introduce
 Skill as a reusable method and use original grill-me to discuss/confirm behavior.
 Keep the other challenges visible for the later task, testing and context stages.
 Pace: workflow/challenges 5 min; concrete need 3; method 2; discussion/confirmation 10.
 Evidence: locate the current development stage and confirm behavior with an example.
-Personal import and Skill references remain optional later explanations.
+After defining a Skill, inspect its source, installation and actual loading.
+The prepared clone includes the methods; personal import is optional.
 
 15:40–15:55  4. Specification and complete tickets (15 min)
 to-spec synthesizes the discussion. Demonstrate to-tickets for complete usable
@@ -43,17 +44,27 @@ code-review. Observe a real missing-behavior check then a
 passing check, inspect the running slice and the scope of the commit. Explain
 git diff/staging/commit with this first real feature change. If already committed,
 inspect git show HEAD instead of making a duplicate commit for the lesson.
+Read the existing Standards/Spec review, discuss any meaningful coverage gap
+and accept or revise from the specification and actual product evidence here.
 
 16:40–16:55  6. Project rules and continuity (15 min)
 Return to Challenge 4 and the introductory context model. Place stable rules, a loaded method,
 shared vocabulary and current spec/tickets appropriately. Use handoff for another
 teacher and check a fresh recipient's reconstruction before editing.
 
-16:55–17:20  7. Review and acceptance (25 min)
-Return to Challenge 3 at final verification/delivery. Read the existing Standards/Spec
-findings and compare tests with actual browser
-evidence. Reuse that review rather than restarting it just to fill a stage.
-Check useful gaps and explain the limits of Python coverage. Decide accept/revise.
+16:55–17:20  7. Explore designs and improve future work (25 min)
+Keep checking, coverage interpretation, Standards/Spec review and human
+acceptance in the implementation block; no second disconnected check workflow.
+Prototype (9 min): one design question, original method, clickable state and a
+verdict; extend review practice with one-correct versus two-consecutive-correct.
+Architecture (7 min): inspect an actual changed area, see a visual candidate
+report, choose whether a refactor pays off. Use improve-codebase-architecture.
+Retro (6 min): inspect the actual session and existing checks; propose one
+environment improvement rather than more instructions. Use retro.
+Choose the next useful method (3 min). Prototype can also happen before
+specification: this late placement broadens the workflow after the first feature.
+Evidence: a design verdict or one justified next improvement, not three rushed
+live runs. Use the prepared prototype while an agent is still implementing.
 
 17:20–17:30  Demonstration and transfer (10 min)
 Show a decision, a complete task, a running result and an acceptance reason.
