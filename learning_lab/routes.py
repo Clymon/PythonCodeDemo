@@ -42,6 +42,7 @@ def summary(selected):
             "chapter_count": len(selected.get("chapters", [])), **progress(selected)}
 
 
+@bp.get("/saved-lessons")
 @bp.get("/")
 @bp.get("/courses/<course_id>")
 @bp.get("/courses/<course_id>/lessons/<lesson_id>")
@@ -64,7 +65,10 @@ def course_detail(course_id):
     selected = catalog.course(course_id)
     if selected is None:
         return jsonify(error="Course not found."), 404
+    saved_ids = db.saved_lessons(identity())
     return jsonify(course=catalog.public_course(selected), progress=progress(selected),
+                   saved_lesson_ids=[item["id"] for item in catalog.lessons(selected)
+                                     if item["id"] in saved_ids],
                    csrf_token=session["csrf"])
 
 
@@ -102,3 +106,23 @@ def complete_lesson(lesson_id):
         return jsonify(error="Completed must be true or false."), 400
     db.set_completed(identity(), lesson_id, value)
     return jsonify(**progress())
+
+@bp.get("/api/saved-lessons")
+def saved_lesson_list():
+    saved_ids = db.saved_lessons(identity())
+    items = [{"id": lesson["id"], "title": lesson["title"],
+              "course_id": course["id"], "course_title": course["title"],
+              "chapter_title": chapter["title"]}
+             for course in catalog.courses()
+             for chapter in course["chapters"]
+             for lesson in chapter["lessons"]
+             if lesson["id"] in saved_ids]
+    return jsonify(lessons=items, csrf_token=session["csrf"])
+
+
+@bp.post("/api/lessons/<lesson_id>/save")
+def save_for_later(lesson_id):
+    if catalog.lesson(lesson_id) is None:
+        return jsonify(error="Lesson not found."), 404
+    db.save_lesson(identity(), lesson_id)
+    return jsonify(saved=True)

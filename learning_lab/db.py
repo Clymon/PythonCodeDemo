@@ -13,6 +13,11 @@ CREATE TABLE IF NOT EXISTS attempts (
     created TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 CREATE INDEX IF NOT EXISTS attempts_learner ON attempts(learner, id);
+CREATE TABLE IF NOT EXISTS saved_lessons (
+    learner TEXT NOT NULL,
+    lesson_id TEXT NOT NULL,
+    PRIMARY KEY (learner, lesson_id)
+);
 CREATE TABLE IF NOT EXISTS completed_lessons (
     learner TEXT NOT NULL,
     lesson_id TEXT NOT NULL,
@@ -69,3 +74,15 @@ def set_completed(learner, lesson_id, value):
         else:
             connection.execute("DELETE FROM completed_lessons WHERE learner=? AND lesson_id=?",
                                (learner, lesson_id))
+
+def saved_lessons(learner):
+    return {row["lesson_id"] for row in get_db().execute(
+        "SELECT lesson_id FROM saved_lessons WHERE learner = ?", (learner,))}
+
+
+def save_lesson(learner, lesson_id):
+    connection = get_db()
+    with connection:
+        connection.execute(
+            "INSERT OR IGNORE INTO saved_lessons(learner, lesson_id) VALUES (?, ?)",
+            (learner, lesson_id))
