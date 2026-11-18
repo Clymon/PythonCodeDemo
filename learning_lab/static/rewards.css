@@ -1,0 +1,9 @@
+.rewards-page {max-width: 920px; margin: 44px auto; padding: 0 24px; color:#163c3a}
+.rewards-page h1 {font-size:clamp(38px,6vw,64px);margin:24px 0}
+.rewards-page h2 {font-size:30px;margin:32px 0 16px}
+.wallet,.badge-card {display:flex;gap:clamp(20px,7vw,90px);align-items:center;border-radius:12px;padding:26px 32px}
+.wallet {background:#153e3b;color:#fff;justify-content:space-between}.wallet p {margin:4px 0 8px}.wallet strong {font-size:64px;color:#daf8a8}.wallet b+p {margin-top:16px}
+.badge-card {background:#fff;border:1px solid #c8d8d2;gap:28px}.badge-card h3 {margin:0;font-size:28px}.badge-card button:disabled {opacity:.65}
+.medal {display:grid;place-items:center;border:5px double #926f23;background:#f5df9b;width:72px;height:72px;flex:none;border-radius:50%;font-size:39px;color:#775322}
+.owned {display:inline-block;background:#dff1da;color:#245534;padding:8px 12px;border-radius:5px}
+@media(max-width:480px){.wallet,.badge-card {padding:18px;gap:12px}.medal{width:48px;height:48px;font-size:26px}}

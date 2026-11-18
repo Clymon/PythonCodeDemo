@@ -46,3 +46,7 @@ demo/learning-rewards contains the instructor points and badges example.
 demo/saved-lessons contains the smaller optional bookmark example.
 Use a separate clone for it. The student branch is the classroom starting point.
 See docs/checkpoints.txt for earlier examples.
+
+PRIMARY INSTRUCTOR DEMO
+Run python rewards_demo.py and open the printed /instructor URL.
+Follow docs/rewards-walkthrough.txt for the two classroom tickets.

@@ -999,3 +999,6 @@ pre {
 .resume-course p { margin:0; font-size:13px; color:#e3ece7; }
 .resume-course .button { background:#d6ecd9; color:#174e3a; white-space:nowrap; }
 @media(max-width:600px) { .resume-course { align-items:flex-start; flex-direction:column; } }
+
+.topbar .reward-link {margin-left:auto;color:#e2f6cd;text-decoration:underline;text-underline-offset:4px;font-weight:600}.topbar .reward-link + .profile {margin-left:0}
+@media(max-width:600px){.topbar .reward-link + .profile {display:none}}

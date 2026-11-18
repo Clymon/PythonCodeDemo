@@ -1,0 +1,21 @@
+LEARNING REWARDS | Instructor walkthrough
+
+Run python rewards_demo.py in demo/learning-rewards. Open the /instructor URL
+printed by the program. The demo has its own cookie and a temporary database.
+Restart the process for a fresh walkthrough. A regular python app.py run keeps
+the local learner's own data.
+
+1. Start at Feedback that supports a next attempt. Leave the quiz unanswered.
+   In the starter, demonstrate Mark as complete and ask: Should this earn points?
+   Return to this separate reference when the class is ready to inspect a result.
+2. In the reference, mark the lesson complete. My rewards now shows 10 points.
+   Undo and complete it again; reload. Open My rewards. The balance is still 10.
+3. Redeem First Steps. The available balance is 0, earned is 10, and spent is 10.
+   Refresh. The badge stays in the learner's collection.
+4. Open /rewards in a fresh private window. The new learner has zero points and
+   cannot redeem. Keep the reference separate from each learner's WorkBuddy run.
+
+First ticket: .scratch/learning-rewards/issues/01-earn-once.md
+Second ticket: .scratch/learning-rewards/issues/02-redeem.md
+Actual browser captures: docs/screenshots/rewards-earned.png and rewards-owned.png.
+For the smaller optional bookmark example, use demo/saved-lessons.
