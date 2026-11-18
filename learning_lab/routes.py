@@ -69,7 +69,8 @@ def index(course_id=None, lesson_id=None):
             return render_template("not-found.html"), 404
         if lesson_id and db.enrollment(identity(), course_id) is None:
             return redirect(url_for(".index", course_id=course_id))
-    return render_template("index.html")
+    from .rewards import wallet
+    return render_template("index.html", reward_balance=wallet(identity())["balance"])
 
 
 @bp.get("/api/courses")
@@ -158,7 +159,8 @@ def complete_lesson(lesson_id):
     if db.enrollment(identity(), owner["id"]) is None:
         return enrollment_required()
     db.set_completed(identity(), lesson_id, value)
-    return jsonify(**progress())
+    from .rewards import wallet
+    return jsonify(**progress(), reward_balance=wallet(identity())["balance"])
 
 
 @bp.get("/api/saved-lessons")

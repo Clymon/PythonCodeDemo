@@ -98,6 +98,8 @@ def set_completed(learner, lesson_id, value):
     connection = get_db()
     with connection:
         if value:
+            from .rewards import award_completion
+            award_completion(connection, learner, lesson_id)
             connection.execute("INSERT OR IGNORE INTO completed_lessons VALUES (?,?)",
                                (learner, lesson_id))
         else:

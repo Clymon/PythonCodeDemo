@@ -25,6 +25,8 @@ def create_app(test_config=None):
                       MAX_CONTENT_LENGTH=65536)
     app.config["CATALOG"] = catalog.load(app.config.get("CATALOG_PATH", Path(app.root_path) / "data/catalog.json"))
     db.init_app(app)
+    from . import rewards
+    rewards.setup(app)
     app.register_blueprint(routes.bp)
     teaching.init_app(app)
     return app

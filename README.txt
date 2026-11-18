@@ -50,7 +50,11 @@ demo/saved-lessons contains the smaller optional bookmark example.
 Use a separate clone for it. The student branch is the classroom starting point.
 See docs/checkpoints.txt for earlier examples.
 
-PREPARED TEACHER WALKTHROUGH
+PRIMARY INSTRUCTOR DEMO
+Run python rewards_demo.py and open the printed /instructor URL.
+Follow docs/rewards-walkthrough.txt for the two classroom tickets.
+
+OPTIONAL SAVED LESSONS WALKTHROUGH
   python instructor_demo.py
 Open the printed /instructor URL for a partly learned course, a second
 enrollment and a four-course catalog. Follow docs/instructor-walkthrough.txt

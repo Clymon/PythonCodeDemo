@@ -1,6 +1,6 @@
 CURRENT TWO-HOUR WORKSHOP
-Use student for the starting platform and demo/saved-lessons for the prepared demo.
-Follow docs/exercise-plan.txt and docs/instructor-walkthrough.txt.
+Use student for the starting platform and demo/learning-rewards for the points demo.
+Follow docs/exercise-plan.txt and docs/rewards-walkthrough.txt.
 The notes below describe earlier workshops.
 
 CURRENT LLM/CONTEXT INTRODUCTION EDITION

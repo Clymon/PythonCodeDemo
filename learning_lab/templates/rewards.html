@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>My rewards · Learning Lab</title><link rel="stylesheet" href="/static/app.css">
+<link rel="stylesheet" href="/static/rewards.css"><script defer src="/static/rewards.js"></script></head>
+<body><header class="topbar"><a class="brand" href="/"><span class="brand-icon">L</span>Learning Lab</a><span class="portal-name">Student portal</span></header>
+<main class="rewards-page"><a href="/">← My learning</a><h1>My rewards</h1>
+<section class="wallet" aria-label="Points balance"><div><p>Available points</p><strong id="balance">{{ wallet.balance }}</strong></div>
+<div><p>Earned from lessons</p><b>{{ wallet.earned }} points</b><p>Spent on badges</p><b>{{ wallet.spent }} points</b></div></section>
+<h2>Badges</h2><article class="badge-card">
+<div class="medal" aria-hidden="true">★</div><div><h3>First Steps</h3>
+<p>Complete a lesson to earn 10 points. Each lesson counts once.</p>
+{% if wallet.owned %}<strong class="owned">✓ In your collection</strong>
+{% else %}<button class="button primary" id="redeem" data-token="{{ token }}" {% if wallet.balance < wallet.price %}disabled{% endif %}>Redeem for {{ wallet.price }} points</button>{% endif %}
+</div></article><p id="reward-error" role="alert"></p></main></body></html>

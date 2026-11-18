@@ -1018,3 +1018,5 @@ pre {
   .saved-list a { grid-template-columns:1fr; }
   .saved-open { grid-column:1; grid-row:auto; }
 }
+.topbar .reward-link {margin-left:auto;color:#e2f6cd;text-decoration:underline;text-underline-offset:4px;font-weight:600}.topbar .reward-link + .profile {margin-left:0}
+@media(max-width:600px){.topbar .reward-link + .profile {display:none}}
