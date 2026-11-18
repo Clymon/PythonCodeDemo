@@ -14,6 +14,12 @@ def create_walkthrough_app(database):
         "SECRET_KEY": secrets.token_hex(32),
         "SESSION_COOKIE_NAME": "learning_lab_instructor",
     })
+    @app.get("/instructor")
+    def enter_walkthrough():
+        session.clear()
+        session.update(instructor_session)
+        return redirect("/")
+
     client = app.test_client()
     token = client.get("/api/courses").get_json()["csrf_token"]
     actions = [
@@ -31,12 +37,6 @@ def create_walkthrough_app(database):
 
     with client.session_transaction() as learner:
         instructor_session = dict(learner)
-
-    @app.get("/instructor")
-    def enter_walkthrough():
-        session.clear()
-        session.update(instructor_session)
-        return redirect("/")
 
     return app
 
