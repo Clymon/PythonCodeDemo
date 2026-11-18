@@ -14,6 +14,9 @@ class ClassroomTests(unittest.TestCase):
         self.client = self.app.test_client()
         self.initial = self.client.get("/api/dashboard").get_json()
         self.headers = {"X-CSRF-Token": self.initial["csrf_token"]}
+        for course in ("ai-coding", "teaching-practice"):
+            self.client.post(f"/api/courses/{course}/enroll", json={}, headers=self.headers)
+        self.initial = self.client.get("/api/dashboard").get_json()
 
     def tearDown(self):
         self.directory.cleanup()
@@ -30,7 +33,7 @@ class ClassroomTests(unittest.TestCase):
             with self.client.get("/static/" + name) as asset:
                 self.assertEqual(asset.status_code, 200)
 
-    def test_fresh_profile_has_lessons_without_answer_keys(self):
+    def test_enrolled_profile_has_lessons_without_answer_keys(self):
         self.assertEqual(len(self.initial["lessons"]), 5)
         self.assertEqual(self.initial["score"], {"correct": 0, "answered": 0})
         self.assertEqual(self.initial["completed"], [])
@@ -109,7 +112,8 @@ class ClassroomTests(unittest.TestCase):
 
     def test_courses_have_real_chapters_and_scoped_lesson_routes(self):
         listing = self.client.get("/api/courses").get_json()
-        self.assertEqual([c["id"] for c in listing["courses"]], ["ai-coding", "teaching-practice"])
+        self.assertEqual([c["id"] for c in listing["courses"]], ["ai-coding", "teaching-practice",
+                          "useful-feedback", "classroom-quizzes"])
         detail = self.client.get("/api/courses/ai-coding").get_json()
         self.assertEqual(len(detail["course"]["chapters"]), 2)
         self.assertEqual(detail["progress"]["lesson_count"], 3)

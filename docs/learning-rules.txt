@@ -8,7 +8,19 @@ not replace it. Invalid answers save no attempt. Reading completion awards no ma
 Course progress and scores include that course's current lessons/questions only.
 Records survive refresh and server restart with the same browser cookie.
 
-A learner can complete lessons and answer knowledge checks. The starter
+Anyone can browse the catalog and read an overview and syllabus. Enrollment
+adds one course to this learner's My learning. Enrolling again keeps their place.
+Opening a lesson records the last opened lesson in that course. My learning
+also offers the most recently opened lesson across enrolled courses. Opening
+a lesson is independent of completing it, submitting an answer or choosing a
+lesson to revisit. Learning record includes enrolled courses only.
+
+The browser stores a persistent profile cookie. Use the same browser profile,
+SQLite database and server key to resume. A database from the previous
+workshop automatically enrolls each learner in courses where it has evidence
+of completed lessons or recorded attempts. The existing scores remain.
+
+A learner can complete lessons and answer knowledge checks after enrolling. The starter
 catalog is read-only. The instructor wish concerns how a learner finds a
 lesson to revisit. Discuss the selection rule and acceptance example before
 adding that feature.
