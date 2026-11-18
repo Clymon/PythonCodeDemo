@@ -1,9 +1,14 @@
 LEARNING LAB — AI Agent Coding with WorkBuddy and Python
 
-Learning Lab is a small English-language learning platform. Open My courses,
-select Designing Learning Activities, and use the course syllabus to open a
-lesson. Reading, knowledge checks and completion already work. My progress
-shows the result for one course. Learning record shows all courses.
+My learning shows courses you have enrolled in with this browser profile.
+To begin, choose Browse courses, open Designing Learning Activities and inspect
+its syllabus. Enroll, select Start learning, then open a second lesson. Return
+to My learning and use Continue learning to reopen that lesson.
+
+Course catalog lists four short courses. My progress shows one course's
+completion and first-attempt scores. Learning record summarizes enrolled
+courses. A learner who already completed work in a previous version keeps
+those courses and records when opening this version with the same local data.
 
 STARTING PRODUCT
   git clone -b student https://github.com/Clymon/PythonCodeDemo.git learning-lab

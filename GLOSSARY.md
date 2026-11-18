@@ -16,3 +16,7 @@ answer to each question; later practice does not replace that result.
 from a quiz mark.
 **Learning record**: A summary across the learner's enrolled courses.
 **My progress**: The learner's reading completion and practice record in one course.
+**Course catalog**: The public list of available courses and their syllabi.
+**Enrollment**: A learner's membership in one course.
+**My learning**: The learner's own courses and most recent place to continue.
+**Last opened lesson**: The lesson a learner most recently opened in a course.

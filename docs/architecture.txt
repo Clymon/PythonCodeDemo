@@ -14,3 +14,14 @@ explains reusable capabilities, missing capabilities and meaningful consequences
 The catalog is loaded at startup. Existing learner records belong to an
 anonymous browser profile. Inspect the actual code and tests to learn which
 records exist before proposing new review behavior.
+
+GET /api/courses lists the public catalog. GET /api/dashboard returns enrolled
+courses and their records for this learner. Course detail exposes a syllabus
+before enrollment and full lesson content after enrollment. The learner joins
+with POST /api/courses/<id>/enroll. Valid answer and completion writes now
+require enrollment. All writes use the existing JSON and CSRF checks.
+
+POST /api/courses/<id>/lessons/<id>/open records a position in the enrollment
+row. The open order increases for this learner across courses, allowing the
+dashboard to select the last opened lesson even when requests happen within
+one second. Existing completions and attempts are migrated at startup.

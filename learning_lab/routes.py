@@ -10,6 +10,8 @@ def identity():
     if "learner" not in session:
         session["learner"] = secrets.token_hex(16)
         session["csrf"] = secrets.token_hex(24)
+    if not session.permanent:
+        session.permanent = True
     return session["learner"]
 
 
