@@ -976,6 +976,30 @@ pre {
   .syllabus-header { display:block; }
 }
 
+.catalog-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.catalog-card { display:flex; flex-direction:column; background:white; border:1px solid var(--line); border-radius:8px; padding:21px; }
+.catalog-meta { display:flex; justify-content:space-between; align-items:start; }
+.catalog-meta .course-code { width:70px; height:37px; border-top-width:3px; }
+.course-code.gold { background:#f5ebd5; color:#765d28; border-color:#c59f54; }
+.catalog-card h2 { font-size:22px; margin:15px 0 5px; line-height:1.25; }
+.catalog-card p,.catalog-facts,.catalog-count,.portal-empty p { color:var(--muted); font-size:14px; }
+.catalog-card p { margin:0 0 14px; }
+.catalog-facts { display:grid; gap:4px; margin-top:auto; font-size:12px; }
+.catalog-open { display:inline-block; color:var(--blue); font-weight:700; font-size:14px; }
+.catalog-card .catalog-open { border-top:1px solid var(--line); padding-top:12px; margin-top:14px; }
+.portal-empty { background:#e5efe8; padding:clamp(24px,5vw,60px); border:1px solid #d0dfd5; border-radius:8px; }
+.portal-empty h2 { margin:0; font:normal 30px Georgia,serif; }
+.portal-empty p { max-width:480px; margin:12px 0 23px; }
+.syllabus-lesson { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:13px 18px; border-top:1px solid var(--line); font-size:14px; }
+.enrolment-detail p.last-opened { color:#225842; margin-top:5px; }
+@media(max-width:600px) { .catalog-grid { grid-template-columns:1fr; } .portal-sidebar nav { flex-wrap:wrap; } }
+.resume-course { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:20px 24px; margin-bottom:14px; border-radius:8px; background:#193e38; color:white; }
+.resume-course .eyebrow { color:#b5d8c0; }
+.resume-course h2 { margin:7px 0 3px; font-size:23px; }
+.resume-course p { margin:0; font-size:13px; color:#e3ece7; }
+.resume-course .button { background:#d6ecd9; color:#174e3a; white-space:nowrap; }
+@media(max-width:600px) { .resume-course { align-items:flex-start; flex-direction:column; } }
+
 .bookmark-actions { display:flex; align-items:center; flex-wrap:wrap; gap:18px; margin:16px 0 18px; }
 .bookmark-actions a { color:var(--blue); font-size:14px; font-weight:600; }
 .save-lesson:disabled { background:#d8e9df; border-color:#b4cfc0; color:#234f3d; opacity:1; cursor:default; }
