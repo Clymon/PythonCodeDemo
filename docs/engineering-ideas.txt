@@ -1,36 +1,18 @@
-ENGINEERING IDEAS YOU CAN USE WITH AN AGENT
+DEVELOPMENT DECISIONS IN THE REVIEW EXAMPLE
 
-Behavior before implementation
-A teacher updates a lesson and students can study the revised material. That is
-a product result. The Agent investigates the supporting files, interfaces and
-data. You decide which material needs maintaining and when students should see it.
+The wish “find lessons I want to revisit” leaves the selection rule open.
+A student choosing a lesson and a program selecting it after an incorrect
+answer would produce different review lists. Ask who makes that choice.
 
-Concrete examples make a rule checkable
-A teacher corrects an instruction and clicks Save. Should the student see it on
-refresh, or should it wait for Publish? What happens to existing learning records?
-An expected result comes from an agreed product decision, independently of code.
+When a student chooses the lesson, agree how to tell that the feature works.
+One useful check is to leave the lesson, refresh, open the review list and
+return to the same lesson. The student's completion and score should still
+follow the existing rules.
 
-A complete slice crosses the necessary layers
-An existing-lesson text edit needs a usable page, validation, persistence and a
-learner result. Deliver one complete path before adding more fields or new-lesson
-creation. These are possible slices, not a predetermined participant task list.
+Use the agreed behavior to choose the first complete ticket. A working button
+alone leaves the learner without a route back. A saved list alone gives the
+learner no way to put a lesson there. Show one end-to-end action before
+extending the feature.
 
-A public boundary keeps checks stable
-An HTTP check can prove accepted/rejected edits and retained learning state.
-Browser observation checks that teachers and students can operate the real path.
-Callers should not need to understand the hidden storage and projection details.
-
-Feedback controls the next step
-A meaningful check fails for missing behavior, the Agent builds it and the check
-passes. Then choose the next behavior. A setup failure is a different problem.
-Original tdd supplies the method; Python supplies the concrete checks here.
-
-Project knowledge has different homes
-Keep durable rules brief. Load a Skill for its method. A glossary names shared
-concepts. A spec and tickets carry confirmed work. Reference those artifacts in
-new tasks instead of copying all past conversation into each context.
-
-Evidence has a scope
-A Standards/Spec review, API check, browser observation, restart trial and coverage
-report answer different questions. Ask what evidence proves and what it misses.
-The human judges acceptance and useful next work.
+A browser check shows what the learner can operate. An API test can check
+persistence and isolation. Review what actually ran and what remains open.

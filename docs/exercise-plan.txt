@@ -1,63 +1,24 @@
-LEARNING LAB — improve a familiar course platform with an AI Agent
+WORKSHOP PRACTICE
 
-Use student. The instructor demonstrates, then participants practise independently.
-The prepared starting product is a working English LMS with courses, chapters,
-lessons, optional examples/resources/checks and persistent course learning state.
-Teachers cannot yet maintain content through the interface. That is the shared
-business goal; the participant still chooses the solution and first usable slice.
+1. Try the app. Open Designing Learning Activities and choose its second lesson.
+   Answer a question, mark the lesson complete, and refresh My progress.
 
-1. OPERATE A COURSE
-   Open My courses, enter a course, use the chapter directory and read a lesson.
-   Try a check, mark a lesson complete and inspect My progress. Observe that
-   ordinary reading can work without code or a quiz. Do not study the sample
-   syllabus as the training's own course content.
+2. Ask WorkBuddy: What does this repository do? What can I try in the app?
+   Follow up: Does the app remember completed lessons after I refresh?
+   Look for a file read or a tool result that supports the answer.
 
-2. EXPLORE FOR A TEACHING PURPOSE
-   Use the situation in docs/agent-exploration.txt: a teacher has a lesson plan
-   and two questions and wants students to learn with them in this platform.
-   Ask the Agent what works already, what is missing and what first change helps.
-   It investigates technical facts and explains their teaching consequences.
-   Judge one supported claim and one recommendation, rather than reciting files.
+3. Watch the instructor discuss “I’d like to find the lessons I want to revisit.”
+   Choose that wish, lesson search, progress after a retry, or your own idea.
+   Select /grill-me and discuss the behavior you want. Record one decision and
+   one item to postpone. Let the Agent find the technical facts.
 
-3. DISCUSS REAL CHOICES — grill-me when useful
-   Use docs/client-brief.txt. Discuss a small set of credible approaches.
-   Examples: maintain an existing lesson or add new material; edit in the page
-   or import; show saved material immediately or separate preparation/publication.
-   Investigate facts rather than asking the human to know the code. The human
-   chooses product behavior, scope, trade-offs and acceptance examples.
-   Confirm shared understanding; do not silently adopt the instructor reference.
+4. Select /to-spec to collect confirmed decisions. Ask /to-tickets to propose
+   an order with one verifiable result per ticket. Choose a task ready to start.
+   Keep its path under .scratch/ and one observable acceptance condition.
 
-4. MAKE A READY PIECE OF WORK
-   Use to-spec to synthesize the discussion and agree a useful test interface.
-   Explain tracer bullets before to-tickets: one narrow COMPLETE usable behavior,
-   through the layers it needs, with real blockers and a size a fresh Agent can handle.
-   Use to-tickets to propose a breakdown; approve a first task that a teacher and
-   learner can actually use. No fixed C01/C02 sequence is prescribed to participants.
-   The configured local tracker stores spec/tickets under .scratch/<feature>/.
+5. After the break select /implement and reference your ticket. Follow the
+   Agent's changes, checks and review. Try the result when it is ready.
 
-5. LET THE AGENT IMPLEMENT
-   Use implement on an approved ready task. It uses tdd where possible at agreed
-   interfaces, checks regularly, runs the final suite, calls code-review and commits.
-   Deep modules: a clear operation hides useful behavior; tests exercise the agreed
-   interface so internal changes can preserve them. Try the actual teaching-to-
-   student workflow, read its evidence and accept or request a correction.
-
-6. PRESERVE WHAT THE NEXT TASK NEEDS
-   Use handoff when useful. A fresh recipient reconstructs the chosen scope,
-   visibility rules, completed result, evidence and next action before editing.
-   Keep durable decisions and references, rather than depending on chat memory.
-
-7. CHOOSE A METHOD FOR A REAL NEXT QUESTION
-   prototype: e.g. should saving expose a change to students or keep it as a draft?
-   Make the design question clickable, record a verdict and preserve its experiment
-   on a throwaway branch outside main. No production persistence or test suite in it.
-   improve-codebase-architecture: investigate real friction and visual candidates;
-   the human selects one or no change. A small app may need no refactor.
-   retro: inspect the actual coding session and existing checks before proposing
-   useful environment improvements. Practise one method meaningfully; demonstrate
-   the other paths. These are choices, not a compulsory sequence of every Skill.
-
-Show one design decision, a complete task, the actual usable result, evidence and
-one limit. Source-file memorization, handwritten Python and a coverage threshold
-are not completion criteria. Main's text editor is one prepared reference, not a
-required student design and not a recorded WorkBuddy implementation.
+6. Show the decision, one observed result, and what to do next. If the Agent
+   is still working, report its last completed action. Use /handoff for a new
+   session when you need to resume.

@@ -24,12 +24,10 @@ Continuity supports every stage. Verification returns during final acceptance.
 These are possible risks, not a claim that every AI agent necessarily fails.
 
 First case: shared requirements
-After the workflow and problem map, revisit the teacher's goal: maintain their
-own lesson material and let students study it. Existing-lesson editing, adding
-lessons and importing material are different solutions. Saving immediately and
-preparing a draft before publication create different teaching workflows. The
-Agent investigates existing capabilities; the human chooses useful behavior and
-scope. Confirm concrete examples before using to-spec and to-tickets.
+A learner wants to find lessons to revisit. A manually chosen lesson and an
+automatically selected difficult lesson come from different rules. The Agent
+investigates existing capabilities. The human chooses the rule, scope and
+one concrete acceptance example.
 
 Where Skills fit
 A Skill provides reusable task instructions. Introduce the concept and one method

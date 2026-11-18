@@ -1,45 +1,14 @@
-THREE-HOUR WORKSHOP — LLM, context and original Matt Skills
-14:30–17:30; instructor demonstration followed by individual practice.
+WORKSHOP · 13:30–15:30
 
-Learning outcome
-Explain how an agent obtains project evidence, then turn a teaching need into
-clear decisions and small verifiable tasks, choose an original Skill and judge
-the delivered behavior. The sample lessons inside the app are product content.
-
-14:30–14:55  Environment and the working platform (25 min)
-WorkBuddy Code, Git clone/branch and the prepared Python app. Operate My courses,
-course workspace, chapters/lessons and saved progress. Use a text-only lesson too.
-Accounts, installations and dependencies should be prepared before class.
-
-14:55–15:20  LLM, context and teaching-purpose exploration (25 min)
-Token/context/harness concepts, then operate the LMS and use the teaching situation
-in docs/agent-exploration.txt. The Agent investigates technical facts; the teacher
-asks what the platform supports, what is missing and which first step is useful.
-
-15:20–15:40  Development workflow and shared understanding (20 min)
-The common goal is teacher-maintained material students can learn with. Use grill-me
-for unresolved decisions. Compare a small set of approaches and their teaching
-consequences. Agree scope and a concrete example; the instructor does not preselect
-editing/import, new/existing lessons or save/publication policy for participants.
-
-15:40–15:55  Specification and usable tasks (15 min)
-to-spec synthesizes discussion. Teach tracer bullets; use to-tickets to propose
-complete useful paths and true blockers, then approve one ready task.
-
-15:55–16:05  Break (10 min)
-16:05–16:40  Implement one approved task (35 min)
-implement uses tdd at agreed interfaces where possible, focused/applicable checks,
-final suite, code-review and commit. Explain deep modules and inspect actual
-teacher-to-student behavior. Main offers a prepared text-edit reference when needed.
-16:40–16:55  Context and continuity (15 min)
-Use durable project terms, decisions, spec/tasks and evidence; test a handoff by
-having a fresh Agent reconstruct the goal, chosen policy and next action.
-16:55–17:20  Explore and improve (25 min)
-A prototype can compare immediate visibility with draft/publication behavior.
-Architecture investigation uses real friction; retro uses the actual coding session
-and existing guardrails. Practise one useful method, demonstrate the other paths.
-17:20–17:30  Show a decision, usable result, evidence and next step (10 min).
-
-180 minutes including the break. One genuinely usable verified slice is enough.
-Main's reference is one prepared choice; old mistake-review runs are historical,
-not a completion-time promise or execution evidence for the current LMS.
+13:30  Register or sign in to WorkBuddy.
+13:45  Open the student workspace. Ask WorkBuddy to start Learning Lab.
+       Enter a course, try a knowledge check and inspect My progress.
+13:55  Explore how an Agent uses context and tools. Ask what this app can do.
+14:07  Choose a teaching wish. Use /grill-me to confirm one decision.
+14:27  Discuss how a decision becomes a spec and how a ticket ends in a check.
+14:32  Use /to-spec and /to-tickets. Approve one task and keep its path.
+14:40  Break.
+14:45  Start /implement with the approved ticket. Follow its actual changes.
+15:10  Record the latest evidence and any unfinished work.
+15:20  Share one decision, one observation and one next step. Try /handoff.
+15:30  Close.

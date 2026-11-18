@@ -1,7 +1,6 @@
 # Learning Lab
 
-A course space where learners read lessons and practise, and teachers want to
-maintain the material used for learning.
+A student portal for enrolled courses, lessons, practice and learning records.
 
 ## Language
 
@@ -15,5 +14,5 @@ resources or knowledge checks; these are optional.
 answer to each question; later practice does not replace that result.
 **Reading completion**: A learner's mark that they finished a lesson; distinct
 from a quiz mark.
-**Content maintenance**: A teacher's work to keep teaching material usable and
-current. Its editing, review and visibility rules are choices for the new feature.
+**Learning record**: A summary across the learner's enrolled courses.
+**My progress**: The learner's reading completion and practice record in one course.

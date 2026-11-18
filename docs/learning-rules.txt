@@ -8,11 +8,7 @@ not replace it. Invalid answers save no attempt. Reading completion awards no ma
 Course progress and scores include that course's current lessons/questions only.
 Records survive refresh and server restart with the same browser cookie.
 
-The student catalog is prepared content loaded from a local file at server startup.
-It has no content-writing endpoint or teacher editor. That fact is for the Agent
-to investigate when it matters; learners discuss its effects on teaching work.
-Decisions for content maintenance remain open: first supported workflow, content
-scope, preview/visibility, identity and learning-record compatibility. Explain any
-change to an existing rule and get a deliberate decision. Instructor examples do
-not select the participant's policy. This is a local workshop, not an institutional
-account system. The main Teaching demo is explicitly a local reference view.
+A learner can complete lessons and answer knowledge checks. The starter
+catalog is read-only. The instructor wish concerns how a learner finds a
+lesson to revisit. Discuss the selection rule and acceptance example before
+adding that feature.

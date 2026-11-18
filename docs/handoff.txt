@@ -5,8 +5,6 @@ why they matter, the approved spec/current task, branch, evidence and next actio
 Reference existing artifacts instead of copying them. The method writes its portable
 record in the OS temporary directory and suggests the next Skills.
 
-A fresh recipient should explain: what teaching problem are we solving; which
-content/visibility choices were approved; what works now; what remains; and what
-would count as completion? Check its explanation before allowing edits.
-Main's optional reference is text editing with immediate visibility, not a default
-policy for the class. Old review-feature run records describe the earlier product.
+A fresh recipient should explain who needs the change, what selection rule
+the learner approved, where the ticket lives, which checks ran and what the
+next session should verify.

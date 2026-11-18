@@ -1,15 +1,9 @@
 REFERENCE VERSIONS
 
-student / lms-workshop-start: the English LMS learner starting product. No teacher
-content-writing UI. This is the branch cloned for participant exercises.
-main / lms-instructor-reference: the same LMS plus a prepared local text editor,
-preview and save-to-student-view reference. It illustrates one choice, not the
-participant's required answer. No actual WorkBuddy run is claimed for this version.
+student contains the learner portal used at the beginning of the workshop.
+demo/saved-lessons is the instructor's completed review-list example. Use
+separate folders and browser profiles for independent demonstrations.
 
-demo/workbuddy-matt-original and matt-demo-* preserve historical original-Skill
-WorkBuddy rehearsal on the earlier mistake-review product. demo/agent-workflow,
-workshop-start and older demo-* tags preserve older prepared examples. They are
-not the current LMS starting point and their tags are not moved.
-
-Save your work before switching. Ignored local SQLite/instance data is not reset
-by Git. Use separate copies and browser contexts for independent demonstrations.
+main and lms-instructor-reference preserve a previous content-editing example.
+Earlier workshop-start, lms-workshop-start, demo/agent-workflow and
+demo/workbuddy-matt-original revisions are historical reference points.

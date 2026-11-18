@@ -1,14 +1,15 @@
-PLATFORM IMPROVEMENT — teachers maintain their own content
+CHOOSE A TEACHING WISH
 
-I have a lesson plan and two practice questions. I want my students to complete
-that learning in this platform. Later I need to maintain my material myself,
-without editing program files.
+Instructor example
+“I’d like to find the lessons I want to revisit.”
 
-Help me understand what the platform can already support, what teachers and
-students would do, and what is missing. Investigate facts yourself. Explain
-options through their effect on teaching and learning. Recommend a useful first
-step, ask me for decisions you cannot discover and wait for shared understanding.
+Other starting points
+“I remember a keyword. Help me find the lesson that mentions it.”
+“I’d like to see which questions I got right on a later try.”
 
-The shared goal is not a prescribed feature list. An editor, import workflow,
-new-lesson workflow and draft/publish behavior are possible choices, not already
-approved requirements. Agree scope and evidence with the human before building.
+You may write your own wish. Keep it to one sentence. Use /grill-me so the
+Agent can check the existing app and ask you about meaningful choices.
+
+For the instructor wish, what earns a place in a review list? A student might
+choose a lesson, or a quiz result might suggest one. Can a completed lesson
+still matter for review? Your decision determines what the app should do.

@@ -1,33 +1,11 @@
-EXPLORE THE PLATFORM FOR A TEACHING PURPOSE
+EXPLORING AN UNFAMILIAR PROJECT
 
-First operate it: My courses -> Course -> Content -> Lesson. Open a reading-only
-lesson and a lesson with questions. Try a question and mark a lesson complete.
-Use My progress to see what the student can see afterwards. These sample lessons
-are product data, not the syllabus that workshop participants must study.
+Open the student folder in WorkBuddy Code. Ask in one session:
 
-Situation: I have a lesson plan and two practice questions. I want my students to
-complete that learning in this platform and I want to maintain my material myself.
+1. What does this repository do? What can I try in the app?
+2. Does Learning Lab remember which lessons I completed after I refresh?
+3. Optional web search: How does Moodle show students which activities they
+   have completed? Link the official guide.
 
-1. Get oriented with the Agent
-   Help me understand this platform as a teacher. What can students do now, how
-   is learning organized, and which parts of my teaching arrangement can it use?
-
-2. Investigate the intended improvement in the same useful discussion
-   Please check what is already possible, what teachers and students would do,
-   what is missing, and two simple ways to move forward. Explain their effects
-   on teaching work. Recommend a first step. Investigate before changing anything.
-
-These are example situations, not scripts to memorize. Ask a follow-up that
-matters to your intended lesson. The Agent chooses which files, tools, existing
-checks or browser observations provide evidence. Technical discovery belongs to
-the Agent; the participant does not need to ask where data loads or why a server
-restarts. The Agent translates findings into capabilities, limits and consequences.
-
-3. Make a supported decision
-   Check one important claim against the actual page or evidence the Agent used.
-   Explain why its recommended first step would help and what choice is still open.
-   Keep that useful context for the requirements discussion; do not implement yet.
-
-Observe real Thinking/file/tool activity as it happens. A tool label is not proof
-of a test run. No compulsory sub-agent, greeting edit or staged AI failure.
-The colored context illustration is conceptual, not an intercepted model request.
+Expand an activity in WorkBuddy. Which file did it read? What did that file
+help it explain? A later question can investigate a feature you want to add.

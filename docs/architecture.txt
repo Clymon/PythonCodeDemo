@@ -11,8 +11,6 @@ Trace a real teaching flow before proposing changes. The participant describes a
 teaching purpose; the Agent investigates source facts and relevant checks, then
 explains reusable capabilities, missing capabilities and meaningful consequences.
 
-On student, content is read-only and loaded once at startup. A future maintenance
-workflow needs a deliberate persistence/visibility decision. Do not mutate stable
-IDs or quiz policy as a side effect of editing text. Main adds one prepared local
-text-maintenance reference. See instructor/content-authoring/ only when a reference
-is requested; it is not the learner's approved specification.
+The catalog is loaded at startup. Existing learner records belong to an
+anonymous browser profile. Inspect the actual code and tests to learn which
+records exist before proposing new review behavior.
