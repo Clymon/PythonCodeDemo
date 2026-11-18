@@ -878,3 +878,119 @@ pre {
     gap: 8px;
   }
 }
+
+/* The student portal and the course use separate navigation levels. */
+:root { --blue:#065f55; --muted:#566b6c; --line:#d8e1df; color:#162f32; background:#f4f6f4; }
+.topbar { height:65px; background:#123a39; color:white; gap:22px; padding:0 36px; border:0; }
+.brand { font-family:Georgia,serif; font-weight:normal; font-size:26px; }
+.brand-icon { width:31px; height:34px; background:#bbdfba; color:#123a39; border-radius:3px 8px 3px 3px; }
+.portal-name { border-left:1px solid #718c88; padding-left:20px; font-size:14px; color:#d3e2dc; }
+.profile-icon { width:31px; height:31px; color:#dcebe8; background:#365d59; }
+.portal-layout { display:grid; grid-template-columns:218px minmax(0,1fr); min-height:calc(100vh - 65px); }
+.portal-sidebar { border-right:1px solid var(--line); background:#edf1ed; padding:28px 16px; }
+.nav-label { font-size:11px; text-transform:uppercase; color:#526b63; letter-spacing:1.2px; font-weight:bold; margin:16px 12px 12px; }
+.portal-sidebar nav { display:grid; gap:4px; margin-bottom:38px; }
+.portal-sidebar a { display:block; padding:12px; font-size:14px; border-radius:5px; }
+.portal-sidebar a[aria-current] { background:#d3e5d8; color:#11533f; font-weight:700; }
+.shortcuts a { line-height:1.5; }
+.shortcuts strong { display:block; color:#547064; font-size:11px; letter-spacing:.6px; }
+.portal-main,.course-heading,.course-work { width:100%; max-width:1280px; margin:0 auto; }
+.portal-main { padding:22px clamp(20px,4vw,66px) 40px; }
+.portal-main h1,.course-identity h1 { font-family:Georgia,serif; font-weight:normal; font-size:38px; letter-spacing:-1px; }
+.breadcrumbs { min-height:0; border:0; padding:0; background:transparent; gap:9px; font-size:12px; }
+.portal-main h1 { margin:16px 0 18px; }
+.portal-metrics { display:grid; grid-template-columns:repeat(3,1fr); background:#e2eee4; border:1px solid #cddecf; border-radius:8px; padding:18px 0; }
+.portal-metrics .metric { display:block; border:none; background:transparent; padding:0 22px; border-radius:0; }
+.portal-metrics .metric + .metric { border-left:1px solid #c0d3c3; }
+.portal-metrics .metric strong { color:#154c40; font-size:27px; }
+.portal-metrics .metric span { margin-top:5px; color:#3b584a; }
+.enrolments-heading,.enrolment-actions,.syllabus-header,.course-identity,.enrolment-progress,.lesson-pager { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.enrolments-heading { margin:26px 0 12px; }
+.enrolments-heading h2 { margin:0; font-size:20px; }
+.enrolments-heading span,.enrolment-detail p,.syllabus-header p,.course-identity p,.syllabus-chapter small { color:var(--muted); }
+.enrolments-heading span { font-size:13px; }
+.enrolments { background:white; border:1px solid var(--line); border-radius:8px; overflow:hidden; }
+.enrolment { display:grid; grid-template-columns:70px minmax(0,1fr) auto; padding:23px; gap:22px; }
+.enrolment + .enrolment { border-top:1px solid var(--line); }
+.course-code { display:grid; place-items:center; background:#deebe4; color:#235d49; height:73px; border-radius:6px; font:bold 15px Georgia,serif; border-top:5px solid #4c8574; }
+.course-code.violet { color:#5e477e; background:#eee8f2; border-color:#836198; }
+.enrolment h2 { margin:3px 0; font-size:22px; letter-spacing:-.5px; }
+.enrolment-detail p { margin:2px 0; font-size:13px; }
+.enrolment-detail .course-meta { font-size:11px; font-weight:bold; text-transform:uppercase; letter-spacing:.7px; }
+.enrolment-progress { justify-content:flex-start; margin-top:13px; font-size:12px; color:var(--muted); }
+.enrolment-progress progress { width:112px; }
+.enrolment-actions { flex-direction:column; align-items:flex-end; }
+.course-state { font-size:12px; color:#526761; }
+.secondary { color:#24574c; border-color:#c1d1c9; }
+.primary:hover { background:#134b40; }
+.workspace { display:block; min-height:calc(100vh - 65px); }
+.course-heading { padding:18px 34px 0; background:#e8f0e8; border-bottom:1px solid #bbcfc3; }
+.course-identity { margin:13px 0 14px; }
+.course-identity h1 { margin:0; font-size:32px; }
+.course-identity p { margin:5px 0 0; font-size:13px; }
+.course-completion { min-width:135px; font-size:12px; color:#436152; }
+.course-completion progress { margin-top:7px; }
+.course-tabs { display:flex; gap:27px; }
+.course-tabs a { display:block; padding:12px 1px; color:#52685b; font-size:14px; border-bottom:3px solid transparent; }
+.course-tabs a[aria-current] { color:#124d3c; font-weight:bold; border-color:#24755d; }
+.content-workspace { grid-template-columns:clamp(250px,26%,320px) minmax(0,1fr); min-height:calc(100vh - 233px); }
+.chapter-tree { background:#f2f5f0; }
+.chapter li a.selected { background:#d9e9dc; color:#185a42; }
+.chapter h3,.chapter li a { color:#364e43; }
+.lesson-body { max-width:none; padding:30px clamp(24px,5vw,68px); }
+.lesson-body h1,.course-progress h1 { font-family:Georgia,serif; font-weight:normal; color:#173d32; }
+.lesson-pager { margin-top:24px; border-top:1px solid var(--line); padding-top:18px; color:var(--blue); font-weight:600; font-size:14px; }
+.lesson-pager a:last-child { margin-left:auto; }
+.course-overview,.course-progress { max-width:none; padding:26px clamp(22px,5vw,70px) 42px; background:#fff; }
+.syllabus-header { align-items:flex-start; margin-bottom:24px; }
+.syllabus-header h2,.course-overview > h2 { margin:0; }
+.syllabus-header p { margin:8px 0; font-size:15px; }
+.syllabus-chapter { border:1px solid var(--line); border-radius:7px; margin-top:13px; overflow:hidden; }
+.syllabus-chapter h3 { margin:0; padding:12px 18px; background:#f1f5f0; font-size:17px; }
+.syllabus-chapter h3 span { color:#59705f; font-size:12px; margin-right:13px; }
+.syllabus-chapter a { padding:13px 18px; display:flex; justify-content:space-between; align-items:center; gap:12px; border-top:1px solid var(--line); font-size:14px; }
+.syllabus-chapter a:hover,.enrolment h2 a:hover,.shortcuts a:hover { color:var(--blue); text-decoration:underline; }
+@media(max-width:800px) {
+  .portal-layout { display:block; }
+  .portal-sidebar { padding:6px 16px; border-bottom:1px solid var(--line); }
+  .portal-sidebar nav { display:flex; margin:0; }
+  .portal-sidebar .nav-label,.portal-sidebar .shortcuts { display:none; }
+  .portal-sidebar a { padding:8px 12px; }
+  .enrolment { padding:16px; gap:12px; }
+}
+@media(max-width:600px) {
+  .topbar { padding:0 17px; gap:10px; height:60px; }
+  .portal-name { padding-left:11px; }
+  .portal-main { padding:16px; }
+  .portal-main h1 { font-size:30px; }
+  .portal-metrics .metric { padding:0 10px; }
+  .portal-metrics .metric strong { font-size:21px; }
+  .enrolment { grid-template-columns:48px minmax(0,1fr); }
+  .course-code { height:55px; font-size:12px; }
+  .enrolment-actions { grid-column:2; flex-direction:row; align-items:center; }
+  .enrolment-progress { flex-wrap:wrap; gap:6px; }
+  .course-heading { padding:14px 16px 0; }
+  .course-identity h1 { font-size:25px; }
+  .course-completion { display:none; }
+  .course-tabs { gap:20px; }
+  .syllabus-header { display:block; }
+}
+
+.bookmark-actions { display:flex; align-items:center; flex-wrap:wrap; gap:18px; margin:16px 0 18px; }
+.bookmark-actions a { color:var(--blue); font-size:14px; font-weight:600; }
+.save-lesson:disabled { background:#d8e9df; border-color:#b4cfc0; color:#234f3d; opacity:1; cursor:default; }
+.saved-empty,.saved-list { background:white; border:1px solid var(--line); border-radius:8px; }
+.saved-empty { padding:22px; }
+.saved-empty h2 { margin:0; font-size:22px; }
+.saved-empty p,.saved-origin { color:var(--muted); }
+.saved-list { list-style:none; margin:0; padding:0; overflow:hidden; }
+.saved-list li + li { border-top:1px solid var(--line); }
+.saved-list a { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:8px 20px; padding:22px 24px; }
+.saved-list a:hover,.saved-list a:focus-visible { background:#f0f6f2; }
+.saved-origin { grid-column:1; font-size:13px; }
+.saved-list strong { grid-column:1; font-size:20px; }
+.saved-open { grid-column:2; grid-row:1 / span 2; color:var(--blue); font-size:14px; font-weight:600; }
+@media (max-width:640px) {
+  .saved-list a { grid-template-columns:1fr; }
+  .saved-open { grid-column:1; grid-row:auto; }
+}

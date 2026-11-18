@@ -11,18 +11,12 @@
     />
     <link rel="stylesheet" href="{{ url_for('static',filename='app.css') }}" />
     <script src="{{ url_for('static',filename='app.js') }}" defer></script>
-    <link rel="stylesheet" href="/static/teaching.css" />
   </head>
   <body>
     <header class="topbar">
-      <a class="brand" href="/" aria-label="Learning Lab home"
-        ><span class="brand-icon">L</span>Learning Lab</a
-      ><a class="top-courses" href="/">My courses</a>
-      <a class="teaching-link" href="/teach">Teaching demo</a>
-      <div class="profile">
-        <span class="profile-icon">S</span
-        ><span>Student view<small>Local workshop</small></span>
-      </div>
+      <a class="brand" href="/" aria-label="Learning Lab home"><span class="brand-icon" aria-hidden="true">L</span>Learning Lab</a>
+      <span class="portal-name">Student portal</span>
+      <div class="profile"><span class="profile-icon" aria-hidden="true">S</span><span>Student view</span></div>
     </header>
     <main id="app" tabindex="-1">
       <p class="loading">Loading your courses…</p>

@@ -5,6 +5,6 @@ One supported finding from exploration:
 Two credible approaches and their consequences:
 Chosen first usable path and why:
 What remains outside it:
-Visibility/preview choices:
+Who decides which lessons to revisit? (Or your own feature decision):
 What existing behavior must stay:
 A concrete completion example:

@@ -1,18 +1,10 @@
 PRINCIPLES BEFORE METHODS
 
-Tracer bullet: one narrow but COMPLETE usable or verifiable behavior through its
-relevant layers. A teacher editing one lesson's text, saving it and a student reading
-the updated result is one possible slice. A creation or import path can be another.
-Let the Agent propose useful slices from the confirmed goal; don't prescribe a
-fixed C01/C02 sequence. Existing layers may be reused without modifying them all.
+A tracer bullet delivers one small, observable outcome through the layers it
+needs. For a learner-selected review list, mark a lesson, leave it, and find it
+again. Choose the stopping point and its check before building the next step.
 
-Deep modules: substantial useful behavior behind a small clear interface. In the
-starting app, getting a course hides hierarchy traversal, safe question projection
-and learning-state calculation. In a maintenance design, one confirmed operation
-can hide validation, persistence and the visibility rule. Depth concerns the facts
-callers must learn, not the number of implementation lines. Tests observe the
-agreed behavior through the chosen interface, so they can survive internal change.
-
-Use to-tickets to apply the first principle; use codebase-design as shared reference
-for interfaces and improve-codebase-architecture only when real friction warrants it.
-No architecture defect or refactor need be invented for the lesson.
+A deep module offers a small interface to useful behavior. In Learning Lab,
+retrieving a course hides traversal of chapters, safe projection of practice
+questions and progress calculations. Discuss the behavior that callers need
+and the checks that will still work if its implementation changes.

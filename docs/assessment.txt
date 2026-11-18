@@ -1,10 +1,6 @@
 OBSERVABLE WORKSHOP OUTCOME
 
-The participant can operate the course platform and state the teaching goal;
-judge one Agent finding against evidence; choose a solution with a reason and
-scope boundary; approve a complete usable slice; operate its delivered result;
-and explain what the checks establish and what remains unverified.
-
-A meaningful result is one verified teaching-to-learner path, not a complete LMS
-content-management system. Human decisions and evidence matter more than a fixed
-feature count, handwritten code, source-file recall or a coverage percentage.
+Show one project finding and the source the Agent used. Explain a behavior
+you chose, the first task you approved, and the check you agreed on. Use an
+actual screen or test result to show how far implementation got. If work is
+ongoing, name the last verified state and next action.

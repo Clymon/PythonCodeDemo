@@ -22,9 +22,7 @@ separate. The original review requires a committed non-empty HEAD comparison;
 the agent committed first rather than silently reviewing an empty range.
 Some later assertions were already green; do not call every check a red/green cycle.
 The final review fixes were checked in an independent browser preview as well.
-Original handoff produced a temporary-file document; a fresh receiving task
-verified references and reconstructed decisions, evidence limits and the ready
-next ticket without editing or running it. Full instructor evidence is on main.
+Original handoff/recipient evidence is maintained in the instructor report on main.
 
 Environment limits
 unittest discover was terminated inside this client's command sandbox; invoking

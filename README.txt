@@ -1,17 +1,22 @@
 LEARNING LAB — AI Agent Coding with WorkBuddy and Python
 
-An English LMS workshop project: My courses -> Course -> Chapter -> Lesson.
-The prepared learner product supports ordinary reading, optional examples/resources/
-checks and saved course progress. Its course data is fictional workshop material.
-The AI-coding task is to improve the platform, not to study its sample syllabus.
+Learning Lab is a small English-language learning platform. Open My courses,
+select Designing Learning Activities, and use the course syllabus to open a
+lesson. Reading, knowledge checks and completion already work. My progress
+shows the result for one course. Learning record shows all courses.
+
+On main, the instructor can demonstrate Saved lessons. The student branch is the
+starting platform. For the previous teacher-editor exercise, visit /teach on main.
 
 STARTING PRODUCT
   git clone -b student https://github.com/Clymon/PythonCodeDemo.git learning-lab
   cd learning-lab
-Start with docs/exercise-plan.txt and docs/agent-exploration.txt. Teachers bring a
-lesson plan and two questions and want students to learn with them in this platform.
-The Agent investigates; the human judges options, scope and a first usable slice.
-The student branch intentionally has no teacher content-maintenance implementation.
+Open this folder in WorkBuddy Code. Ask: What does this repository do?
+What can I try in the app? Follow docs/exercise-plan.txt.
+
+The instructor starts with one wish: “I’d like to find the lessons I want to
+revisit.” Learners can choose another teaching need and agree their own rule.
+The student branch is the starting point for coding the new behavior.
 
 RUN — same one-process setup (Python 3.10+)
   python -m venv .venv
@@ -33,14 +38,9 @@ ORIGINAL METHODS
 Read docs/skills-installation.txt and docs/skills-at-a-glance.txt. Select a method
 for a real problem. Discussion -> synthesis -> tickets is useful for nontrivial
 work, not mandatory for every tiny change. implement owns checks/review/commit.
-Keep Default Permissions. Inspect actual native loading, not only picker names.
+Type a slash name in WorkBuddy Code and select its matching suggestion.
 
 INSTRUCTOR REFERENCE
-main includes a local Teaching demo at /teach: edit existing lesson text, preview,
-save and inspect the student result. This is a prepared reference, not a WorkBuddy
-execution record or a complete teacher identity/ownership system. Its visibility
-and scope are one deliberate example. See instructor/content-authoring/ on main.
-The class chooses its own supported solution; don't copy this policy by default.
-
-See docs/checkpoints.txt for current LMS tags and historical pre-LMS examples.
-All historical WorkBuddy claims remain scoped to the actual earlier client/product.
+demo/saved-lessons contains a completed example for the optional walkthrough.
+Use a separate clone for it. The student branch is the classroom starting point.
+See docs/checkpoints.txt for earlier examples.
