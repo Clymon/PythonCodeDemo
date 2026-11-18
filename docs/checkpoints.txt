@@ -1,7 +1,8 @@
 REFERENCE VERSIONS
 
 student contains the learner portal used at the beginning of the workshop.
-demo/saved-lessons is the instructor's completed review-list example. Use
+demo/learning-rewards is the points and badges reference.
+demo/saved-lessons is the optional bookmark reference. Use
 separate folders and browser profiles for independent demonstrations.
 
 main and lms-instructor-reference preserve a previous content-editing example.

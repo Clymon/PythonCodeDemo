@@ -21,6 +21,5 @@ workshop automatically enrolls each learner in courses where it has evidence
 of completed lessons or recorded attempts. The existing scores remain.
 
 A learner can complete lessons and answer knowledge checks after enrolling. The starter
-catalog is read-only. The instructor wish concerns how a learner finds a
-lesson to revisit. Discuss the selection rule and acceptance example before
-adding that feature.
+catalog is read-only. The starting platform offers no points or badges. Try marking a lesson complete
+without answering a check. Which behavior would you like to reward?
