@@ -3,6 +3,7 @@ const app = document.querySelector("#app"),
 let csrf = "",
   selected,
   state,
+  savedIds = new Set(),
   tab = "content";
 const pending = new Set(),
   feedback = new Map();
@@ -67,6 +68,15 @@ function courseRow(course, record) {
     <a class="button secondary" href="${record ? link + '?view=progress' : link}">${record ? "My progress" : "Open course"} →</a></div>
   </article>`;
 }
+function portalSidebar(courses, view) {
+  return `<aside class="portal-sidebar">
+    <p class="nav-label">Student workspace</p>
+    <nav aria-label="Student workspace"><a href="/" ${view === "courses" ? 'aria-current="page"' : ""}>My courses</a>
+    <a href="/?view=record" ${view === "record" ? 'aria-current="page"' : ""}>Learning record</a>
+    <a href="/saved-lessons" ${view === "saved" ? 'aria-current="page"' : ""}>Saved lessons</a></nav>
+    <p class="nav-label">Course shortcuts</p><nav class="shortcuts" aria-label="Course shortcuts">${courses.map(c => `<a href="${href(c.id)}"><strong>${escapeHTML(c.code)}</strong>${escapeHTML(c.title)}</a>`).join("")}</nav>
+  </aside>`;
+}
 async function home() {
   const data = await api("/api/courses");
   const record = new URLSearchParams(location.search).get("view") === "record";
@@ -75,12 +85,7 @@ async function home() {
   const completed = data.courses.reduce((n, c) => n + c.completed.length, 0);
   const total = data.courses.reduce((n, c) => n + c.lesson_count, 0);
   const attempts = data.courses.reduce((n, c) => n + c.attempt_count, 0);
-  app.innerHTML = `<div class="portal-layout"><aside class="portal-sidebar">
-    <p class="nav-label">Student workspace</p>
-    <nav aria-label="Student workspace"><a href="/" ${record ? "" : 'aria-current="page"'}>My courses</a>
-    <a href="/?view=record" ${record ? 'aria-current="page"' : ""}>Learning record</a></nav>
-    <p class="nav-label">Course shortcuts</p><nav class="shortcuts" aria-label="Course shortcuts">${data.courses.map(c => `<a href="${href(c.id)}"><strong>${escapeHTML(c.code)}</strong>${escapeHTML(c.title)}</a>`).join("")}</nav>
-  </aside><section class="portal-main">
+  app.innerHTML = `<div class="portal-layout">${portalSidebar(data.courses, record ? "record" : "courses")}<section class="portal-main">
     <div class="breadcrumbs"><a href="/">Student portal</a><span>/</span><b>${title}</b></div>
     <h1>${title}</h1><div class="portal-metrics">
     ${metric(data.courses.length,"Enrolled courses")}${metric(completed + " / " + total,"Lessons completed")}${metric(attempts,"Practice attempts")}</div>
@@ -88,6 +93,28 @@ async function home() {
     <div class="enrolments">${data.courses.map(c => courseRow(c, record)).join("")}</div>
   </section></div>`;
 }
+async function showSavedLessons() {
+  const [catalog, saved] = await Promise.all([api("/api/courses"), api("/api/saved-lessons")]);
+  document.title = "Saved lessons · Learning Lab";
+  const list = saved.lessons.length ? `<ul class="saved-list">${saved.lessons.map(item => `
+    <li><a href="${href(item.course_id, item.id)}">
+      <span class="saved-origin">${escapeHTML(item.course_title)} · ${escapeHTML(item.chapter_title)}</span>
+      <strong>${escapeHTML(item.title)}</strong><span class="saved-open">Open lesson →</span>
+    </a></li>`).join("")}</ul>` : `<div class="saved-empty">
+    <h2>No saved lessons yet</h2><p>Open a lesson and choose Save lesson to find it here.</p>
+    <a class="button secondary" href="/">Browse my courses</a></div>`;
+  app.innerHTML = `<div class="portal-layout">${portalSidebar(catalog.courses, "saved")}
+    <section class="portal-main"><div class="breadcrumbs"><a href="/">Student portal</a><span>/</span><b>Saved lessons</b></div>
+    <h1>Saved lessons</h1>${list}</section></div>`;
+}
+
+function bookmarkActions(lesson) {
+  const saved = savedIds.has(lesson.id);
+  return `<div class="bookmark-actions">
+    <button type="button" class="button secondary save-lesson" data-save="${escapeHTML(lesson.id)}" ${saved ? "disabled" : ""}>${saved ? "Saved" : "Save lesson"}</button>
+    <a href="/saved-lessons">Saved lessons →</a></div>`;
+}
+
 function courseNav() {
   const root = href(selected.id);
   const links = [["overview","Overview",root], ["content","Content",root + "?view=content"],
@@ -124,7 +151,7 @@ function safeResource(u) {
 }
 function lessonBody(l) {
   const done = state.completed.includes(l.id);
-  return `<article class="lesson-body"><p class="eyebrow">LESSON${l.minutes ? " · " + escapeHTML(l.minutes) + " MIN READ" : ""}</p><h1>${escapeHTML(l.title)}</h1>${l.objective ? `<p class="objective">${escapeHTML(l.objective)}</p>` : ""}<section class="reading">${l.paragraphs.map((p) => `<p>${escapeHTML(p)}</p>`).join("")}${l.code ? `<div class="code-label">${escapeHTML(l.code_language || "Example")}</div><pre><code>${escapeHTML(l.code)}</code></pre>` : ""}${l.takeaway ? `<div class="takeaway"><b>Key idea</b><p>${escapeHTML(l.takeaway)}</p></div>` : ""}</section>${l.resources?.length ? `<section class="resources"><h2>Resources</h2>${l.resources.map((r) => `<a href="${escapeHTML(safeResource(r.url))}" download><span aria-hidden="true">↓</span> ${escapeHTML(r.label)}</a>`).join("")}</section>` : ""}${l.questions.length ? `<section class="practice"><h2>Check your understanding</h2><p>Try ${l.questions.length === 1 ? "this question" : `these ${l.questions.length} questions`}. Your first valid attempt sets the original score.</p>${l.questions.map(questionCard).join("")}</section>` : ""}<div class="complete-row"><div><h3>${done ? "Lesson completed" : "Finished this lesson?"}</h3><p>Reading completion is separate from your quiz score.</p></div><button class="button ${done ? "secondary" : "primary"}" data-complete="${escapeHTML(l.id)}">${done ? "✓ Completed · Undo" : "Mark as complete"}</button></div>${lessonNavigation(l)}</article>`;
+  return `<article class="lesson-body"><p class="eyebrow">LESSON${l.minutes ? " · " + escapeHTML(l.minutes) + " MIN READ" : ""}</p><h1>${escapeHTML(l.title)}</h1>${bookmarkActions(l)}${l.objective ? `<p class="objective">${escapeHTML(l.objective)}</p>` : ""}<section class="reading">${l.paragraphs.map((p) => `<p>${escapeHTML(p)}</p>`).join("")}${l.code ? `<div class="code-label">${escapeHTML(l.code_language || "Example")}</div><pre><code>${escapeHTML(l.code)}</code></pre>` : ""}${l.takeaway ? `<div class="takeaway"><b>Key idea</b><p>${escapeHTML(l.takeaway)}</p></div>` : ""}</section>${l.resources?.length ? `<section class="resources"><h2>Resources</h2>${l.resources.map((r) => `<a href="${escapeHTML(safeResource(r.url))}" download><span aria-hidden="true">↓</span> ${escapeHTML(r.label)}</a>`).join("")}</section>` : ""}${l.questions.length ? `<section class="practice"><h2>Check your understanding</h2><p>Try ${l.questions.length === 1 ? "this question" : `these ${l.questions.length} questions`}. Your first valid attempt sets the original score.</p>${l.questions.map(questionCard).join("")}</section>` : ""}<div class="complete-row"><div><h3>${done ? "Lesson completed" : "Finished this lesson?"}</h3><p>Reading completion is separate from your quiz score.</p></div><button class="button ${done ? "secondary" : "primary"}" data-complete="${escapeHTML(l.id)}">${done ? "✓ Completed · Undo" : "Mark as complete"}</button></div>${lessonNavigation(l)}</article>`;
 }
 function lessonNavigation(lesson) {
   const lessons = allLessons(selected);
@@ -175,11 +202,13 @@ async function start() {
     const match = location.pathname.match(
       /^\/courses\/([^/]+)(?:\/lessons\/([^/]+))?\/?$/,
     );
+    if (location.pathname === "/saved-lessons") return await showSavedLessons();
     if (!match) return await home();
     const r = await api(
       "/api/courses/" + encodeURIComponent(decodeURIComponent(match[1])),
     );
     selected = r.course;
+    savedIds = new Set(r.saved_lesson_ids);
     state = r.progress;
     const view = new URLSearchParams(location.search).get("view");
     tab = match[2] ? "content" : ["content","progress"].includes(view) ? view : "overview";
@@ -191,6 +220,24 @@ async function start() {
   }
 }
 app.addEventListener("click", async (e) => {
+  const saveButton = e.target.closest("[data-save]");
+  if (saveButton) {
+    const id = saveButton.dataset.save;
+    saveButton.disabled = true;
+    try {
+      await api("/api/lessons/" + encodeURIComponent(id) + "/save", {});
+      savedIds.add(id);
+      const currentButton = app.querySelector("[data-save]");
+      if (currentButton && currentButton.dataset.save === id) {
+        currentButton.textContent = "Saved";
+        currentButton.disabled = true;
+      }
+    } catch (err) {
+      error(err);
+      saveButton.disabled = false;
+    }
+    return;
+  }
   const b = e.target.closest("[data-complete]");
   if (!b) return;
   b.disabled = true;
