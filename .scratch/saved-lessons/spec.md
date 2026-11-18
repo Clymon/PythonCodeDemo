@@ -12,4 +12,4 @@ Save a completed lesson and refresh. Reopen it from Saved lessons and check that
 
 ## Later decisions
 
-Removal and private notes are separate tasks. The first ticket adds a way to save and reopen lessons.
+Removal and filtering by course are separate tasks. The first ticket adds a way to save and reopen lessons.
