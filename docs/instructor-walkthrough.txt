@@ -30,3 +30,8 @@ is started with python app.py and keeps learners' own progress.
 Spec and task:
   .scratch/saved-lessons/spec.md
   .scratch/saved-lessons/issues/01-save-and-reopen.md
+
+Screenshots from the instructor walkthrough
+  docs/screenshots/demo-continue.png  My learning after opening another lesson
+  docs/screenshots/saved-action.png   The lesson and its save control
+  docs/screenshots/saved-list.png     The learner's personal saved list
