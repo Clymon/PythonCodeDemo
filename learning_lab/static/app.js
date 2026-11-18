@@ -2,6 +2,8 @@ const app = document.querySelector("#app"),
   notice = document.querySelector("#notice");
 let csrf = "",
   selected,
+  enrollment,
+  entryLesson,
   state,
   tab = "content";
 const pending = new Set(),
@@ -49,55 +51,89 @@ function lessonProgress() {
 function metric(value, label) {
   return `<div class="metric"><strong>${value}</strong><span>${label}</span></div>`;
 }
+function entryAction(course) {
+  if (!course.enrollment) return `<a class="button secondary" href="${href(course.id)}">View course →</a>`;
+  if (!course.entry_lesson) return `<a class="button secondary" href="${href(course.id)}">Course overview</a>`;
+  const label = course.enrollment.last_lesson_id ? "Continue learning" : "Start learning";
+  return `<a class="button primary" href="${href(course.id,course.entry_lesson.id)}">${label} →</a>`;
+}
 function courseRow(course, record) {
   const link = href(course.id);
   const code = escapeHTML(course.code);
-  const status = course.completed.length === 0 ? "Not started" :
-    course.completed.length === course.lesson_count ? "Completed" : "In progress";
+  const finished = course.lesson_count > 0 && course.completed.length === course.lesson_count;
+  const started = course.enrollment.last_lesson_id || course.completed.length || course.attempt_count;
+  const status = finished ? "Completed" : started ? "In progress" : "Ready to start";
+  const position = course.entry_lesson && course.enrollment.last_lesson_id ?
+    `<p class="last-opened">Last opened: ${escapeHTML(course.entry_lesson.title)}</p>` : "";
   return `<article class="enrolment">
     <div class="course-code ${escapeHTML(course.accent)}">${code}</div>
     <div class="enrolment-detail">
       <p class="course-meta">${escapeHTML(course.term)}</p>
       <h2><a href="${link}">${escapeHTML(course.title)}</a></h2>
       <p>${escapeHTML(course.instructor)} · ${course.chapter_count} chapters · ${course.lesson_count} lessons</p>
+      ${record ? `<p>First-attempt score: ${course.score.correct} / ${course.score.answered} · Practice attempts: ${course.attempt_count}</p>` : position}
       <div class="enrolment-progress"><progress value="${course.completed.length}" max="${course.lesson_count || 1}" aria-label="${code} completion"></progress><span>${course.completed.length} of ${course.lesson_count} completed</span></div>
-      ${record ? `<p>First-attempt score: ${course.score.correct} / ${course.score.answered} · Practice attempts: ${course.attempt_count}</p>` : ""}
     </div>
     <div class="enrolment-actions"><span class="course-state">${status}</span>
-    <a class="button secondary" href="${record ? link + '?view=progress' : link}">${record ? "My progress" : "Open course"} →</a></div>
+    ${record ? `<a class="button secondary" href="${link}?view=progress">My progress →</a>` : entryAction(course)}</div>
   </article>`;
 }
+function catalogCard(course) {
+  const link = href(course.id);
+  return `<article class="catalog-card">
+    <div class="catalog-meta"><span class="course-code ${escapeHTML(course.accent)}">${escapeHTML(course.code)}</span>
+    ${course.enrollment ? '<span class="course-state">Enrolled</span>' : ""}</div>
+    <h2><a href="${link}">${escapeHTML(course.title)}</a></h2>
+    <p>${escapeHTML(course.description)}</p>
+    <div class="catalog-facts"><b>${escapeHTML(course.instructor)}</b><span>${course.lesson_count} lessons · About ${course.duration_minutes} min</span></div>
+    <a class="catalog-open" href="${link}" aria-label="View ${escapeHTML(course.title)}">View course →</a></article>`;
+}
 async function home() {
-  const data = await api("/api/courses");
-  const record = new URLSearchParams(location.search).get("view") === "record";
-  const title = record ? "Learning record" : "My courses";
+  const catalogView = location.pathname === "/catalog";
+  const record = !catalogView && new URLSearchParams(location.search).get("view") === "record";
+  const data = await api(catalogView ? "/api/courses" : "/api/dashboard");
+  const enrolled = data.courses.filter(c => c.enrollment);
+  const title = catalogView ? "Course catalog" : record ? "Learning record" : "My learning";
   document.title = title + " · Learning Lab";
-  const completed = data.courses.reduce((n, c) => n + c.completed.length, 0);
-  const total = data.courses.reduce((n, c) => n + c.lesson_count, 0);
-  const attempts = data.courses.reduce((n, c) => n + c.attempt_count, 0);
+  const nav = [["My learning","/"],["Course catalog","/catalog"],["Learning record","/?view=record"]];
+  const browse = '<a class="button primary" href="/catalog">Browse courses →</a>';
+  const shortcuts = enrolled.map(c => `<a href="${href(c.id)}"><strong>${escapeHTML(c.code)}</strong>${escapeHTML(c.title)}</a>`).join("");
+  const latest = enrolled.filter(c => c.enrollment.last_lesson_id && c.entry_lesson?.id === c.enrollment.last_lesson_id)
+    .sort((a,b) => b.enrollment.opened_order - a.enrollment.opened_order)[0];
+  const resume = latest && !record ? `<section class="resume-course"><div><p class="eyebrow">Continue where you left off</p>
+    <h2>${escapeHTML(latest.entry_lesson.title)}</h2><p>${escapeHTML(latest.title)}</p></div>
+    <a class="button primary" href="${href(latest.id,latest.entry_lesson.id)}">Continue learning →</a></section>` : "";
+  const metrics = `<div class="portal-metrics">${metric(enrolled.length,"Enrolled courses")}${metric(data.completed?.length + " / " + data.lesson_count,"Lessons completed")}${metric(data.attempt_count,"Practice attempts")}</div>`;
+  let body;
+  if (catalogView) {
+    body = `<p class="catalog-count">${data.courses.length} courses available</p><div class="catalog-grid">${data.courses.map(catalogCard).join("")}</div>`;
+  } else if (!enrolled.length) {
+    body = `<section class="portal-empty"><h2>${record ? "Your learning record starts here" : "Choose your first course"}</h2>
+      <p>Explore the catalog and enroll in a course. Your lessons and progress will appear here.</p>${browse}</section>`;
+  } else {
+    body = `${resume}${metrics}<div class="enrolments-heading"><h2>${record ? "Results by course" : "Enrolled courses"}</h2><a class="catalog-open" href="/catalog">Browse courses →</a></div>
+      <div class="enrolments">${enrolled.map(c => courseRow(c, record)).join("")}</div>`;
+  }
   app.innerHTML = `<div class="portal-layout"><aside class="portal-sidebar">
     <p class="nav-label">Student workspace</p>
-    <nav aria-label="Student workspace"><a href="/" ${record ? "" : 'aria-current="page"'}>My courses</a>
-    <a href="/?view=record" ${record ? 'aria-current="page"' : ""}>Learning record</a></nav>
-    <p class="nav-label">Course shortcuts</p><nav class="shortcuts" aria-label="Course shortcuts">${data.courses.map(c => `<a href="${href(c.id)}"><strong>${escapeHTML(c.code)}</strong>${escapeHTML(c.title)}</a>`).join("")}</nav>
-  </aside><section class="portal-main">
-    <div class="breadcrumbs"><a href="/">Student portal</a><span>/</span><b>${title}</b></div>
-    <h1>${title}</h1><div class="portal-metrics">
-    ${metric(data.courses.length,"Enrolled courses")}${metric(completed + " / " + total,"Lessons completed")}${metric(attempts,"Practice attempts")}</div>
-    <div class="enrolments-heading"><h2>${record ? "Results by course" : "Enrolled courses"}</h2><span>${data.courses.length} courses</span></div>
-    <div class="enrolments">${data.courses.map(c => courseRow(c, record)).join("")}</div>
-  </section></div>`;
+    <nav aria-label="Student workspace">${nav.map(([label,url]) => `<a href="${url}" ${label === title ? 'aria-current="page"' : ""}>${label}</a>`).join("")}</nav>
+    ${shortcuts ? `<p class="nav-label">My courses</p><nav class="shortcuts" aria-label="My courses">${shortcuts}</nav>` : ""}
+    </aside><section class="portal-main"><div class="breadcrumbs"><a href="/">Student portal</a><span>/</span><b>${title}</b></div>
+    <h1>${title}</h1>${body}</section></div>`;
 }
 function courseNav() {
   const root = href(selected.id);
-  const links = [["overview","Overview",root], ["content","Content",root + "?view=content"],
-    ["progress","My progress",root + "?view=progress"]];
+  const links = [["overview","Overview",root]];
+  if (enrollment) {
+    if (entryLesson) links.push(["content","Content",href(selected.id,entryLesson.id)]);
+    links.push(["progress","My progress",root + "?view=progress"]);
+  }
   return `<header class="course-heading">
-    <div class="breadcrumbs"><a href="/">My courses</a><span>/</span><b>${escapeHTML(selected.code)}</b></div>
+    <div class="breadcrumbs"><a href="${enrollment ? "/" : "/catalog"}">${enrollment ? "My learning" : "Course catalog"}</a><span>/</span><b>${escapeHTML(selected.code)}</b></div>
     <div class="course-identity"><div><h1>${escapeHTML(selected.title)}</h1>
     <p>${escapeHTML(selected.instructor)} · ${escapeHTML(selected.term)}</p></div>
-    <div class="course-completion"><b>${state.completion_percent}% complete</b><progress value="${state.completed.length}"
-      max="${state.lesson_count || 1}" aria-label="Course completion"></progress></div></div>
+    ${enrollment ? `<div class="course-completion"><b>${state.completion_percent}% complete</b><progress value="${state.completed.length}"
+      max="${state.lesson_count || 1}" aria-label="Course completion"></progress></div>` : ""}</div>
     <nav class="course-tabs" aria-label="Course navigation">${links.map(([key,label,url]) =>
       `<a href="${url}" ${tab === key ? 'aria-current="page"' : ""}>${label}</a>`).join("")}</nav>
   </header>`;
@@ -135,18 +171,23 @@ function lessonNavigation(lesson) {
   </nav>`;
 }
 function overview() {
-  const lessons = allLessons(selected);
-  const next = lessons.find(l => !state.completed.includes(l.id)) || lessons[0];
+  const action = enrollment ? entryAction({id:selected.id, enrollment, entry_lesson:entryLesson}) :
+    '<button type="button" class="button primary" id="enroll-course">Enroll in course</button>';
+  function syllabusLesson(lesson) {
+    const summary = `<strong>${escapeHTML(lesson.title)}</strong><small>${state.completed.includes(lesson.id) ? "Completed" : (lesson.minutes ? escapeHTML(lesson.minutes) + " min" : "Lesson")}</small>`;
+    return enrollment ? `<a href="${href(selected.id, lesson.id)}">${summary}</a>` : `<div class="syllabus-lesson">${summary}</div>`;
+  }
   return `<section class="course-overview"><div class="syllabus-header"><div><h2>Course overview</h2>
-    <p>${escapeHTML(selected.description)}</p></div>
-    ${next ? `<a class="button primary" href="${href(selected.id,next.id)}">${state.completed.length ? "Continue learning" : "Start learning"} →</a>` : ""}</div>
+    <p>${escapeHTML(selected.description)}</p></div>${action}</div>
     <h2>Syllabus</h2>${selected.chapters.map((ch,i) => `<section class="syllabus-chapter">
     <h3><span>Chapter ${i+1}</span>${escapeHTML(ch.title)}</h3>
-    ${ch.lessons.map(l => `<a href="${href(selected.id,l.id)}"><strong>${escapeHTML(l.title)}</strong><small>${state.completed.includes(l.id) ? "Completed" : (l.minutes ? escapeHTML(l.minutes) + " min" : "Lesson")} →</small></a>`).join("")}</section>`).join("")}</section>`;
+    ${ch.lessons.map(syllabusLesson).join("")}</section>`).join("")}</section>`;
 }
 function progressView() {
   return `<section class="course-progress"><p class="eyebrow">YOUR LEARNING</p><h1>My progress</h1><p>Progress belongs to this course and this browser profile.</p><div class="overview-metrics">${metric(state.completed.length + " / " + state.lesson_count, "Lessons completed")}${metric(state.score.correct + " / " + state.score.answered, "First-attempt score")}${metric(state.attempt_count, "Practice attempts")}</div><h2>Lessons</h2>${allLessons(
     selected,
+  enrollment,
+  entryLesson,
   )
     .map(
       (l) =>
@@ -181,16 +222,40 @@ async function start() {
     );
     selected = r.course;
     state = r.progress;
+    enrollment = r.enrollment;
+    entryLesson = r.entry_lesson;
     const view = new URLSearchParams(location.search).get("view");
-    tab = match[2] ? "content" : ["content","progress"].includes(view) ? view : "overview";
-    renderCourse(match[2] ? decodeURIComponent(match[2]) : undefined);
+    if (enrollment && view === "content" && !match[2] && entryLesson) {
+      location.replace(href(selected.id,entryLesson.id));
+      return;
+    }
+    const lessonId = match[2] && decodeURIComponent(match[2]);
+    if (lessonId && enrollment) {
+      await api("/api" + href(selected.id,lessonId) + "/open",{});
+      enrollment.last_lesson_id = lessonId;
+      entryLesson = allLessons(selected).find(lesson => lesson.id === lessonId);
+    }
+    tab = enrollment && lessonId ? "content" : enrollment && view === "progress" ? "progress" : "overview";
+    renderCourse(lessonId);
   } catch (e) {
     app.innerHTML =
-      '<section class="error-page"><h1>Unable to open this course</h1><p>Return to My courses and try again.</p><a href="/" class="button primary">My courses</a></section>';
+      '<section class="error-page"><h1>Unable to open this course</h1><p>Return to My learning and try again.</p><a href="/" class="button primary">My learning</a></section>';
     error(e);
   }
 }
 app.addEventListener("click", async (e) => {
+  const enrollButton = e.target.closest("#enroll-course");
+  if (enrollButton) {
+    enrollButton.disabled = true;
+    try {
+      await api("/api" + href(selected.id) + "/enroll",{});
+      await start();
+    } catch (err) {
+      error(err);
+      enrollButton.disabled = false;
+    }
+    return;
+  }
   const b = e.target.closest("[data-complete]");
   if (!b) return;
   b.disabled = true;
@@ -229,4 +294,5 @@ app.addEventListener("submit", async (e) => {
     window.scrollTo(0, scroll);
   }
 });
+window.addEventListener("pageshow", event => { if (event.persisted) location.reload(); });
 start();

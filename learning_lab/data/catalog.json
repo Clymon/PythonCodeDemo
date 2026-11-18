@@ -218,6 +218,124 @@
           ]
         }
       ]
+    },
+    {
+      "id": "useful-feedback",
+      "title": "Giving Useful Feedback",
+      "code": "EDU201",
+      "description": "Turn comments on student work into specific next steps learners can try.",
+      "instructor": "Teaching Practice Team",
+      "term": "Teacher Development",
+      "accent": "gold",
+      "chapters": [
+        {
+          "id": "notice-the-work-chapter",
+          "title": "Read the evidence",
+          "lessons": [
+            {
+              "id": "notice-the-work",
+              "title": "Describe what the learner did",
+              "minutes": 5,
+              "objective": "Separate an observation from a judgment.",
+              "paragraphs": [
+                "A learner explains why the delivery was late but leaves the customer without a next step. Start with what you can point to in the response: the learner named the delay and its cause.",
+                "Replace “Be more professional” with a description the learner can verify. Ask the learner to underline the words that explain the delay."
+              ],
+              "resources": [],
+              "questions": []
+            }
+          ]
+        },
+        {
+          "id": "choose-one-revision-chapter",
+          "title": "Plan the next attempt",
+          "lessons": [
+            {
+              "id": "choose-one-revision",
+              "title": "Give one revision to try",
+              "minutes": 5,
+              "objective": "Choose feedback the learner can act on in the next attempt.",
+              "paragraphs": [
+                "Read the original reply together. Ask the learner to add one sentence that tells the customer when the next update will arrive.",
+                "Try the revised reply with a partner playing the customer. Can the partner tell what will happen next and when?"
+              ],
+              "resources": [],
+              "questions": [
+                {
+                  "id": "choose-one-revision-check",
+                  "prompt": "Which comment gives the learner a clear next step?",
+                  "options": {
+                    "A": "You did fine.",
+                    "B": "Add the time of the next update to your final sentence.",
+                    "C": "Make the reply better."
+                  },
+                  "answer": "B",
+                  "explanation": "The learner can revise one sentence and check whether it names a time."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "classroom-quizzes",
+      "title": "Designing Classroom Quizzes",
+      "code": "EDU202",
+      "description": "Write questions that reveal how learners reason, then use their answers to plan a follow-up.",
+      "instructor": "Assessment Studio",
+      "term": "Teacher Development",
+      "accent": "blue",
+      "chapters": [
+        {
+          "id": "choose-a-quiz-target-chapter",
+          "title": "Identify the decision",
+          "lessons": [
+            {
+              "id": "choose-a-quiz-target",
+              "title": "Choose what the question will reveal",
+              "minutes": 5,
+              "objective": "Match a question to one learning decision.",
+              "paragraphs": [
+                "Before writing answer options, decide what you will do differently if a learner answers incorrectly. For a stock-count lesson, ask learners to identify which items belong in a count.",
+                "Compare a recall prompt with a short example. The example can show whether the learner applies the rule when a shipment has arrived but is still being checked."
+              ],
+              "resources": [],
+              "questions": []
+            }
+          ]
+        },
+        {
+          "id": "plausible-options-chapter",
+          "title": "Design answer options",
+          "lessons": [
+            {
+              "id": "plausible-options",
+              "title": "Write a useful distractor",
+              "minutes": 5,
+              "objective": "Use a common misunderstanding to build a plausible wrong answer.",
+              "paragraphs": [
+                "A useful distractor points to a specific misunderstanding. If a learner counts an ordered item that has not arrived, the wrong option reveals confusion between ordering and receiving.",
+                "After collecting answers, group learners by their explanation. Give a new example and check whether they can apply the distinction."
+              ],
+              "resources": [],
+              "questions": [
+                {
+                  "id": "plausible-options-check",
+                  "prompt": "Which wrong answer would help you plan feedback?",
+                  "options": {
+                    "A": "A visibly silly answer",
+                    "B": "A random number",
+                    "C": "An option based on a common misunderstanding"
+                  },
+                  "answer": "C",
+                  "explanation": "A plausible wrong option points to a rule the learner can revisit."
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

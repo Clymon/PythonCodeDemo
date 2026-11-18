@@ -3,6 +3,13 @@ import sqlite3
 from flask import current_app, g
 
 SCHEMA = """
+CREATE TABLE IF NOT EXISTS enrollments (
+    learner TEXT NOT NULL,
+    course_id TEXT NOT NULL,
+    last_lesson_id TEXT,
+    opened_order INTEGER NOT NULL DEFAULT 0,
+    PRIMARY KEY (learner, course_id)
+);
 CREATE TABLE IF NOT EXISTS attempts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     learner TEXT NOT NULL,
@@ -37,7 +44,28 @@ def close_db(error=None):
 def init_app(app):
     app.teardown_appcontext(close_db)
     with app.app_context():
-        get_db().executescript(SCHEMA)
+        connection = get_db()
+        connection.executescript(SCHEMA)
+        columns = {row["name"] for row in connection.execute("PRAGMA table_info(enrollments)")}
+        if "opened_order" not in columns:
+            connection.execute("ALTER TABLE enrollments ADD COLUMN opened_order INTEGER NOT NULL DEFAULT 0")
+        # Databases from the original workshop already contain learning activity.
+        # Backfill only courses with evidence, preserving every existing position.
+        with connection:
+            for course in app.config["CATALOG"]["courses"]:
+                for chapter in course["chapters"]:
+                    for lesson in chapter["lessons"]:
+                        connection.execute(
+                            "INSERT OR IGNORE INTO enrollments(learner, course_id) "
+                            "SELECT learner, ? FROM completed_lessons WHERE lesson_id = ?",
+                            (course["id"], lesson["id"]),
+                        )
+                        for question in lesson.get("questions", []):
+                            connection.execute(
+                                "INSERT OR IGNORE INTO enrollments(learner, course_id) "
+                                "SELECT DISTINCT learner, ? FROM attempts WHERE question_id = ?",
+                                (course["id"], question["id"]),
+                            )
 
 
 def history(learner):
@@ -69,3 +97,30 @@ def set_completed(learner, lesson_id, value):
         else:
             connection.execute("DELETE FROM completed_lessons WHERE learner=? AND lesson_id=?",
                                (learner, lesson_id))
+
+def enrollment(learner, course_id):
+    row = get_db().execute(
+        "SELECT last_lesson_id, opened_order FROM enrollments WHERE learner=? AND course_id=?",
+        (learner, course_id),
+    ).fetchone()
+    return dict(row) if row is not None else None
+
+
+def enroll(learner, course_id):
+    connection = get_db()
+    with connection:
+        connection.execute("INSERT OR IGNORE INTO enrollments(learner,course_id) VALUES (?,?)",
+                           (learner, course_id))
+    return enrollment(learner, course_id)
+
+
+def record_open(learner, course_id, lesson_id):
+    connection = get_db()
+    with connection:
+        changed = connection.execute(
+            "UPDATE enrollments SET last_lesson_id=?, opened_order=("
+            "SELECT COALESCE(MAX(opened_order),0)+1 FROM enrollments WHERE learner=?"
+            ") WHERE learner=? AND course_id=?",
+            (lesson_id, learner, learner, course_id),
+        )
+    return changed.rowcount == 1
