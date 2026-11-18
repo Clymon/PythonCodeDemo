@@ -1,0 +1,32 @@
+SAVED LESSONS — instructor walkthrough
+
+Set up the environment as in README.txt. In the demo/saved-lessons checkout, run:
+  python instructor_demo.py
+Open the exact URL printed by the command (normally http://127.0.0.1:5051/instructor).
+The /instructor link selects the prepared profile. Use it in your presentation browser.
+
+1. My learning has two enrolled courses. Designing Learning Activities has one
+   completed lesson; AI Coding Essentials has no activity yet. Look in the
+   course catalog for the other two courses available to enroll in.
+2. In Designing Learning Activities, Continue learning opens Design a focused
+   learning activity. This is where the prepared profile last left off.
+3. From the course directory, open Feedback that supports a next attempt. It
+   is already completed and has a recorded answer. Choose Save lesson.
+4. Open Design a focused learning activity again. Return to My learning and
+   refresh. Continue learning opens that last lesson.
+5. Open Saved lessons and refresh. Choose Feedback that supports a next attempt.
+   Its original course opens at that lesson. Compare its completion and
+   first-attempt score with the values in step 3. A bookmark remembers a
+   deliberate choice even after later visits move the continue position.
+6. In a new private browser window, open the server root without /instructor.
+   This profile starts with an empty learning list and no bookmarks. Browse the
+   catalog and enroll to try the learner journey.
+
+The walkthrough uses a temporary SQLite database with a separate browser
+cookie and ordinary enrollment, open, answer and completion actions. Restart
+the command to prepare the original scenario again. The regular student server
+is started with python app.py and keeps learners' own progress.
+
+Spec and task:
+  .scratch/saved-lessons/spec.md
+  .scratch/saved-lessons/issues/01-save-and-reopen.md
