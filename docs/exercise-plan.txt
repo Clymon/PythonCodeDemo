@@ -1,7 +1,10 @@
 WORKSHOP PRACTICE
 
-1. Try the app. Open Designing Learning Activities and choose its second lesson.
-   Answer a question, mark the lesson complete, and refresh My progress.
+1. Try the app. Browse the Course catalog from My learning. Open Designing
+   Learning Activities, read its syllabus and enroll. Select Start learning,
+   then open the second lesson. Answer a question and mark the lesson complete.
+   Return to My learning. After a refresh, Continue learning reopens the same
+   lesson. Check the completion record and first-attempt score in My progress.
 
 2. Ask WorkBuddy: What does this repository do? What can I try in the app?
    Follow up: Does the app remember completed lessons after I refresh?

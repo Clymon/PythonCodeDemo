@@ -13,6 +13,8 @@ class TeachingReferenceTests(unittest.TestCase):
         self.client = create_app(self.config).test_client()
         data = self.client.get("/api/courses").get_json()
         self.headers = {"X-CSRF-Token": data["csrf_token"]}
+        joined = self.client.post("/api/courses/teaching-practice/enroll", json={}, headers=self.headers)
+        self.assertEqual(joined.status_code, 200)
         self.url = "/api/teaching/lessons/activity-design"
         self.value = {"title": "A focused comparison activity", "objective": "Compare two examples.",
                       "paragraphs": ["Choose two contrasting examples.", "Ask learners to explain one difference."]}

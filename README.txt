@@ -1,9 +1,14 @@
 LEARNING LAB — AI Agent Coding with WorkBuddy and Python
 
-Learning Lab is a small English-language learning platform. Open My courses,
-select Designing Learning Activities, and use the course syllabus to open a
-lesson. Reading, knowledge checks and completion already work. My progress
-shows the result for one course. Learning record shows all courses.
+My learning shows courses you have enrolled in with this browser profile.
+To begin, choose Browse courses, open Designing Learning Activities and inspect
+its syllabus. Enroll, select Start learning, then open a second lesson. Return
+to My learning and use Continue learning to reopen that lesson.
+
+Course catalog lists four short courses. My progress shows one course's
+completion and first-attempt scores. Learning record summarizes enrolled
+courses. A learner who already completed work in a previous version keeps
+those courses and records when opening this version with the same local data.
 
 On main, the instructor can demonstrate Saved lessons. The student branch is the
 starting platform. For the previous teacher-editor exercise, visit /teach on main.
@@ -44,3 +49,9 @@ INSTRUCTOR REFERENCE
 demo/saved-lessons contains a completed example for the optional walkthrough.
 Use a separate clone for it. The student branch is the classroom starting point.
 See docs/checkpoints.txt for earlier examples.
+
+PREPARED TEACHER WALKTHROUGH
+  python instructor_demo.py
+Open the printed /instructor URL for a partly learned course, a second
+enrollment and a four-course catalog. Follow docs/instructor-walkthrough.txt
+to compare the automatic continue position with a deliberately saved lesson.

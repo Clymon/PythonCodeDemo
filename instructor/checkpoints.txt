@@ -1,3 +1,8 @@
+CURRENT TWO-HOUR WORKSHOP
+Use student for the starting platform and demo/saved-lessons for the prepared demo.
+Follow docs/exercise-plan.txt and docs/instructor-walkthrough.txt.
+The notes below describe earlier workshops.
+
 CURRENT LLM/CONTEXT INTRODUCTION EDITION
 student / context-workshop-start: current starting product, original Skills and
 read-only token/context/agent exploration. The greeting edit is optional history.

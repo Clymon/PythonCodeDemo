@@ -2,7 +2,7 @@ WORKSHOP · 13:30–15:30
 
 13:30  Register or sign in to WorkBuddy.
 13:45  Open the student workspace. Ask WorkBuddy to start Learning Lab.
-       Enter a course, try a knowledge check and inspect My progress.
+       Browse, enroll, open a lesson and return through Continue learning.
 13:55  Explore how an Agent uses context and tools. Ask what this app can do.
 14:07  Choose a teaching wish. Use /grill-me to confirm one decision.
 14:27  Discuss how a decision becomes a spec and how a ticket ends in a check.

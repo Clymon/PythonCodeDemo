@@ -1,3 +1,8 @@
+CURRENT TWO-HOUR WORKSHOP
+Use student for the starting platform and demo/saved-lessons for the prepared demo.
+Follow docs/exercise-plan.txt and docs/instructor-walkthrough.txt.
+The notes below describe earlier workshops.
+
 FACILITATOR GUIDE — LLM/context/agent exploration, then original Matt Skills
 
 Use student for participants; main is one full reference. The existing sample
