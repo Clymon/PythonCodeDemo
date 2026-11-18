@@ -2,7 +2,7 @@ WORKSHOP PRACTICE
 
 1. Try the app. Browse the Course catalog from My learning. Open Designing
    Learning Activities, read its syllabus and enroll. Select Start learning,
-   then open the second lesson. Answer a question and mark the lesson complete.
+   then open the second lesson. Leave its questions and completion button for the demo.
    Return to My learning. After a refresh, Continue learning reopens the same
    lesson. Check the completion record and first-attempt score in My progress.
 
@@ -10,8 +10,8 @@ WORKSHOP PRACTICE
    Follow up: Does the app remember completed lessons after I refresh?
    Look for a file read or a tool result that supports the answer.
 
-3. Watch the instructor discuss “I’d like to find the lessons I want to revisit.”
-   Choose that wish, lesson search, progress after a retry, or your own idea.
+3. Mark a lesson complete before answering a question. Should that earn points?
+   Choose a wish in docs/client-brief.txt or use your own idea.
    Select /grill-me and discuss the behavior you want. Record one decision and
    one item to postpone. Let the Agent find the technical facts.
 

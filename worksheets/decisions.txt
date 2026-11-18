@@ -5,6 +5,6 @@ One supported finding from exploration:
 Two credible approaches and their consequences:
 Chosen first usable path and why:
 What remains outside it:
-Who decides which lessons to revisit? (Or your own feature decision):
+Which learner action should trigger a change in your feature?
 What existing behavior must stay:
 A concrete completion example:

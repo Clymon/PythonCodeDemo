@@ -1,15 +1,13 @@
-CHOOSE A TEACHING WISH
+CHOOSE A WISH FOR LEARNING LAB
 
 Instructor example
-“I’d like to find the lessons I want to revisit.”
+I'd like students to earn points for learning and use them to get badges.
 
-Other starting points
-“I remember a keyword. Help me find the lesson that mentions it.”
-“I’d like to see which questions I got right on a later try.”
+Try a different feature
+I'd like students to practise the questions they got wrong.
+I'd like students to make a weekly study plan and see how much they finish.
+I'd like students to earn a certificate when they finish a course.
 
-You may write your own wish. Keep it to one sentence. Use /grill-me so the
-Agent can check the existing app and ask you about meaningful choices.
-
-For the instructor wish, what earns a place in a review list? A student might
-choose a lesson, or a quiz result might suggest one. Can a completed lesson
-still matter for review? Your decision determines what the app should do.
+For a smaller project, help a learner save lessons to revisit. Or use your own idea.
+Pick one wish. Let /grill-me investigate the app and ask you a question.
+What teaching goal does your choice serve? Which decision would change the result?
